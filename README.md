@@ -13,7 +13,6 @@ ETH-to-BTC/
 ├── data/                   # Répertoire pour les données
 ├── models/                 # Répertoire pour les modèles sauvegardés
 ├── notebooks/              # Notebooks Jupyter pour l'exploration
-├── results/                # Résultats des prédictions et visualisations
 └── src/                    # Code source principal
     ├── __init__.py
     ├── data/               # Module pour la collecte des données
