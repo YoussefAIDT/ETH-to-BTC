@@ -163,5 +163,6 @@ if __name__ == "__main__":
     parser.add_argument('--days_ahead', type=int, default=30,
                         help='Nombre de jours à prédire')
 
-    args = parser.parse_args()
+    args, unknown = parser.parse_known_args()  
     main(args)
+
