@@ -311,24 +311,7 @@ L'analyse des erreurs montre que le modèle CNN-BiLSTM capture efficacement:
 
 Ces résultats confirment la valeur prédictive d'Ethereum pour anticiper les mouvements du Bitcoin et démontrent l'efficacité d'une architecture hybride pour modéliser cette relation complexe.
 
-API Reference
-============
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Référence de l'API
-
-   api/data
-   api/features
-   api/models
-   api/utils
-
-Indices et tables
-================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
 
 Contact
