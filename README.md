@@ -5,7 +5,7 @@ Ce projet utilise un modèle deep learning (CNN-BiLSTM) pour prédire le prix du
 ## Structure du Projet
 
 ```
-bitcoin-eth-prediction/
+ETH-to-BTC/
 ├── README.md               # Ce fichier
 ├── requirements.txt        # Dépendances Python
 ├── setup.py                # Configuration pour l'installation
@@ -35,7 +35,7 @@ bitcoin-eth-prediction/
 
 1. Clonez le dépôt:
    ```bash
-   git clone https://github.com/username/btc-eth-prediction.git
+   git clone https://github.com/YoussefAIDT/ETH-to-BTC.git
    cd btc-eth-prediction
    ```
 
@@ -106,12 +106,3 @@ Le modèle utilise les features suivantes d'Ethereum pour prédire le prix du Bi
 - Indicateurs de momentum (5 et 10 jours)
 - Rendements quotidiens
 
-## Résultats
-
-Les résultats des prédictions sont sauvegardés dans le répertoire `results/`:
-- Graphiques des prédictions (.png)
-- Données des prédictions (.csv)
-
-## Licence
-
-[MIT](LICENSE)
