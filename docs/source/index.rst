@@ -330,10 +330,6 @@ Indices et tables
 * :ref:`modindex`
 * :ref:`search`
 
-Licence
-=======
-
-Ce projet est disponible sous licence MIT. Voir le fichier LICENSE pour plus de détails.
 
 Contact
 =======
