@@ -35,7 +35,6 @@ ETH-to-BTC/
 1. Clonez le dépôt:
    ```bash
    git clone https://github.com/YoussefAIDT/ETH-to-BTC.git
-   cd ETH-to-BTC
    ```
 
 2. Créez un environnement virtuel et installez les dépendances:
