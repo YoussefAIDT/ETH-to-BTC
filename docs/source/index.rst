@@ -1,17 +1,16 @@
-.. ETH-to-BTC documentation master file, created by
-   sphinx-quickstart on Wed May 21 11:38:10 2025.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+ETH-to-BTC : Prédiction du Bitcoin basée sur Ethereum
+======================================================
 
-ETH-to-BTC documentation
-========================
+Bienvenue dans la documentation du projet ETH-to-BTC.
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
-
+Ce projet utilise un modèle CNN-BiLSTM pour prédire le prix du Bitcoin à partir des données historiques d’Ethereum.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Navigation
+
+   introduction
+   usage
+   model
+   api/modules
 
