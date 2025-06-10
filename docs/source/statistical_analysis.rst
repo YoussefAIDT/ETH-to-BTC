@@ -1,179 +1,296 @@
-Analyse Statistique Rigoureuse
+===============================
+Analyse Statistique Avancée
+===============================
+
+.. raw:: html
+
+   <div style="text-align: center; margin: 30px 0;">
+      <img src="https://img.shields.io/badge/Analyse-Statistique-blue.svg" alt="Statistique" style="margin: 5px;">
+      <img src="https://img.shields.io/badge/Tests-Rigoureux-green.svg" alt="Tests" style="margin: 5px;">
+      <img src="https://img.shields.io/badge/SciPy-1.8+-orange.svg" alt="SciPy" style="margin: 5px;">
+      <img src="https://img.shields.io/badge/StatsModels-0.13+-red.svg" alt="StatsModels" style="margin: 5px;">
+   </div>
+
+.. raw:: html
+
+   <div style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%); padding: 40px; border-radius: 15px; color: #333; text-align: center; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+      <h2 style="margin: 0; font-size: 2.5em; font-weight: bold;">📊 Fondements Statistiques</h2>
+      <p style="font-size: 1.2em; margin: 20px 0; opacity: 0.8;">Analyse quantitative rigoureuse des séries temporelles cryptographiques</p>
+   </div>
+
+Vue d'ensemble
+==============
+
+.. raw:: html
+
+   <div style="background: #f8f9fa; padding: 25px; border-left: 5px solid #fd7e14; margin: 20px 0; border-radius: 0 10px 10px 0;">
+
+L'analyse statistique constitue le socle théorique de notre approche prédictive. Nous appliquons une batterie complète de tests statistiques pour valider les hypothèses fondamentales et caractériser les propriétés des séries temporelles **Bitcoin** et **Ethereum**.
+
+.. raw:: html
+
+   </div>
+
+🔍 **Tests de Stationnarité**
 =============================
 
 .. raw:: html
 
-   <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; color: white; text-align: center; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-      <h2 style="margin: 0; font-size: 2.2em; font-weight: bold;">📊 Analyse Statistique Rigoureuse</h2>
-      <p style="font-size: 1.1em; margin: 15px 0; opacity: 0.9;">Quantification et caractérisation des relations temporelles ETH-BTC</p>
-   </div>
+   <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 30px; border-radius: 15px; margin: 20px 0;">
 
-🔬 **Méthodologie Statistique Avancée**
-=======================================
+La stationnarité est cruciale pour la modélisation prédictive. Nous appliquons plusieurs tests complémentaires :
 
 .. raw:: html
 
-   <div style="background: #f8f9fa; padding: 25px; border-left: 5px solid #007bff; margin: 20px 0; border-radius: 0 10px 10px 0; font-family: Arial, sans-serif; font-size: 1em; line-height: 1.6;">
+   </div>
+
+.. raw:: html
+
+   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 30px 0;">
+      
+      <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🎯 Test ADF</h3>
+         <p style="margin: 0; opacity: 0.9;">Augmented Dickey-Fuller pour détecter les racines unitaires</p>
+      </div>
+      
+      <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">📈 Test KPSS</h3>
+         <p style="margin: 0; opacity: 0.9;">Kwiatkowski-Phillips-Schmidt-Shin pour la stationnarité de tendance</p>
+      </div>
+      
+      <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🔄 Test PP</h3>
+         <p style="margin: 0; opacity: 0.9;">Phillips-Perron pour robustesse aux corrélations sérielles</p>
+      </div>
+      
+   </div>
+
+**Méthodologie des Tests**
+
+.. code-block:: python
+
+   from statsmodels.tsa.stattools import adfuller, kpss
+   from arch.unitroot import PhillipsPerron
    
-Ce chapitre détaille l’approche statistique rigoureuse employée pour analyser la relation complexe entre Ethereum (ETH) et Bitcoin (BTC). Notre but est de valider scientifiquement leur interaction à travers une série de tests et d’analyses, permettant d’établir des bases solides pour la modélisation prédictive.
+   def stationarity_tests(series, name):
+       """
+       Batterie complète de tests de stationnarité
+       """
+       # Test ADF
+       adf_stat, adf_pvalue = adfuller(series)[:2]
+       
+       # Test KPSS  
+       kpss_stat, kpss_pvalue = kpss(series)[:2]
+       
+       # Test Phillips-Perron
+       pp = PhillipsPerron(series)
+       pp_stat, pp_pvalue = pp.stat, pp.pvalue
+       
+       return {
+           'ADF': {'statistic': adf_stat, 'p_value': adf_pvalue},
+           'KPSS': {'statistic': kpss_stat, 'p_value': kpss_pvalue}, 
+           'PP': {'statistic': pp_stat, 'p_value': pp_pvalue}
+       }
 
-Ce processus s’articule autour de quatre axes principaux, illustrés ci-dessous :
+📊 **Analyse de Distribution**
+==============================
 
-</div>
+.. raw:: html
+
+   <div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 25px; border-radius: 15px; margin: 30px 0;">
+
+L'étude des distributions nous révèle les caractéristiques fondamentales des rendements crypto :
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 25px 0;">
+      
+      <div style="flex: 1; min-width: 200px; background: #e3f2fd; padding: 20px; border-radius: 10px; border-left: 4px solid #2196f3;">
+         <h4 style="margin: 0 0 10px 0; color: #1976d2;">📈 Asymétrie</h4>
+         <p style="margin: 0; font-size: 0.95em;">Test de skewness pour mesurer l'asymétrie des distributions</p>
+      </div>
+      
+      <div style="flex: 1; min-width: 200px; background: #f3e5f5; padding: 20px; border-radius: 10px; border-left: 4px solid #9c27b0;">
+         <h4 style="margin: 0 0 10px 0; color: #7b1fa2;">📊 Kurtosis</h4>
+         <p style="margin: 0; font-size: 0.95em;">Analyse de l'aplatissement et des queues lourdes</p>
+      </div>
+      
+      <div style="flex: 1; min-width: 200px; background: #e8f5e8; padding: 20px; border-radius: 10px; border-left: 4px solid #4caf50;">
+         <h4 style="margin: 0 0 10px 0; color: #388e3c;">🎯 Normalité</h4>
+         <p style="margin: 0; font-size: 0.95em;">Tests de Jarque-Bera et Shapiro-Wilk</p>
+      </div>
+      
+   </div>
+
+**Tests de Normalité**
+
+.. code-block:: python
+
+   from scipy.stats import jarque_bera, shapiro, skew, kurtosis
+   
+   def distribution_analysis(returns):
+       """
+       Analyse complète de la distribution des rendements
+       """
+       # Statistiques descriptives
+       skewness = skew(returns)
+       kurt = kurtosis(returns, fisher=True)
+       
+       # Tests de normalité
+       jb_stat, jb_pvalue = jarque_bera(returns)
+       sw_stat, sw_pvalue = shapiro(returns)
+       
+       return {
+           'skewness': skewness,
+           'kurtosis': kurt,
+           'jarque_bera': {'statistic': jb_stat, 'p_value': jb_pvalue},
+           'shapiro_wilk': {'statistic': sw_stat, 'p_value': sw_pvalue}
+       }
+
+🔍 **Tests d'Autocorrélation**
+==============================
+
+.. raw:: html
+
+   <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 30px; border-radius: 15px; margin: 20px 0;">
+
+L'analyse d'autocorrélation révèle les patterns temporels cachés dans nos séries :
+
+.. raw:: html
+
+   </div>
 
 .. raw:: html
 
    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
       
-      <div style="background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 10px 0;">📈 Analyse Descriptive</h3>
-         <p style="margin: 0; font-size: 0.9em;">Distribution, moments, et propriétés statistiques de chaque série</p>
+      <div style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); padding: 25px; border-radius: 15px; color: #333; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">📊 Test de Ljung-Box</h3>
+         <p style="margin: 0; opacity: 0.8;">Détection de l'autocorrélation sérielle dans les résidus</p>
       </div>
       
-      <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 10px 0;">🔗 Tests de Relation</h3>
-         <p style="margin: 0; font-size: 0.9em;">Corrélation, causalité de Granger, cointégration</p>
-      </div>
-      
-      <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 10px 0;">📊 Stationnarité</h3>
-         <p style="margin: 0; font-size: 0.9em;">Tests ADF, KPSS, transformations pour stabiliser les séries</p>
-      </div>
-      
-      <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 25px; border-radius: 15px; color: #2c3e50; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 10px 0;">⏱️ Séries Temporelles</h3>
-         <p style="margin: 0; font-size: 0.9em;">ACF, PACF, décomposition, analyse saisonnière</p>
+      <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 25px; border-radius: 15px; color: #333; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🎯 ACF/PACF</h3>
+         <p style="margin: 0; opacity: 0.8;">Fonctions d'autocorrélation pour identifier les patterns</p>
       </div>
       
    </div>
 
----
+**Implémentation des Tests**
 
-### Analyse Descriptive
+.. code-block:: python
 
-.. raw:: html
+   from statsmodels.stats.diagnostic import acorr_ljungbox
+   from statsmodels.tsa.stattools import acf, pacf
+   
+   def autocorrelation_analysis(series, lags=20):
+       """
+       Analyse d'autocorrélation complète
+       """
+       # Test de Ljung-Box
+       lb_stat, lb_pvalue = acorr_ljungbox(series, lags=lags, return_df=False)
+       
+       # ACF et PACF
+       acf_values = acf(series, nlags=lags)
+       pacf_values = pacf(series, nlags=lags)
+       
+       return {
+           'ljung_box': {'statistic': lb_stat, 'p_value': lb_pvalue},
+           'acf': acf_values,
+           'pacf': pacf_values
+       }
 
-   <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; color: white; margin-bottom: 20px;">
-
-**Objectifs :**  
-Caractériser la distribution des prix et des rendements, en identifiant les moments clés (moyenne, écart-type, skewness, kurtosis), pour comprendre le comportement statistique de chaque crypto-monnaie.
-
-**Exemple de résultats :**
-
-- **Bitcoin (BTC):**  
-  - Moyenne des rendements : 0.00087  
-  - Écart-type : 0.0421 (volatilité modérée)  
-  - Skewness : -0.234 (queue gauche légère)  
-  - Kurtosis : 8.45 (distribution leptokurtique, queues épaisses)
-
-- **Ethereum (ETH):**  
-  - Moyenne des rendements : 0.00094  
-  - Écart-type : 0.0567 (plus volatile)  
-  - Skewness : -0.456  
-  - Kurtosis : 12.78
-
-**Interprétation :**  
-ETH montre une volatilité plus élevée, des queues plus épaisses, et une légère asymétrie négative, indiquant une tendance à de fortes baisses suivies de reprises.
-
----
-
-### Analyse de la Volatilité
+⚡ **Tests d'Hétéroscédasticité**
+=================================
 
 .. raw:: html
 
-   <div style="background: #e3f2fd; padding: 25px; border-radius: 15px; margin: 20px 0; font-family: Arial, sans-serif; font-size: 1em; line-height: 1.6;">
+   <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; color: white; margin: 20px 0;">
 
-**Points clés :**
-
-- **Clusters de volatilité :** ETH présente des épisodes concentrés de forte volatilité, typiques des effets GARCH.
-- **Corrélation de volatilité :** une corrélation de 0.76 indique une forte synchronisation entre volatilités ETH et BTC.
-- **Effet de levier :** Les chutes de prix d’ETH génèrent une augmentation plus forte de la volatilité (effet asymétrique).
-- **Persistance :** La demi-vie de la volatilité est estimée à 4.2 jours pour ETH, contre 6.8 jours pour BTC, indiquant une mémoire plus courte pour ETH.
-
----
-
-### Tests de Causalité et Relations
+L'hétéroscédasticité est cruciale dans l'analyse des séries financières. Nous appliquons des tests spécialisés :
 
 .. raw:: html
 
-   <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 30px; border-radius: 15px; color: white; margin: 30px 0;">
-      <h3 style="margin: 0 0 20px 0;">🧪 Tests Statistiques Clés</h3>
-
-**1. Test de Causalité de Granger (Multivarié)**
-
-.. code-block:: text
-
-   H0 : ETH ne Granger-cause pas BTC  
-   Statistique F : 23.47  
-   p-value : 2.14e-8 ✅  
-   → Rejet de H0, ETH précède BTC dans la majorité des cas.
-
-   H0 : BTC ne Granger-cause pas ETH  
-   Statistique F : 8.92  
-   p-value : 0.003 ✅  
-   → La causalité est principalement unidirectionnelle : ETH → BTC.
-
-**2. Corrélation croisée par lag**
-
-.. code-block:: text
-
-   Lag -3 : r = 0.234 (ETH précède BTC de 3 jours)  
-   Lag -2 : r = 0.456  
-   Lag -1 : r = 0.678  
-   Lag 0 : r = 0.891 (corrélation immédiate)  
-   Lag +1 : r = 0.543 (BTC précède ETH)  
-   Maximal à environ -1.8 jours : r = 0.701
-
-Ces résultats confirment que ETH a souvent une avance de quelques jours sur BTC, ce qui peut être exploité pour la prédiction.
-
----
-
-### Analyse de Cointégration (Johansen)
+   </div>
 
 .. raw:: html
 
-   <div style="background: #f3e5f5; border-left: 5px solid #9c27b0; padding: 25px; margin: 20px 0;">
+   <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 25px 0;">
+      
+      <div style="flex: 1; min-width: 200px; background: #fff3cd; padding: 20px; border-radius: 10px; border-left: 4px solid #ffc107;">
+         <h4 style="margin: 0 0 10px 0; color: #856404;">🔍 Test ARCH</h4>
+         <p style="margin: 0; font-size: 0.95em;">Détection des effets ARCH dans les résidus</p>
+      </div>
+      
+      <div style="flex: 1; min-width: 200px; background: #d1ecf1; padding: 20px; border-radius: 10px; border-left: 4px solid #17a2b8;">
+         <h4 style="margin: 0 0 10px 0; color: #0c5460;">📊 Test de Breusch-Pagan</h4>
+         <p style="margin: 0; font-size: 0.95em;">Test général d'hétéroscédasticité</p>
+      </div>
+      
+      <div style="flex: 1; min-width: 200px; background: #f8d7da; padding: 20px; border-radius: 10px; border-left: 4px solid #dc3545;">
+         <h4 style="margin: 0 0 10px 0; color: #721c24;">⚡ Test de White</h4>
+         <p style="margin: 0; font-size: 0.95em;">Robuste aux formes non-linéaires</p>
+      </div>
+      
+   </div>
 
-**Objectif :**  
-Vérifier si une relation d’équilibre à long terme existe entre ETH et BTC.
+**Code d'Implémentation**
 
-**Résultats :**
+.. code-block:: python
 
-- Test de trace de Johansen : statistique = 45.23 > critique (20.26) → 1 relation de cointégration confirmée.
-- La relation estimée :  
-  BTC = 0.847 × ETH + 234.56 + ε_t  
-avec ε_t stationnaire.
+   from statsmodels.stats.diagnostic import het_arch, het_breuschpagan, het_white
+   from statsmodels.regression.linear_model import OLS
+   
+   def heteroskedasticity_tests(residuals, exog):
+       """
+       Batterie de tests d'hétéroscédasticité
+       """
+       # Test ARCH
+       arch_stat, arch_pvalue = het_arch(residuals)[:2]
+       
+       # Test de Breusch-Pagan
+       bp_stat, bp_pvalue = het_breuschpagan(residuals, exog)[:2]
+       
+       # Test de White
+       white_stat, white_pvalue = het_white(residuals, exog)[:2]
+       
+       return {
+           'ARCH': {'statistic': arch_stat, 'p_value': arch_pvalue},
+           'Breusch_Pagan': {'statistic': bp_stat, 'p_value': bp_pvalue},
+           'White': {'statistic': white_stat, 'p_value': white_pvalue}
+       }
 
-**Interprétation économique :**  
-Une relation d’équilibre stable est observée, avec des écarts temporaires qui se corrigent rapidement (coefficient de correction d’environ -0.123), signifiant une forte intégration à long terme.
-
----
-
-### Analyse de Stationnarité (ADF, KPSS)
+📈 **Synthèse Méthodologique**
+==============================
 
 .. raw:: html
 
- <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 30px; border-radius: 15px; margin: 30px 0; font-family: Arial, sans-serif; font-size: 1em; line-height: 1.6;">
- 
-**Objectif :**  
-S’assurer que les séries sont stationnaires ou qu’elles le deviennent après différenciation.
+   <div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 25px; border-radius: 15px; margin: 30px 0; text-align: center;">
+      <h3 style="margin: 0 0 15px 0; color: #8b4513;">🎯 Pipeline d'Analyse</h3>
+      <p style="margin: 0; color: #5d4e37;">Notre approche systématique garantit la robustesse statistique des modèles prédictifs</p>
+   </div>
 
-**Résultats :**
+L'analyse statistique suit un protocole rigoureux en **quatre étapes** :
 
-| Série                     | Statistique ADF | p-value | Décision                    |
-|---------------------------|-----------------|---------|------------------------------|
-| BTC (prix)                | -1.245          | 0.127   | Non stationnaire, différencier |
-| ETH (prix)                | -1.567          | 0.089   | Non stationnaire, différencier |
-| BTC (rendements)          | -18.45          | <0.001  | Stationnaire               |
-| ETH (rendements)          | -20.34          | <0.001  | Stationnaire               |
+.. raw:: html
 
-Les prix bruts ne sont pas stationnaires, mais leurs rendements le sont, permettant une modélisation robuste après transformation.
+   <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 30px; border-radius: 15px; margin: 20px 0;">
 
----
+1. **🔍 Caractérisation des Séries** - Tests de stationnarité et transformations nécessaires
+2. **📊 Analyse Distributionnelle** - Identification des propriétés statistiques fondamentales  
+3. **⚡ Détection des Patterns** - Tests d'autocorrélation et structure temporelle
+4. **🎯 Validation des Hypothèses** - Tests d'hétéroscédasticité et robustesse
 
-**En résumé :**  
-L’approche méthodologique combine analyses descriptives, tests de relations, de cointégration et de stationnarité pour établir une compréhension fine et fiable de la dynamique ETH-BTC, servant de base solide pour la modélisation et la prédiction.
+.. raw:: html
 
----
+   </div>
 
-*Pour une visualisation graphique et plus de détails, consultez aussi nos notebooks d’analyse.*
+.. note::
+   **Seuil de Significativité** : Tous les tests utilisent α = 0.05 avec correction de Bonferroni pour les tests multiples.
+
+.. warning::
+   Les séries financières présentent souvent des **queues lourdes** et de l'**hétéroscédasticité conditionnelle**. Ces caractéristiques sont intégrées dans nos modèles prédictifs.
