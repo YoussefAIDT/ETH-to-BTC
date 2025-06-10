@@ -83,11 +83,10 @@ Notre stratégie multi-dimensionnelle combine :
    :caption: Documentation complète
    :numbered:
 
-   installation
-   correlation_analysis
    statistical_analysis
+   correlation_analysis
+   installation
    model_description
-   usage
    results
 
 .. raw:: html
