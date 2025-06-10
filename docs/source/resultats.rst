@@ -71,10 +71,10 @@ Ce document présente une synthèse esthétique et structurée des principaux r�
    
 | Série                | Test ADF (statistique) | p-value | Stationnarité       |
 |----------------------|------------------------|---------|---------------------|
-| BTC (prix)          | -1.245                 | 0.127   | Non stationnaire   |
-| ETH (prix)          | -1.567                 | 0.089   | Non stationnaire   |
-| BTC (rendements)    | -18.45                 | <0.001  | Stationnaire       |
-| ETH (rendements)    | -20.34                 | <0.001  | Stationnaire       |
+| BTC (prix)           | -1.245                 | 0.127   | Non stationnaire   |
+| ETH (prix)           | -1.567                 | 0.089   | Non stationnaire   |
+| BTC (rendements)     | -18.45                 | <0.001  | Stationnaire       |
+| ETH (rendements)     | -20.34                 | <0.001  | Stationnaire       |
 
 *Les prix bruts ne sont pas stationnaires, mais leurs rendements le sont, ce qui valide leur utilisation dans la modélisation.*
 
@@ -89,7 +89,7 @@ Ce document présente une synthèse esthétique et structurée des principaux r�
 **Meilleur modèle ARIMA :** (p=2, d=1, q=2)  
 - **RMSE** : 520.34  
 - **MAE** : 410.27  
-- **MAPE** : 2.5%  
+- **MAPE** : 2.5%
 
 **Analyse des résidus :**  
 Les résidus montrent un comportement aléatoire, validant la qualité du modèle.
@@ -102,12 +102,12 @@ Les résidus montrent un comportement aléatoire, validant la qualité du modèl
 
    <div style="background: #fefefe; padding: 25px; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); margin-bottom: 20px; font-family: Arial, sans-serif; font-size: 1em;">
    
-| Modèle                    | RMSE   | MAE    | R²     | Commentaire                        |
-|---------------------------|--------|--------|--------|------------------------------------|
-| LSTM simple               | 480.1  | 370.2  | 0.89   | Bonne précision, mais peut encore s'améliorer |
-| CNN                       | 460.5  | 355.7  | 0.91   | Extraction locale efficace        |
-| CNN-BiLSTM (hybride)      | 430.2  | 340.1  | 0.93   | Meilleure généralisation, capture longue dépendance |
-| CNN-BiLSTM + Biais correction | **410.3** | **325.4** | **0.94** | Résultat optimal, adaptation aux biais de décalage |
+| Modèle                                | RMSE   | MAE    | R²     | Commentaire                                                   |
+|---------------------------------------|--------|--------|--------|--------------------------------------------------------------|
+| LSTM simple                           | 480.1  | 370.2  | 0.89   | Bonne précision, mais peut encore s'améliorer               |
+| CNN                                   | 460.5  | 355.7  | 0.91   | Extraction locale efficace                                  |
+| CNN-BiLSTM (hybride)                  | 430.2  | 340.1  | 0.93   | Meilleure généralisation, capture longue dépendance       |
+| CNN-BiLSTM + correction de biais     | **410.3** | **325.4** | **0.94** | Résultat optimal, adaptation aux biais de décalage         |
 
 **Visualisation des prédictions :**
 
