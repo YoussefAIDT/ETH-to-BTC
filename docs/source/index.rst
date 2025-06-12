@@ -149,10 +149,13 @@ Notre stratégie multi-dimensionnelle combine :
 .. raw:: html
 
    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; margin: 30px 0;">
-      <h3 style="margin: 0 0 15px 0;">Développé par Youssef AIDT</h3>
+      <h3 style="margin: 0 0 15px 0;">Développé par Youssef AIDT & Zakariae Zemmahi</h3>
       <p style="margin: 0;">
-         <a href="https://github.com/YoussefAIDT" style="color: #fff; text-decoration: none; font-weight: bold;">
-            🐙 GitHub Profile
+         <a href="https://github.com/YoussefAIDT" style="color: #fff; text-decoration: none; font-weight: bold; margin-right: 15px;">
+            🐙 YoussefAIDT GitHub
+         </a>
+         <a href="https://github.com/ZakariaeZemmahi" style="color: #fff; text-decoration: none; font-weight: bold;">
+            🐙 ZakariaeZemmahi GitHub
          </a>
       </p>
    </div>
