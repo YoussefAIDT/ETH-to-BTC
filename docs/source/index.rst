@@ -71,6 +71,7 @@ Notre stratégie multi-dimensionnelle combine :
 3. **🤖 Deep Learning Avancé** - Architecture GRU avec Dropout, efficace pour capturer les dépendances séquentielles des prix.
 4. **🎯 Validation Empirique** - Tests rigoureux sur données historiques étendues
 5. **🖥️ Interface Streamlit** – Déploiement d’une application interactive pour visualiser les prédictions du modèle à partir de nouvelles données.
+
 .. raw:: html
 
    </div>
@@ -136,9 +137,7 @@ Notre stratégie multi-dimensionnelle combine :
       
       <div style="flex: 1; min-width: 200px; background: #e8f5e8; padding: 20px; border-radius: 10px; border-left: 4px solid #4caf50;">
          <h4 style="margin: 0 0 10px 0; color: #388e3c;">📊 Validation</h4>
-         <p style="margin: 0; font-size: 0.95em;">Le modèle a été soumis à des tests statistiques rigoureux ainsi qu’à une validation croisée étendue, garantissant sa robustesse et sa fiabilité sur des données historiques variées.
-
-</p>
+         <p style="margin: 0; font-size: 0.95em;">Le modèle a été soumis à des tests statistiques rigoureux ainsi qu’à une validation croisée étendue, garantissant sa robustesse et sa fiabilité sur des données historiques variées.</p>
       </div>
       
    </div>
