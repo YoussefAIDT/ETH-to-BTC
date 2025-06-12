@@ -154,7 +154,7 @@ Notre stratégie multi-dimensionnelle combine :
             🐙 YoussefAIDT GitHub
          </a>
          <a href="https://github.com/ZakariaeZemmahi" style="color: #fff; text-decoration: none; font-weight: bold;">
-            🐙 ZakariaeZemmahi GitHub
+            🐙 zakariazemmahi GitHub
          </a>
       </p>
    </div>
