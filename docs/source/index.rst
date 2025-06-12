@@ -153,7 +153,7 @@ Notre stratégie multi-dimensionnelle combine :
          <a href="https://github.com/YoussefAIDT" style="color: #fff; text-decoration: none; font-weight: bold; margin-right: 15px;">
             🐙 YoussefAIDT GitHub
          </a>
-         <a href="https://github.com/ZakariaeZemmahi" style="color: #fff; text-decoration: none; font-weight: bold;">
+         <a href="https://github.com/zakariazemmahi" style="color: #fff; text-decoration: none; font-weight: bold;">
             🐙 zakariazemmahi GitHub
          </a>
       </p>
