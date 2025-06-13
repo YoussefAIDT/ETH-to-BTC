@@ -110,7 +110,7 @@ Notre stratégie multi-dimensionnelle combine :
    ├── 📊 data/                   # Données historiques
    ├── 🤖 models/                 # Modèles entraînés
    ├── 📓 notebooks/              # Analyses Jupyter
-   │   ├── notebook.ipynb         # Deep learning & stats
+   │   ├── Analyse_Statistique_Corrélation_Choix_Modèle.ipynb         # Deep learning & stats
    │   └── pmdarima.ipynb         # Modélisation ARIMA
    └── 💻 src/                    # Code source
        ├── data/collector.py      # Collecte de données
