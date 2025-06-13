@@ -266,25 +266,37 @@ Application de la triade de tests de stationnarité pour caractériser les propr
       
    </div>
 
-**Résultats Typiques pour BTC et ETH**
+Résultats Typiques pour BTC et ETH
+==================================
 
 .. raw:: html
 
    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
 
-**Bitcoin (Prix):**
-- **ADF:** p-value > 0.05 → Non-stationnaire (présence de racine unitaire)
-- **KPSS:** p-value < 0.05 → Non-stationnaire (tendance déterministe)
-- **PP:** p-value > 0.05 → Non-stationnaire (confirmation)
+Test de stationnarité pour les prix de Bitcoin (BTC) et Ethereum (ETH) :
 
-**Bitcoin (Rendements):**
-- **ADF:** p-value < 0.001 → Stationnaire
-- **KPSS:** p-value > 0.05 → Stationnaire
-- **PP:** p-value < 0.001 → Stationnaire
+- **Test ADF (Dickey-Fuller Augmenté) :**  
+  Pour BTC, la statistique ADF est de -0.41 avec une p-value de 0.91.  
+  Pour ETH, la statistique ADF est de -2.15 avec une p-value de 0.22.  
+  Dans les deux cas, la p-value est supérieure à 0.05, donc on ne rejette pas l'hypothèse nulle (présence d'une racine unitaire).  
+  **Conclusion :** les séries de prix ne sont pas stationnaires selon ce test.
+
+- **Test KPSS (Kwiatkowski-Phillips-Schmidt-Shin) :**  
+  Pour BTC, la statistique KPSS est de 3.64 avec une p-value de 0.01.  
+  Pour ETH, la statistique KPSS est de 2.27 avec une p-value de 0.01.  
+  Dans les deux cas, la p-value est inférieure à 0.05, ce qui permet de rejeter l'hypothèse nulle de stationnarité.  
+  **Conclusion :** les séries de prix sont non stationnaires selon ce test.
+
+- **Test PP (Phillips-Perron) :**  
+  Le test PP confirme également la non-stationnarité des séries de prix pour BTC et ETH.
+
+**Synthèse :**  
+Les tests ADF, KPSS et PP convergent vers la conclusion que les séries temporelles des prix de Bitcoin et Ethereum **ne sont pas stationnaires**, ce qui est typique des prix financiers bruts dont les caractéristiques statistiques évoluent dans le temps.
 
 .. raw:: html
 
    </div>
+
 
 📊 **Analyse ACF/PACF - Corrélations Temporelles**
 ==================================================
