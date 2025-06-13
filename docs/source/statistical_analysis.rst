@@ -618,26 +618,6 @@ L'analyse statistique révèle des **caractéristiques clés** pour la modélisa
    </p>
    </div>
 
-**📁 Structure du Projet ETH-to-BTC**
-
-.. code-block:: text
-
-   ETH-to-BTC/
-   ├── README.md               # Documentation principale
-   ├── requirements.txt        # Dépendances Python requises
-   ├── setup.py                # Configuration pour l'installation
-   ├── predict.py              # Script principal pour les prédictions
-   ├── data/                   # Répertoire pour les données historiques
-   ├── models/                 # Modèles entraînés sauvegardés
-   ├── notebooks/              # 🎯 Notebooks d'analyse et exploration
-   │   ├── notebook.ipynb      # Analyse statistique + Deep Learning
-   │   └── pmdarima.ipynb      # Modélisation ARIMA/pmdarima
-   └── src/                    # Code source principal
-       ├── data/               # Collecte et gestion des données
-       ├── features/           # Prétraitement des features
-       ├── models/             # Implémentations des modèles
-       └── utils/              # Fonctions utilitaires
-
 **🔬 Guide d'Exploration des Notebooks**
 
 .. raw:: html
