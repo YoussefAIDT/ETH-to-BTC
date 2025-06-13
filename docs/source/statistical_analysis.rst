@@ -48,6 +48,7 @@ Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum
 .. raw:: html
 
    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 30px 0;">
+      
       <div style="background: linear-gradient(135deg, #f7931e 0%, #ff6b35 100%); padding: 30px; border-radius: 15px; color: white; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
          <h3 style="margin: 0 0 25px 0; font-size: 1.6em; text-align: center; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 15px;">₿ BITCOIN (BTC)</h3>
          <div style="font-size: 1.05em; line-height: 1.8;">
@@ -60,6 +61,7 @@ Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum
             <p style="margin: 0;"><strong>Drawdown Max:</strong> -73.8%</p>
          </div>
       </div>
+      
       <div style="background: linear-gradient(135deg, #627eea 0%, #8a2be2 100%); padding: 30px; border-radius: 15px; color: white; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
          <h3 style="margin: 0 0 25px 0; font-size: 1.6em; text-align: center; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 15px;">⟐ ETHEREUM (ETH)</h3>
          <div style="font-size: 1.05em; line-height: 1.8;">
@@ -72,7 +74,7 @@ Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum
             <p style="margin: 0;"><strong>Drawdown Max:</strong> -82.1%</p>
          </div>
       </div>
-   </div>
+      
 
 .. raw:: html
 
@@ -97,7 +99,7 @@ Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum
          </div>
       </div>
    </div>
-
+```
 .. raw:: html
 
    <div style="background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%); padding: 20px; border-radius: 12px; margin: 25px 0; border-left: 4px solid #4CAF50;">
@@ -166,18 +168,22 @@ Application de la triade de tests de stationnarité pour caractériser les propr
 .. raw:: html
 
    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 30px 0;">
+      
       <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
          <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🎯 Test ADF</h3>
          <p style="margin: 0; opacity: 0.9;">Augmented Dickey-Fuller<br/>H₀: Racine unitaire présente<br/>Détecte la non-stationnarité</p>
       </div>
+      
       <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
          <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">📈 Test KPSS</h3>
          <p style="margin: 0; opacity: 0.9;">Kwiatkowski-Phillips-Schmidt-Shin<br/>H₀: Série stationnaire<br/>Complément du test ADF</p>
       </div>
+      
       <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
          <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🔄 Test PP</h3>
          <p style="margin: 0; opacity: 0.9;">Phillips-Perron<br/>Robuste aux corrélations<br/>Alternative non-paramétrique</p>
       </div>
+      
    </div>
 
 **Implémentation Complète des Tests**
@@ -240,13 +246,11 @@ Application de la triade de tests de stationnarité pour caractériser les propr
    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
 
 **Bitcoin (Prix):**
-
 - **ADF:** p-value > 0.05 → Non-stationnaire (présence de racine unitaire)
 - **KPSS:** p-value < 0.05 → Non-stationnaire (tendance déterministe)
 - **PP:** p-value > 0.05 → Non-stationnaire (confirmation)
 
 **Bitcoin (Rendements):**
-
 - **ADF:** p-value < 0.001 → Stationnaire
 - **KPSS:** p-value > 0.05 → Stationnaire
 - **PP:** p-value < 0.001 → Stationnaire
@@ -271,16 +275,19 @@ L'analyse des fonctions d'autocorrélation révèle les patterns temporels et ai
 .. raw:: html
 
    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0;">
+      
       <div style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); padding: 25px; border-radius: 15px; color: #333; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
          <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">📊 ACF - Autocorrélation</h3>
          <p style="margin: 0; opacity: 0.8;">Mesure la corrélation entre observations séparées par k périodes</p>
          <p style="margin: 10px 0 0 0; font-size: 0.9em; opacity: 0.7;">Identifie les composantes MA</p>
       </div>
+      
       <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 25px; border-radius: 15px; color: #333; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
          <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🎯 PACF - Autocorrélation Partielle</h3>
          <p style="margin: 0; opacity: 0.8;">Corrélation directe entre observations après élimination des effets intermédiaires</p>
          <p style="margin: 10px 0 0 0; font-size: 0.9em; opacity: 0.7;">Identifie les composantes AR</p>
       </div>
+      
    </div>
 
 **Implémentation ACF/PACF**
@@ -360,18 +367,22 @@ L'analyse des fonctions d'autocorrélation révèle les patterns temporels et ai
 .. raw:: html
 
    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 25px 0;">
+      
       <div style="flex: 1; min-width: 200px; background: #e3f2fd; padding: 20px; border-radius: 10px; border-left: 4px solid #2196f3;">
          <h4 style="margin: 0 0 10px 0; color: #1976d2;">📈 Processus AR(p)</h4>
          <p style="margin: 0; font-size: 0.9em;">ACF: Décroissance exponentielle<br/>PACF: Coupure nette au lag p</p>
       </div>
+      
       <div style="flex: 1; min-width: 200px; background: #f3e5f5; padding: 20px; border-radius: 10px; border-left: 4px solid #9c27b0;">
          <h4 style="margin: 0 0 10px 0; color: #7b1fa2;">📊 Processus MA(q)</h4>
          <p style="margin: 0; font-size: 0.9em;">ACF: Coupure nette au lag q<br/>PACF: Décroissance exponentielle</p>
       </div>
+      
       <div style="flex: 1; min-width: 200px; background: #e8f5e8; padding: 20px; border-radius: 10px; border-left: 4px solid #4caf50;">
          <h4 style="margin: 0 0 10px 0; color: #388e3c;">🎯 Processus ARMA(p,q)</h4>
          <p style="margin: 0; font-size: 0.9em;">ACF: Décroissance après lag q<br/>PACF: Décroissance après lag p</p>
       </div>
+      
    </div>
 
 ⚡ **Analyse de Volatilité et Clustering**
@@ -437,13 +448,11 @@ Les cryptomonnaies présentent des phénomènes de clustering de volatilité car
    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
 
 **Clustering de Volatilité:**
-
 - **Bitcoin:** Périodes de haute volatilité durant 15-20 jours en moyenne
 - **Ethereum:** Clustering plus prononcé, périodes de 20-30 jours
 - **Corrélation BTC-ETH:** Augmente significativement pendant les crises (0.8-0.9)
 
 **Saisonnalité:**
-
 - **Bitcoin:** Volatilité plus élevée en fin/début d'année
 - **Ethereum:** Sensibilité aux mises à jour du protocole
 - **Patterns intra-journaliers:** Volatilité accrue pendant les heures de trading US/EU
@@ -473,24 +482,4 @@ L'analyse statistique révèle des **caractéristiques clés** pour la modélisa
 1. **Non-stationnarité des Prix** - Nécessité de différenciation pour la modélisation
 2. **Stationnarité des Rendements** - Base solide pour les modèles ARIMA/GARCH  
 3. **Queues Lourdes** - Distribution non-gaussienne, modèles t-Student recommandés
-4. **Clustering de Volatilité** - Modèles GARCH essentiels pour la prédiction
-
-.. raw:: html
-
-   </div>
-
-**Recommandations de Modélisation :**
-
-.. raw:: html
-
-   <div style="background: #fff3cd; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #ffc107;">
-
-- **Pour BTC :** Modèles ARIMA(1,1,1)-GARCH(1,1) avec distribution t-Student
-- **Pour ETH :** Modèles ARIMA(2,1,2)-GARCH(1,1) avec ajustements pour volatilité élevée
-- **Gestion du Risque :** VaR dynamique basé sur les modèles GARCH
-- **Diversification :** Corrélation variable dans le temps à considérer
-
-.. raw:: html
-
-   </div>
-```
+4. **Clustering de Volatilité** -
