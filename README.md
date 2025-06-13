@@ -40,7 +40,7 @@ ETH-to-BTC/
 ├── data/                   # Répertoire pour les données historiques
 ├── models/                 # Modèles entraînés sauvegardés
 ├── notebooks/              # Notebooks Jupyter pour l'exploration et l'analyse
-│   ├── notebook.ipynb      # Analyse statistique et modèles de deep learning
+│   ├── Analyse_Statistique_Corrélation_Choix_Modèle.ipynb      # Analyse statistique et modèles de deep learning
 │   └── pmdarima.ipynb      # Modélisation avec ARIMA/pmdarima
 └── src/                    # Code source principal
     ├── __init__.py
@@ -88,12 +88,12 @@ Pour explorer l'analyse complète et comprendre les modèles:
    ```
 
 2. **Téléchargez les notebooks:**
-   - `notebook.ipynb` - Contient l'analyse statistique et les modèles de deep learning
+   - `Analyse_Statistique_Corrélation_Choix_Modèle.ipynb` - Contient l'analyse statistique et les modèles de deep learning
    - `pmdarima.ipynb` - Contient la modélisation ARIMA
 
 3. **Ouvrez dans Google Colab:**
    - Uploadez les notebooks dans Google Colab
-   - Exécutez d'abord `notebook.ipynb` pour:
+   - Exécutez d'abord `Analyse_Statistique_Corrélation_Choix_Modèle.ipynb` pour:
      - Analyser les statistiques descriptives de BTC et ETH
      - Étudier la corrélation entre Bitcoin et Ethereum
      - Explorer les tests statistiques (ADF, KPSS)
@@ -103,7 +103,7 @@ Pour explorer l'analyse complète et comprendre les modèles:
      - Comprendre la modélisation ARIMA
      - Voir l'automatisation avec pmdarima
    
-   - Revenez à `notebook.ipynb` pour:
+   - Revenez à `Analyse_Statistique_Corrélation_Choix_Modèle.ipynb` pour:
      - Explorer les modèles de deep learning (LSTM, GRU, RNN, CNN, BiLSTM)
      - Comparer les différentes stratégies de prédiction
 
