@@ -205,10 +205,11 @@ Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum
        main()
 
 
-.. image::../btc_eth_prices.png
+.. image:: ../btc_eth_prices.png
    :alt: Comparaison des prix ETH et BTC
    :align: center
    :width: 600px
+
 
 🔍 **Tests de Stationnarité Complets**
 ======================================
@@ -219,7 +220,7 @@ Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum
 
 Application de la triade de tests de stationnarité pour caractériser les propriétés temporelles des prix et rendements.
 
-</div>
+   </div>
 
 .. raw:: html
 
