@@ -2,117 +2,86 @@
 Analyse Statistique Avancée
 ===============================
 
-.. raw:: html
+.. image:: https://img.shields.io/badge/Bitcoin-Statistical_Analysis-orange.svg
+   :alt: Bitcoin
+   :align: center
 
-   <div style="text-align: center; margin: 30px 0;">
-      <img src="https://img.shields.io/badge/Bitcoin-Statistical_Analysis-orange.svg" alt="Bitcoin" style="margin: 5px;">
-      <img src="https://img.shields.io/badge/Ethereum-Statistical_Analysis-blue.svg" alt="Ethereum" style="margin: 5px;">
-      <img src="https://img.shields.io/badge/Tests-KPSS_ADF_PP-green.svg" alt="Tests" style="margin: 5px;">
-      <img src="https://img.shields.io/badge/ACF_PACF-Analysis-red.svg" alt="Correlation" style="margin: 5px;">
-   </div>
+.. image:: https://img.shields.io/badge/Ethereum-Statistical_Analysis-blue.svg
+   :alt: Ethereum
+   :align: center
 
-.. raw:: html
+.. image:: https://img.shields.io/badge/Tests-KPSS_ADF_PP-green.svg
+   :alt: Tests
+   :align: center
 
-   <div style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%); padding: 40px; border-radius: 15px; color: #333; text-align: center; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-      <h2 style="margin: 0; font-size: 2.5em; font-weight: bold;">📊 Statistiques BTC & ETH</h2>
-      <p style="font-size: 1.2em; margin: 20px 0; opacity: 0.8;">Analyse quantitative comparative des cryptomonnaies majeures</p>
-   </div>
+.. image:: https://img.shields.io/badge/ACF_PACF-Analysis-red.svg
+   :alt: Correlation
+   :align: center
+
+.. note::
+   **📊 Statistiques BTC & ETH**
+   
+   Analyse quantitative comparative des cryptomonnaies majeures
 
 Vue d'ensemble
 ==============
 
-.. raw:: html
+.. important::
+   Cette analyse examine les propriétés statistiques fondamentales de **Bitcoin (BTC)** et **Ethereum (ETH)**, les deux cryptomonnaies dominantes par capitalisation de marché. Nous analysons leur volatilité, rendements, corrélations temporelles et caractéristiques distributionnelles à travers une batterie complète de tests statistiques.
 
-   <div style="background: #f8f9fa; padding: 25px; border-left: 5px solid #fd7e14; margin: 20px 0; border-radius: 0 10px 10px 0;">
+📈 Statistiques Descriptives BTC vs ETH
+========================================
 
-Cette analyse examine les propriétés statistiques fondamentales de **Bitcoin (BTC)** et **Ethereum (ETH)**, les deux cryptomonnaies dominantes par capitalisation de marché. Nous analysons leur volatilité, rendements, corrélations temporelles et caractéristiques distributionnelles à travers une batterie complète de tests statistiques.
+.. note::
+   Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum sur la période 2020-2024
 
-.. raw:: html
+₿ BITCOIN (BTC)
+---------------
 
-   </div>
+* **Volatilité Annualisée:** 82.4%
+* **Rendement Moyen:** +18.7%
+* **Sharpe Ratio:** 0.523
+* **Skewness:** -0.21 (asymétrie négative)
+* **Kurtosis:** 4.8 (queues lourdes)
+* **VaR 95%:** -4.2%
+* **Drawdown Max:** -73.8%
 
+⟐ ETHEREUM (ETH)
+----------------
 
-📈 **Statistiques Descriptives BTC vs ETH**
-===========================================
+* **Volatilité Annualisée:** 96.3%
+* **Rendement Moyen:** +24.1%
+* **Sharpe Ratio:** 0.461
+* **Skewness:** -0.35 (asymétrie négative)
+* **Kurtosis:** 6.2 (queues très lourdes)
+* **VaR 95%:** -5.1%
+* **Drawdown Max:** -82.1%
 
-.. raw:: html
+🔍 Analyse Comparative
+----------------------
 
-   <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; color: white; margin: 20px 0;">
+**Avantages BTC:**
 
-Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum sur la période 2020-2024 :
+* Volatilité plus faible (82.4% vs 96.3%)
+* Meilleur Sharpe ratio (0.523 vs 0.461)
+* Drawdown maximum moins sévère
 
-.. raw:: html
+**Avantages ETH:**
 
-   </div>
+* Rendement moyen supérieur (24.1% vs 18.7%)
+* Plus grande volatilité = potentiel de gains
+* Innovation technologique continue
 
-.. raw:: html
+📊 Points Clés de Comparaison
+-----------------------------
 
-   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 30px 0;">
-      
-      <div style="background: linear-gradient(135deg, #f7931e 0%, #ff6b35 100%); padding: 30px; border-radius: 15px; color: white; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 25px 0; font-size: 1.6em; text-align: center; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 15px;">₿ BITCOIN (BTC)</h3>
-         <div style="font-size: 1.05em; line-height: 1.8;">
-            <p style="margin: 0 0 12px 0;"><strong>Volatilité Annualisée:</strong> 82.4%</p>
-            <p style="margin: 0 0 12px 0;"><strong>Rendement Moyen:</strong> +18.7%</p>
-            <p style="margin: 0 0 12px 0;"><strong>Sharpe Ratio:</strong> 0.523</p>
-            <p style="margin: 0 0 12px 0;"><strong>Skewness:</strong> -0.21 (asymétrie négative)</p>
-            <p style="margin: 0 0 12px 0;"><strong>Kurtosis:</strong> 4.8 (queues lourdes)</p>
-            <p style="margin: 0 0 12px 0;"><strong>VaR 95%:</strong> -4.2%</p>
-            <p style="margin: 0;"><strong>Drawdown Max:</strong> -73.8%</p>
-         </div>
-      </div>
-      
-      <div style="background: linear-gradient(135deg, #627eea 0%, #8a2be2 100%); padding: 30px; border-radius: 15px; color: white; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 25px 0; font-size: 1.6em; text-align: center; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 15px;">⟐ ETHEREUM (ETH)</h3>
-         <div style="font-size: 1.05em; line-height: 1.8;">
-            <p style="margin: 0 0 12px 0;"><strong>Volatilité Annualisée:</strong> 96.3%</p>
-            <p style="margin: 0 0 12px 0;"><strong>Rendement Moyen:</strong> +24.1%</p>
-            <p style="margin: 0 0 12px 0;"><strong>Sharpe Ratio:</strong> 0.461</p>
-            <p style="margin: 0 0 12px 0;"><strong>Skewness:</strong> -0.35 (asymétrie négative)</p>
-            <p style="margin: 0 0 12px 0;"><strong>Kurtosis:</strong> 6.2 (queues très lourdes)</p>
-            <p style="margin: 0 0 12px 0;"><strong>VaR 95%:</strong> -5.1%</p>
-            <p style="margin: 0;"><strong>Drawdown Max:</strong> -82.1%</p>
-         </div>
-      </div>
-      
+* **ETH** présente une volatilité supérieure (**+13.9pp**)
+* **ETH** offre un rendement moyen plus élevé (**+5.4pp**)
+* **BTC** a un meilleur ratio risque/rendement (Sharpe)
+* **ETH** montre plus d'asymétrie négative (queues lourdes)
 
-.. raw:: html
-
-   <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 30px 0; border-left: 5px solid #28a745;">
-      <h4 style="margin: 0 0 15px 0; color: #155724;">🔍 Analyse Comparative</h4>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-         <div>
-            <p style="margin: 0 0 10px 0; font-size: 0.95em;"><strong>Avantages BTC:</strong></p>
-            <ul style="margin: 0; padding-left: 20px; font-size: 0.9em;">
-               <li>Volatilité plus faible (82.4% vs 96.3%)</li>
-               <li>Meilleur Sharpe ratio (0.523 vs 0.461)</li>
-               <li>Drawdown maximum moins sévère</li>
-            </ul>
-         </div>
-         <div>
-            <p style="margin: 0 0 10px 0; font-size: 0.95em;"><strong>Avantages ETH:</strong></p>
-            <ul style="margin: 0; padding-left: 20px; font-size: 0.9em;">
-               <li>Rendement moyen supérieur (24.1% vs 18.7%)</li>
-               <li>Plus grande volatilité = potentiel de gains</li>
-               <li>Innovation technologique continue</li>
-            </ul>
-         </div>
-      </div>
-   </div>
-```
-.. raw:: html
-
-   <div style="background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%); padding: 20px; border-radius: 12px; margin: 25px 0; border-left: 4px solid #4CAF50;">
-      <h4 style="margin: 0 0 15px 0; color: #2e7d32; font-size: 1.2em;">📊 Points Clés de Comparaison</h4>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; font-size: 0.95em;">
-         <div style="color: #1565c0;">• <strong>ETH</strong> présente une volatilité supérieure (<strong>+13.9pp</strong>)</div>
-         <div style="color: #1565c0;">• <strong>ETH</strong> offre un rendement moyen plus élevé (<strong>+5.4pp</strong>)</div>
-         <div style="color: #1565c0;">• <strong>BTC</strong> a un meilleur ratio risque/rendement (Sharpe)</div>
-         <div style="color: #1565c0;">• <strong>ETH</strong> montre plus d'asymétrie négative (queues lourdes)</div>
-      </div>
-   </div>
-
-**Code d'Analyse Statistique**
+Code d'Analyse Statistique
+---------------------------
 
 .. code-block:: python
 
@@ -152,41 +121,35 @@ Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum
            'Max_Drawdown': max_drawdown * 100
        }
 
-🔍 **Tests de Stationnarité Complets**
-======================================
+🔍 Tests de Stationnarité Complets
+===================================
 
-.. raw:: html
+.. attention::
+   Application de la triade de tests de stationnarité pour caractériser les propriétés temporelles des prix et rendements
 
-   <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 30px; border-radius: 15px; margin: 20px 0;">
+Types de Tests
+--------------
 
-Application de la triade de tests de stationnarité pour caractériser les propriétés temporelles des prix et rendements :
+🎯 Test ADF
+~~~~~~~~~~~
+* **Augmented Dickey-Fuller**
+* H₀: Racine unitaire présente
+* Détecte la non-stationnarité
 
-.. raw:: html
+📈 Test KPSS
+~~~~~~~~~~~~
+* **Kwiatkowski-Phillips-Schmidt-Shin**
+* H₀: Série stationnaire
+* Complément du test ADF
 
-   </div>
+🔄 Test PP
+~~~~~~~~~~
+* **Phillips-Perron**
+* Robuste aux corrélations
+* Alternative non-paramétrique
 
-.. raw:: html
-
-   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 30px 0;">
-      
-      <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🎯 Test ADF</h3>
-         <p style="margin: 0; opacity: 0.9;">Augmented Dickey-Fuller<br/>H₀: Racine unitaire présente<br/>Détecte la non-stationnarité</p>
-      </div>
-      
-      <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">📈 Test KPSS</h3>
-         <p style="margin: 0; opacity: 0.9;">Kwiatkowski-Phillips-Schmidt-Shin<br/>H₀: Série stationnaire<br/>Complément du test ADF</p>
-      </div>
-      
-      <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🔄 Test PP</h3>
-         <p style="margin: 0; opacity: 0.9;">Phillips-Perron<br/>Robuste aux corrélations<br/>Alternative non-paramétrique</p>
-      </div>
-      
-   </div>
-
-**Implémentation Complète des Tests**
+Implémentation Complète des Tests
+---------------------------------
 
 .. code-block:: python
 
@@ -239,58 +202,42 @@ Application de la triade de tests de stationnarité pour caractériser les propr
        
        return results
 
-**Résultats Typiques pour BTC et ETH**
-
-.. raw:: html
-
-   <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+Résultats Typiques pour BTC et ETH
+-----------------------------------
 
 **Bitcoin (Prix):**
-- **ADF:** p-value > 0.05 → Non-stationnaire (présence de racine unitaire)
-- **KPSS:** p-value < 0.05 → Non-stationnaire (tendance déterministe)
-- **PP:** p-value > 0.05 → Non-stationnaire (confirmation)
+
+* **ADF:** p-value > 0.05 → Non-stationnaire (présence de racine unitaire)
+* **KPSS:** p-value < 0.05 → Non-stationnaire (tendance déterministe)
+* **PP:** p-value > 0.05 → Non-stationnaire (confirmation)
 
 **Bitcoin (Rendements):**
-- **ADF:** p-value < 0.001 → Stationnaire
-- **KPSS:** p-value > 0.05 → Stationnaire
-- **PP:** p-value < 0.001 → Stationnaire
 
-.. raw:: html
+* **ADF:** p-value < 0.001 → Stationnaire
+* **KPSS:** p-value > 0.05 → Stationnaire
+* **PP:** p-value < 0.001 → Stationnaire
 
-   </div>
+📊 Analyse ACF/PACF - Corrélations Temporelles
+===============================================
 
-📊 **Analyse ACF/PACF - Corrélations Temporelles**
-==================================================
+.. tip::
+   L'analyse des fonctions d'autocorrélation révèle les patterns temporels et aide à identifier les ordres optimaux pour les modèles ARIMA
 
-.. raw:: html
+Types de Fonctions
+------------------
 
-   <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 30px; border-radius: 15px; margin: 20px 0;">
+📊 ACF - Autocorrélation
+~~~~~~~~~~~~~~~~~~~~~~~~
+* Mesure la corrélation entre observations séparées par k périodes
+* Identifie les composantes MA
 
-L'analyse des fonctions d'autocorrélation révèle les patterns temporels et aide à identifier les ordres optimaux pour les modèles ARIMA :
+🎯 PACF - Autocorrélation Partielle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Corrélation directe entre observations après élimination des effets intermédiaires
+* Identifie les composantes AR
 
-.. raw:: html
-
-   </div>
-
-.. raw:: html
-
-   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0;">
-      
-      <div style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); padding: 25px; border-radius: 15px; color: #333; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">📊 ACF - Autocorrélation</h3>
-         <p style="margin: 0; opacity: 0.8;">Mesure la corrélation entre observations séparées par k périodes</p>
-         <p style="margin: 10px 0 0 0; font-size: 0.9em; opacity: 0.7;">Identifie les composantes MA</p>
-      </div>
-      
-      <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 25px; border-radius: 15px; color: #333; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🎯 PACF - Autocorrélation Partielle</h3>
-         <p style="margin: 0; opacity: 0.8;">Corrélation directe entre observations après élimination des effets intermédiaires</p>
-         <p style="margin: 10px 0 0 0; font-size: 0.9em; opacity: 0.7;">Identifie les composantes AR</p>
-      </div>
-      
-   </div>
-
-**Implémentation ACF/PACF**
+Implémentation ACF/PACF
+-----------------------
 
 .. code-block:: python
 
@@ -362,43 +309,32 @@ L'analyse des fonctions d'autocorrélation révèle les patterns temporels et ai
        plt.tight_layout()
        return fig
 
-**Interprétation des Patterns ACF/PACF**
+Interprétation des Patterns ACF/PACF
+------------------------------------
 
-.. raw:: html
+📈 Processus AR(p)
+~~~~~~~~~~~~~~~~~~
+* **ACF:** Décroissance exponentielle
+* **PACF:** Coupure nette au lag p
 
-   <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 25px 0;">
-      
-      <div style="flex: 1; min-width: 200px; background: #e3f2fd; padding: 20px; border-radius: 10px; border-left: 4px solid #2196f3;">
-         <h4 style="margin: 0 0 10px 0; color: #1976d2;">📈 Processus AR(p)</h4>
-         <p style="margin: 0; font-size: 0.9em;">ACF: Décroissance exponentielle<br/>PACF: Coupure nette au lag p</p>
-      </div>
-      
-      <div style="flex: 1; min-width: 200px; background: #f3e5f5; padding: 20px; border-radius: 10px; border-left: 4px solid #9c27b0;">
-         <h4 style="margin: 0 0 10px 0; color: #7b1fa2;">📊 Processus MA(q)</h4>
-         <p style="margin: 0; font-size: 0.9em;">ACF: Coupure nette au lag q<br/>PACF: Décroissance exponentielle</p>
-      </div>
-      
-      <div style="flex: 1; min-width: 200px; background: #e8f5e8; padding: 20px; border-radius: 10px; border-left: 4px solid #4caf50;">
-         <h4 style="margin: 0 0 10px 0; color: #388e3c;">🎯 Processus ARMA(p,q)</h4>
-         <p style="margin: 0; font-size: 0.9em;">ACF: Décroissance après lag q<br/>PACF: Décroissance après lag p</p>
-      </div>
-      
-   </div>
+📊 Processus MA(q)
+~~~~~~~~~~~~~~~~~~
+* **ACF:** Coupure nette au lag q
+* **PACF:** Décroissance exponentielle
 
-⚡ **Analyse de Volatilité et Clustering**
-==========================================
+🎯 Processus ARMA(p,q)
+~~~~~~~~~~~~~~~~~~~~~~
+* **ACF:** Décroissance après lag q
+* **PACF:** Décroissance après lag p
 
-.. raw:: html
+⚡ Analyse de Volatilité et Clustering
+======================================
 
-   <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; color: white; margin: 20px 0;">
+.. warning::
+   Les cryptomonnaies présentent des phénomènes de clustering de volatilité caractéristiques des séries financières
 
-Les cryptomonnaies présentent des phénomènes de clustering de volatilité caractéristiques des séries financières :
-
-.. raw:: html
-
-   </div>
-
-**Tests d'Hétéroscédasticité**
+Tests d'Hétéroscédasticité
+--------------------------
 
 .. code-block:: python
 
@@ -441,45 +377,58 @@ Les cryptomonnaies présentent des phénomènes de clustering de volatilité car
        
        return results
 
-**Caractéristiques Typiques BTC vs ETH**
-
-.. raw:: html
-
-   <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+Caractéristiques Typiques BTC vs ETH
+------------------------------------
 
 **Clustering de Volatilité:**
-- **Bitcoin:** Périodes de haute volatilité durant 15-20 jours en moyenne
-- **Ethereum:** Clustering plus prononcé, périodes de 20-30 jours
-- **Corrélation BTC-ETH:** Augmente significativement pendant les crises (0.8-0.9)
+
+* **Bitcoin:** Périodes de haute volatilité durant 15-20 jours en moyenne
+* **Ethereum:** Clustering plus prononcé, périodes de 20-30 jours
+* **Corrélation BTC-ETH:** Augmente significativement pendant les crises (0.8-0.9)
 
 **Saisonnalité:**
-- **Bitcoin:** Volatilité plus élevée en fin/début d'année
-- **Ethereum:** Sensibilité aux mises à jour du protocole
-- **Patterns intra-journaliers:** Volatilité accrue pendant les heures de trading US/EU
 
-.. raw:: html
+* **Bitcoin:** Volatilité plus élevée en fin/début d'année
+* **Ethereum:** Sensibilité aux mises à jour du protocole
+* **Patterns intra-journaliers:** Volatilité accrue pendant les heures de trading US/EU
 
-   </div>
+📈 Synthèse et Implications Prédictives
+========================================
 
-📈 **Synthèse et Implications Prédictives**
-===========================================
-
-.. raw:: html
-
-   <div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 25px; border-radius: 15px; margin: 30px 0; text-align: center;">
-      <h3 style="margin: 0 0 15px 0; color: #8b4513;">🎯 Conclusions Statistiques</h3>
-      <p style="margin: 0; color: #5d4e37;">Implications pour la modélisation prédictive des cryptomonnaies</p>
-   </div>
+.. seealso::
+   **🎯 Conclusions Statistiques**
+   
+   Implications pour la modélisation prédictive des cryptomonnaies
 
 L'analyse statistique révèle des **caractéristiques clés** pour la modélisation :
 
-.. raw:: html
-
-   <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 30px; border-radius: 15px; margin: 20px 0;">
-
-**🔍 Propriétés Identifiées :**
+🔍 Propriétés Identifiées
+-------------------------
 
 1. **Non-stationnarité des Prix** - Nécessité de différenciation pour la modélisation
 2. **Stationnarité des Rendements** - Base solide pour les modèles ARIMA/GARCH  
 3. **Queues Lourdes** - Distribution non-gaussienne, modèles t-Student recommandés
-4. **Clustering de Volatilité** -
+4. **Clustering de Volatilité** - Modèles GARCH nécessaires pour capturer l'hétéroscédasticité
+5. **Corrélations Temporelles** - Patterns AR/MA identifiables dans les rendements
+6. **Asymétrie Négative** - Plus de risque de baisse que de hausse
+
+Recommandations de Modélisation
+-------------------------------
+
+**Pour Bitcoin (BTC):**
+* Modèle ARIMA(1,1,1)-GARCH(1,1) avec distribution t-Student
+* Incorporation des effets de saisonnalité
+* Monitoring du clustering de volatilité
+
+**Pour Ethereum (ETH):**
+* Modèle ARIMA(2,1,2)-GARCH(1,1) avec distribution t-Student généralisée  
+* Prise en compte des événements technologiques
+* Modélisation de la volatilité plus complexe
+
+**Stratégies de Risk Management:**
+* VaR dynamique basé sur la volatilité conditionnelle
+* Stress testing avec scénarios de queues lourdes
+* Diversification tenant compte des corrélations en crise
+
+.. note::
+   Cette analyse fournit une base statistique solide pour le développement de stratégies quantitatives et la gestion des risques dans l'investissement en cryptomonnaies.
