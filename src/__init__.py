@@ -1,5 +1,5 @@
 """
-ETH-to-BTC: Prédiction du prix Bitcoin basée sur les données d'Ethereum
+Package principal pour la prédiction du prix du Bitcoin
 """
-
-__version__ = '0.1.0'
+__version__ = "1.0.0"
+__author__ = "ES-SAAIDI Youssef - ZEMMAHI Zakariae"
