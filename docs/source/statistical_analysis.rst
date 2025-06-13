@@ -97,8 +97,7 @@ Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum
          </div>
       </div>
    </div>
-```
-.. raw:: html
+
 
    <div style="background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%); padding: 20px; border-radius: 12px; margin: 25px 0; border-left: 4px solid #4CAF50;">
       <h4 style="margin: 0 0 15px 0; color: #2e7d32; font-size: 1.2em;">📊 Points Clés de Comparaison</h4>
