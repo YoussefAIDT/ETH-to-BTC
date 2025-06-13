@@ -312,7 +312,7 @@ L'analyse des fonctions d'autocorrélation révèle les patterns temporels et ai
 
 Ces résultats orientent vers un modèle **ARIMA(p=1, d=?, q=8)** comme point de départ potentiel.
 
-   </div>
+
 
 .. raw:: html
 
