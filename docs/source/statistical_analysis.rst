@@ -71,13 +71,11 @@ Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum
             <p style="margin: 0 0 12px 0;"><strong>Skewness:</strong> -0.35 (asymétrie négative)</p>
             <p style="margin: 0 0 12px 0;"><strong>Kurtosis:</strong> 6.2 (queues très lourdes)</p>
             <p style="margin: 0 0 12px 0;"><strong>VaR 95%:</strong> -5.1%</p>
-            <p style="margin: 0;"><strong>Max Drawdown:</strong> -82.1%</p>
+            <p style="margin: 0;"><strong>Drawdown Max:</strong> -82.1%</p>
          </div>
       </div>
-      
-
-.. raw:: html
-
+   </div>   
+   
    <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 30px 0; border-left: 5px solid #28a745;">
       <h4 style="margin: 0 0 15px 0; color: #155724;">🔍 Analyse Comparative</h4>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
