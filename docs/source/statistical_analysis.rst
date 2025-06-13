@@ -46,34 +46,88 @@ Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum
 
 .. raw:: html
 
-   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; margin: 30px 0;">
+   <div style="display: flex; gap: 25px; margin: 30px 0; flex-wrap: wrap;">
       
-      <div style="background: linear-gradient(135deg, #f7931e 0%, #ff6b35 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 20px 0; font-size: 1.4em;">₿ BITCOIN (BTC)</h3>
-         <div style="text-align: left; opacity: 0.95; font-size: 0.95em;">
-            <p><strong>Volatilité Annualisée:</strong> 82.4%</p>
-            <p><strong>Rendement Moyen:</strong> +18.7%</p>
-            <p><strong>Sharpe Ratio:</strong> 0.523</p>
-            <p><strong>Skewness:</strong> -0.21 (asymétrie négative)</p>
-            <p><strong>Kurtosis:</strong> 4.8 (queues lourdes)</p>
-            <p><strong>VaR 95%:</strong> -4.2%</p>
-            <p><strong>Drawdown Max:</strong> -73.8%</p>
+      <div style="flex: 1; min-width: 400px; background: linear-gradient(135deg, #f7931e 0%, #ff6b35 100%); padding: 30px; border-radius: 15px; color: white; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+         <h3 style="margin: 0 0 25px 0; font-size: 1.6em; text-align: center; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 15px;">₿ BITCOIN (BTC)</h3>
+         <div style="font-size: 1.05em; line-height: 1.8;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+               <span style="font-weight: 600;">Volatilité Annualisée:</span>
+               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold;">82.4%</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+               <span style="font-weight: 600;">Rendement Moyen:</span>
+               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold; color: #90EE90;">+18.7%</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+               <span style="font-weight: 600;">Sharpe Ratio:</span>
+               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold;">0.523</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+               <span style="font-weight: 600;">Skewness:</span>
+               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold;">-0.21</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+               <span style="font-weight: 600;">Kurtosis:</span>
+               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold;">4.8</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+               <span style="font-weight: 600;">VaR 95%:</span>
+               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold; color: #FFB6C1;">-4.2%</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+               <span style="font-weight: 600;">Drawdown Max:</span>
+               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold; color: #FFB6C1;">-73.8%</span>
+            </div>
          </div>
       </div>
       
-      <div style="background: linear-gradient(135deg, #627eea 0%, #8a2be2 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 20px 0; font-size: 1.4em;">⟐ ETHEREUM (ETH)</h3>
-         <div style="text-align: left; opacity: 0.95; font-size: 0.95em;">
-            <p><strong>Volatilité Annualisée:</strong> 96.3%</p>
-            <p><strong>Rendement Moyen:</strong> +24.1%</p>
-            <p><strong>Sharpe Ratio:</strong> 0.461</p>
-            <p><strong>Skewness:</strong> -0.35 (asymétrie négative)</p>
-            <p><strong>Kurtosis:</strong> 6.2 (queues très lourdes)</p>
-            <p><strong>VaR 95%:</strong> -5.1%</p>
-            <p><strong>Drawdown Max:</strong> -82.1%</p>
+      <div style="flex: 1; min-width: 400px; background: linear-gradient(135deg, #627eea 0%, #8a2be2 100%); padding: 30px; border-radius: 15px; color: white; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+         <h3 style="margin: 0 0 25px 0; font-size: 1.6em; text-align: center; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 15px;">⟐ ETHEREUM (ETH)</h3>
+         <div style="font-size: 1.05em; line-height: 1.8;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+               <span style="font-weight: 600;">Volatilité Annualisée:</span>
+               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold;">96.3%</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+               <span style="font-weight: 600;">Rendement Moyen:</span>
+               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold; color: #90EE90;">+24.1%</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+               <span style="font-weight: 600;">Sharpe Ratio:</span>
+               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold;">0.461</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+               <span style="font-weight: 600;">Skewness:</span>
+               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold;">-0.35</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+               <span style="font-weight: 600;">Kurtosis:</span>
+               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold;">6.2</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+               <span style="font-weight: 600;">VaR 95%:</span>
+               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold; color: #FFB6C1;">-5.1%</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+               <span style="font-weight: 600;">Drawdown Max:</span>
+               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold; color: #FFB6C1;">-82.1%</span>
+            </div>
          </div>
       </div>
       
+   </div>
+
+.. raw:: html
+
+   <div style="background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%); padding: 20px; border-radius: 12px; margin: 25px 0; border-left: 4px solid #4CAF50;">
+      <h4 style="margin: 0 0 15px 0; color: #2e7d32; font-size: 1.2em;">📊 Points Clés de Comparaison</h4>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; font-size: 0.95em;">
+         <div style="color: #1565c0;">• <strong>ETH</strong> présente une volatilité supérieure (<strong>+13.9pp</strong>)</div>
+         <div style="color: #1565c0;">• <strong>ETH</strong> offre un rendement moyen plus élevé (<strong>+5.4pp</strong>)</div>
+         <div style="color: #1565c0;">• <strong>BTC</strong> a un meilleur ratio risque/rendement (Sharpe)</div>
+         <div style="color: #1565c0;">• <strong>ETH</strong> montre plus d'asymétrie négative (queues lourdes)</div>
+      </div>
    </div>
 
 **Code d'Analyse Statistique**
@@ -446,46 +500,4 @@ L'analyse statistique révèle des **caractéristiques clés** pour la modélisa
 1. **Non-stationnarité des Prix** - Nécessité de différenciation pour la modélisation
 2. **Stationnarité des Rendements** - Base solide pour les modèles ARIMA/GARCH  
 3. **Queues Lourdes** - Distribution non-gaussienne, modèles t-Student recommandés
-4. **Clustering de Volatilité** - Justifie l'utilisation de modèles GARCH
-5. **Corrélations Temporelles Faibles** - Marchés relativement efficaces
-6. **Hétéroscédasticité Conditionnelle** - Volatilité variable dans le temps
-
-.. raw:: html
-
-   </div>
-
-**Recommandations Méthodologiques**
-
-.. code-block:: python
-
-   def statistical_summary_and_recommendations():
-       """
-       Synthèse des résultats et recommandations
-       """
-       recommendations = {
-           'preprocessing': [
-               'Utiliser les rendements logarithmiques',
-               'Appliquer la différenciation si nécessaire',
-               'Détecter et traiter les valeurs aberrantes'
-           ],
-           'modeling_approach': [
-               'ARIMA-GARCH pour capturer volatilité conditionnelle',
-               'Distributions à queues lourdes (t-Student, GED)',
-               'Modèles de changement de régime pour les crises',
-               'Analyse multivariée pour les corrélations dynamiques'
-           ],
-           'validation': [
-               'Tests de résidus (Ljung-Box, ARCH)',
-               'Backtesting sur différentes périodes',
-               'Validation croisée avec données hors échantillon',
-               'Métriques de performance ajustées au risque'
-           ]
-       }
-       
-       return recommendations
-
-.. note::
-   **Seuil de Significativité :** Tous les tests utilisent α = 0.05 avec correction de Bonferroni pour les tests multiples.
-
-.. warning::
-   Les cryptomonnaies présentent des **régimes de volatilité** distincts. Les modèles doivent être régulièrement réentraînés pour maintenir leur performance prédictive.
+4. **Clustering de Volatilité** -
