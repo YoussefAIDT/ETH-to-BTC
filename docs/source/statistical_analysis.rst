@@ -14,7 +14,7 @@ Analyse Statistique Avancée
 .. raw:: html
 
    <div style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%); padding: 40px; border-radius: 15px; color: #333; text-align: center; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-      <h2 style="margin: 0; font-size: 2.5em; font-weight: bold;">₿📊 Statistiques BTC & ETH</h2>
+      <h2 style="margin: 0; font-size: 2.5em; font-weight: bold;">📊 Statistiques BTC & ETH</h2>
       <p style="font-size: 1.2em; margin: 20px 0; opacity: 0.8;">Analyse quantitative comparative des cryptomonnaies majeures</p>
    </div>
 
@@ -31,7 +31,7 @@ Cette analyse examine les propriétés statistiques fondamentales de **Bitcoin (
 
    </div>
 
-```rst
+
 📈 **Statistiques Descriptives BTC vs ETH**
 ===========================================
 
@@ -75,7 +75,6 @@ Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum
          </div>
       </div>
       
-   </div>
 
 .. raw:: html
 
