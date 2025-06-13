@@ -307,7 +307,11 @@ Les tests ADF, KPSS et PP convergent vers la conclusion que les séries temporel
 
 L'analyse des fonctions d'autocorrélation révèle les patterns temporels et aide à identifier les ordres optimaux pour les modèles ARIMA :
 
-.. raw:: html
+- **ACF** : Des lags significatifs sont observés jusqu’au lag 8, ce qui suggère la présence d’une composante de moyenne mobile (MA) d’ordre élevé (au moins MA(8)).
+- **PACF** : Le lag 1 est fortement significatif, ce qui indique une composante autorégressive (AR) d’ordre 1. D'autres pics ponctuels aux lags 12, 27 et 28 pourraient suggérer des effets saisonniers ou bruités.
+- **Test de Ljung-Box** : La significativité jusqu’au lag 30 confirme une autocorrélation globale persistante, indiquant que le bruit blanc peut être exclu — la série contient bien une structure temporelle exploitable.
+
+Ces résultats orientent vers un modèle **ARIMA(p=1, d=?, q=8)** comme point de départ potentiel.
 
    </div>
 
@@ -328,6 +332,7 @@ L'analyse des fonctions d'autocorrélation révèle les patterns temporels et ai
       </div>
       
    </div>
+
 
 **Implémentation ACF/PACF**
 
