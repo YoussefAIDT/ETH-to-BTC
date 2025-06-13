@@ -221,8 +221,7 @@ Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum
 
 Application de la triade de tests de stationnarité pour caractériser les propriétés temporelles des prix et rendements.
 
-   </div>
-</div>
+
 
 .. raw:: html
 
