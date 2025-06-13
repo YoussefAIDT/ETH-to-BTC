@@ -481,7 +481,7 @@ Ces résultats orientent vers un modèle **ARIMA(p=1, d=?, q=8)** comme point de
 
 La volatilité est un indicateur essentiel du risque. À court terme, elle reflète les réactions immédiates du marché aux événements. À long terme, elle traduit la stabilité fondamentale d’un actif. Si Ethereum (ETH) est historiquement plus volatil, c’est Bitcoin (BTC) qui présente un <strong>profil de risque plus dangereux</strong> lorsque l’on examine le <strong>rapport entre la volatilité et son prix</strong>. Ce déséquilibre expose les investisseurs à des pertes sévères pendant les phases baissières.
 
-   </div>
+
 
 **Fonction d’Analyse Avancée de la Volatilité**
 
