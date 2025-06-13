@@ -566,20 +566,186 @@ Ces résultats orientent vers un modèle **ARIMA(p=1, d=?, q=8)** comme point de
 
 .. raw:: html
 
-   <div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 25px; border-radius: 15px; margin: 30px 0; text-align: center;">
-      <h3 style="margin: 0 0 15px 0; color: #8b4513;">🎯 Conclusions Statistiques</h3>
-      <p style="margin: 0; color: #5d4e37;">Implications pour la modélisation prédictive des cryptomonnaies</p>
+   <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 25px; border-radius: 15px; margin: 30px 0; text-align: center; border-left: 5px solid #2196f3;">
+      <h3 style="margin: 0 0 15px 0; color: #1565c0;">🎯 Conclusions Statistiques</h3>
+      <p style="margin: 0; color: #424242; font-size: 1.1em;">Implications pour la modélisation prédictive des cryptomonnaies</p>
    </div>
 
 L'analyse statistique révèle des **caractéristiques clés** pour la modélisation :
 
 .. raw:: html
 
-   <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 30px; border-radius: 15px; margin: 20px 0;">
+   <div style="background: linear-gradient(135deg, #f3f9ff 0%, #e8f4fd 100%); padding: 30px; border-radius: 15px; margin: 20px 0; border: 1px solid #e1f5fe;">
+   
+   <strong style="color: #1565c0; font-size: 1.1em;">🔍 Propriétés Identifiées :</strong>
+   <br><br>
+   
+   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
+   
+   <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #42a5f5;">
+   <strong style="color: #1976d2;">1. Non-stationnarité des Prix</strong><br>
+   <span style="color: #424242;">Nécessité de différenciation pour la modélisation</span>
+   </div>
+   
+   <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #42a5f5;">
+   <strong style="color: #1976d2;">2. Stationnarité des Rendements</strong><br>
+   <span style="color: #424242;">Base solide pour les modèles ARIMA/GARCH</span>
+   </div>
+   
+   <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #42a5f5;">
+   <strong style="color: #1976d2;">3. Queues Lourdes</strong><br>
+   <span style="color: #424242;">Distribution non-gaussienne, modèles t-Student recommandés</span>
+   </div>
+   
+   <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #42a5f5;">
+   <strong style="color: #1976d2;">4. Clustering de Volatilité</strong><br>
+   <span style="color: #424242;">Nécessité de modèles GARCH/BiLSTM</span>
+   </div>
+   
+   </div>
+   </div>
 
-**🔍 Propriétés Identifiées :**
+**🚀 Exploration Approfondie dans les Notebooks**
 
-1. **Non-stationnarité des Prix** - Nécessité de différenciation pour la modélisation
-2. **Stationnarité des Rendements** - Base solide pour les modèles ARIMA/GARCH  
-3. **Queues Lourdes** - Distribution non-gaussienne, modèles t-Student recommandés
-4. **Clustering de Volatilité** -
+.. raw:: html
+
+   <div style="background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%); padding: 25px; border-radius: 15px; color: white; margin: 25px 0;">
+   <h3 style="margin: 0 0 15px 0;">📊 Pour une Analyse Complète</h3>
+   <p style="margin: 0; font-size: 1.05em; line-height: 1.6;">
+   Cette analyse constitue la base théorique de notre projet de prédiction ETH-to-BTC. 
+   Pour explorer en détail les implémentations pratiques et les modèles développés, 
+   consultez nos notebooks spécialisés qui approfondissent chaque aspect de la modélisation.
+   </p>
+   </div>
+
+**📁 Structure du Projet ETH-to-BTC**
+
+.. code-block:: text
+
+   ETH-to-BTC/
+   ├── README.md               # Documentation principale
+   ├── requirements.txt        # Dépendances Python requises
+   ├── setup.py                # Configuration pour l'installation
+   ├── predict.py              # Script principal pour les prédictions
+   ├── data/                   # Répertoire pour les données historiques
+   ├── models/                 # Modèles entraînés sauvegardés
+   ├── notebooks/              # 🎯 Notebooks d'analyse et exploration
+   │   ├── notebook.ipynb      # Analyse statistique + Deep Learning
+   │   └── pmdarima.ipynb      # Modélisation ARIMA/pmdarima
+   └── src/                    # Code source principal
+       ├── data/               # Collecte et gestion des données
+       ├── features/           # Prétraitement des features
+       ├── models/             # Implémentations des modèles
+       └── utils/              # Fonctions utilitaires
+
+**🔬 Guide d'Exploration des Notebooks**
+
+.. raw:: html
+
+   <div style="background: #f8fbff; padding: 25px; border-radius: 12px; margin: 20px 0; border: 1px solid #e1f5fe;">
+   
+   <h4 style="color: #1565c0; margin-top: 0;">📘 Notebook 1 : Analyse Statistique & Deep Learning</h4>
+   <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0; border-left: 4px solid #42a5f5;">
+   <strong>Contenu :</strong>
+   <ul style="margin: 10px 0; color: #424242;">
+   <li>📊 Statistiques descriptives de BTC et ETH</li>
+   <li>🔗 Analyse de corrélation Bitcoin-Ethereum</li>
+   <li>📈 Tests de stationnarité (ADF, KPSS)</li>
+   <li>📉 Fonctions ACF/PACF et différenciation</li>
+   <li>🧠 Modèles Deep Learning (LSTM, GRU, RNN, CNN, BiLSTM)</li>
+   <li>⚡ Comparaison des stratégies de prédiction</li>
+   </ul>
+   </div>
+   
+   <h4 style="color: #1565c0;">📗 Notebook 2 : Modélisation ARIMA/pmdarima</h4>
+   <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0; border-left: 4px solid #42a5f5;">
+   <strong>Contenu :</strong>
+   <ul style="margin: 10px 0; color: #424242;">
+   <li>🔄 Modélisation ARIMA traditionnelle</li>
+   <li>🤖 Automatisation avec pmdarima</li>
+   <li>📋 Sélection automatique des paramètres (p,d,q)</li>
+   <li>✅ Validation croisée temporelle</li>
+   <li>📊 Diagnostic des résidus</li>
+   </ul>
+   </div>
+   </div>
+
+**🚀 Démarrage Rapide**
+
+.. raw:: html
+
+   <div style="background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%); padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #4caf50;">
+   
+   <h4 style="color: #2e7d32; margin-top: 0;">1. 📥 Accès aux Notebooks</h4>
+   <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
+   <code style="background: #f5f5f5; padding: 2px 8px; border-radius: 4px; color: #1976d2;">
+   git clone https://github.com/YoussefAIDT/ETH-to-BTC.git<br>
+   cd ETH-to-BTC/notebooks
+   </code>
+   </div>
+   
+   <h4 style="color: #2e7d32;">2. 🔄 Exploration Recommandée</h4>
+   <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
+   <strong style="color: #1976d2;">Séquence d'exploration :</strong>
+   <ol style="color: #424242; margin: 10px 0;">
+   <li><strong>notebook.ipynb</strong> → Analyse statistique fondamentale</li>
+   <li><strong>pmdarima.ipynb</strong> → Modélisation ARIMA</li>
+   <li><strong>notebook.ipynb</strong> → Modèles Deep Learning avancés</li>
+   </ol>
+   </div>
+   
+   <h4 style="color: #2e7d32;">3. 💡 Utilisation Google Colab</h4>
+   <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
+   <ul style="color: #424242; margin: 10px 0;">
+   <li>📤 Uploadez les notebooks directement dans Colab</li>
+   <li>🔧 Les dépendances s'installent automatiquement</li>
+   <li>🚀 Environnement prêt à l'emploi</li>
+   </ul>
+   </div>
+   </div>
+
+**🎯 Objectifs de Recherche**
+
+.. raw:: html
+
+   <div style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #ff9800;">
+   
+   <h4 style="color: #ef6c00; margin-top: 0;">🔬 Phase de Recherche Actuelle</h4>
+   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+   
+   <div style="background: white; padding: 15px; border-radius: 8px;">
+   <strong style="color: #1976d2;">📊 Analyse Exploratoire</strong><br>
+   <span style="color: #424242;">Compréhension des patterns temporels</span>
+   </div>
+   
+   <div style="background: white; padding: 15px; border-radius: 8px;">
+   <strong style="color: #1976d2;">🧪 Expérimentation</strong><br>
+   <span style="color: #424242;">Test de différentes architectures</span>
+   </div>
+   
+   <div style="background: white; padding: 15px; border-radius: 8px;">
+   <strong style="color: #1976d2;">📈 Optimisation</strong><br>
+   <span style="color: #424242;">Amélioration des performances</span>
+   </div>
+   
+   <div style="background: white; padding: 15px; border-radius: 8px;">
+   <strong style="color: #1976d2;">🔄 Validation</strong><br>
+   <span style="color: #424242;">Tests de robustesse temporelle</span>
+   </div>
+   
+   </div>
+   </div>
+
+.. note::
+   
+   **💡 Conseil d'Exploration :**
+   
+   Cette documentation théorique prend tout son sens lorsqu'elle est mise en pratique 
+   dans les notebooks. Chaque concept abordé ici trouve son implémentation concrète 
+   dans les analyses et modèles développés.
+   
+   **🔗 Liens Utiles :**
+   
+   * Repository GitHub : https://github.com/YoussefAIDT/ETH-to-BTC
+   * Notebooks interactifs disponibles dans le dossier ``notebooks/``
+   * Documentation complète dans le README.md
