@@ -112,7 +112,7 @@ Pour une utilisation immédiate sans configuration locale :
 
 **2. Téléchargez les fichiers nécessaires**
 
-- ``notebook.ipynb`` - Analyse complète et modèles de deep learning
+- ``Analyse_Statistique_Corrélation_Choix_Modèle.ipynb`` - Analyse complète et modèles de deep learning
 - ``pmdarima.ipynb`` - Modélisation ARIMA automatisée
 
 **3. Uploadez dans Google Colab**
