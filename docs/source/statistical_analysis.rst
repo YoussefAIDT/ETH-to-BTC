@@ -217,11 +217,9 @@ Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum
 
    <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 30px; border-radius: 15px; margin: 20px 0;">
 
-Application de la triade de tests de stationnarité pour caractériser les propriétés temporelles des prix et rendements :
+Application de la triade de tests de stationnarité pour caractériser les propriétés temporelles des prix et rendements.
 
-.. raw:: html
-
-   </div>
+</div>
 
 .. raw:: html
 
@@ -229,20 +227,43 @@ Application de la triade de tests de stationnarité pour caractériser les propr
       
       <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
          <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🎯 Test ADF</h3>
-         <p style="margin: 0; opacity: 0.9;">Augmented Dickey-Fuller<br/>H₀: Racine unitaire présente<br/>Détecte la non-stationnarité</p>
+         <p style="margin: 0; opacity: 0.9;">
+         Statistique du test : -0.41 <br/>
+         Valeur p : 0.91 <br/>
+         Valeurs critiques :<br/>
+         &nbsp;&nbsp;1% : -3.43<br/>
+         &nbsp;&nbsp;5% : -2.86<br/>
+         &nbsp;&nbsp;10% : -2.57<br/>
+         Conclusion : La série n'est pas stationnaire (H₀ non rejetée)
+         </p>
       </div>
       
       <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
          <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">📈 Test KPSS</h3>
-         <p style="margin: 0; opacity: 0.9;">Kwiatkowski-Phillips-Schmidt-Shin<br/>H₀: Série stationnaire<br/>Complément du test ADF</p>
+         <p style="margin: 0; opacity: 0.9;">
+         Statistique du test : 3.64 <br/>
+         Valeur p : 0.01 <br/>
+         Valeurs critiques :<br/>
+         &nbsp;&nbsp;10% : 0.347<br/>
+         &nbsp;&nbsp;5% : 0.463<br/>
+         &nbsp;&nbsp;2.5% : 0.574<br/>
+         &nbsp;&nbsp;1% : 0.739<br/>
+         Conclusion : La série est non stationnaire (H₀ rejetée)
+         </p>
       </div>
       
       <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
          <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🔄 Test PP</h3>
-         <p style="margin: 0; opacity: 0.9;">Phillips-Perron<br/>Robuste aux corrélations<br/>Alternative non-paramétrique</p>
+         <p style="margin: 0; opacity: 0.9;">
+         Test Phillips-Perron<br/>
+         (résultats non fournis ici)<br/>
+         Robuste aux corrélations<br/>
+         Alternative non-paramétrique
+         </p>
       </div>
       
    </div>
+
 
 **Implémentation Complète des Tests**
 
