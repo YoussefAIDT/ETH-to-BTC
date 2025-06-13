@@ -125,7 +125,7 @@ L'analyse de corrélation glissante sur une fenêtre de 30 jours révèle l'évo
       <p style="margin: 0; opacity: 0.95;">Identification des patterns de leadership entre ETH et BTC</p>
    </div>
 
-.. image:: images/corr_croise.png
+.. image:: corr_croise.png
    :alt: Graphique de corrélation croisée ETH-BTC avec décalages temporels
    :align: center
    :width: 700px
