@@ -113,31 +113,50 @@ Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum
 
 .. code-block:: python
 
+   import requests
    import pandas as pd
    import numpy as np
    from scipy import stats
+   import matplotlib.pyplot as plt
+   import time
+
+   def fetch_crypto_data(symbol, currency='USD', limit=2000):
+       """
+       Récupère les données de prix journalier pour une crypto depuis CryptoCompare
+       """
+       url = f"https://min-api.cryptocompare.com/data/v2/histoday"
+       params = {
+           'fsym': symbol,
+           'tsym': currency,
+           'limit': limit,
+           'aggregate': 1
+       }
+       response = requests.get(url, params=params)
+       data = response.json()['Data']['Data']
+       df = pd.DataFrame(data)
+       df['time'] = pd.to_datetime(df['time'], unit='s')
+       df.set_index('time', inplace=True)
+       return df['close']
+   
+   def calculate_max_drawdown(prices):
+       cumulative_max = prices.cummax()
+       drawdowns = (prices - cumulative_max) / cumulative_max
+       return drawdowns.min()
    
    def calculate_crypto_statistics(prices):
-       """
-       Calcul des statistiques descriptives pour BTC et ETH
-       """
-       # Calcul des rendements logarithmiques
        returns = np.log(prices / prices.shift(1)).dropna()
-       
-       # Métriques de performance
+   
        annual_return = returns.mean() * 365
        annual_volatility = returns.std() * np.sqrt(365)
        sharpe_ratio = annual_return / annual_volatility
-       
-       # Métriques de risque
+   
        var_95 = np.percentile(returns, 5)
        cvar_95 = returns[returns <= var_95].mean()
        max_drawdown = calculate_max_drawdown(prices)
-       
-       # Statistiques distributionnelles
+   
        skewness = stats.skew(returns)
        kurt = stats.kurtosis(returns, fisher=True)
-       
+   
        return {
            'Annual_Return': annual_return * 100,
            'Annual_Volatility': annual_volatility * 100,
@@ -148,6 +167,48 @@ Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum
            'CVaR_95': cvar_95 * 100,
            'Max_Drawdown': max_drawdown * 100
        }
+   
+   def main():
+       btc_prices = fetch_crypto_data('BTC')
+       time.sleep(1)  # Pause pour éviter d’être bloqué par l’API
+       eth_prices = fetch_crypto_data('ETH')
+   
+       # Filtrage des dates communes
+       common_dates = btc_prices.index.intersection(eth_prices.index)
+       btc_prices = btc_prices.loc[common_dates]
+       eth_prices = eth_prices.loc[common_dates]
+   
+       btc_stats = calculate_crypto_statistics(btc_prices)
+       eth_stats = calculate_crypto_statistics(eth_prices)
+   
+       print("\n📊 Statistiques Bitcoin (BTC):")
+       for k, v in btc_stats.items():
+           print(f"{k}: {v:.2f}")
+   
+       print("\n📊 Statistiques Ethereum (ETH):")
+       for k, v in eth_stats.items():
+           print(f"{k}: {v:.2f}")
+   
+       # Optionnel : visualisation
+       plt.figure(figsize=(10, 5))
+       plt.plot(btc_prices.index, btc_prices, label='BTC')
+       plt.plot(eth_prices.index, eth_prices, label='ETH')
+       plt.title("Prix journaliers BTC vs ETH")
+       plt.xlabel("Date")
+       plt.ylabel("Prix (USD)")
+       plt.legend()
+       plt.grid(True)
+       plt.tight_layout()
+       plt.show()
+   
+   if __name__ == "__main__":
+       main()
+
+
+.. image:: docs/source/eth_btc_prices.png
+   :alt: Comparaison des prix ETH et BTC
+   :align: center
+   :width: 600px
 
 🔍 **Tests de Stationnarité Complets**
 ======================================
