@@ -472,108 +472,93 @@ Ces résultats orientent vers un modèle **ARIMA(p=1, d=?, q=8)** comme point de
    </div>
 
 
-# ⚡ **Analyse de la Volatilité : Court Terme vs Long Terme**
+⚡ **Analyse de la Volatilité : Court Terme vs Long Terme**
+===========================================================
 
-<div style="background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%); padding: 30px; border-radius: 20px; color: white; margin: 25px 0; font-size: 1.1em; box-shadow: 0 8px 32px rgba(100, 181, 246, 0.3); border: 1px solid rgba(255, 255, 255, 0.2);">
-<strong>📊 Concept Clé</strong><br><br>
-La volatilité est un indicateur essentiel du risque. À court terme, elle reflète les réactions immédiates du marché aux événements. À long terme, elle traduit la stabilité fondamentale d'un actif. Si Ethereum (ETH) est historiquement plus volatil, c'est Bitcoin (BTC) qui présente un <strong>profil de risque plus dangereux</strong> lorsque l'on examine le <strong>rapport entre la volatilité et son prix</strong>. Ce déséquilibre expose les investisseurs à des pertes sévères pendant les phases baissières.
-</div>
+.. raw:: html
 
-## 🔧 **Fonction d'Analyse Avancée de la Volatilité**
+   <div style="background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%); padding: 30px; border-radius: 15px; color: white; margin: 20px 0; font-size: 1em; box-shadow: 0 8px 32px rgba(100, 181, 246, 0.3);">
+   La volatilité est un indicateur essentiel du risque. À court terme, elle reflète les réactions immédiates du marché aux événements. À long terme, elle traduit la stabilité fondamentale d'un actif. Si Ethereum (ETH) est historiquement plus volatil, c'est Bitcoin (BTC) qui présente un <strong>profil de risque plus dangereux</strong> lorsque l'on examine le <strong>rapport entre la volatilité et son prix</strong>. Ce déséquilibre expose les investisseurs à des pertes sévères pendant les phases baissières.
+   </div>
 
-```python
-import numpy as np
-import pandas as pd
-from statsmodels.tsa.stattools import acf
-from statsmodels.stats.diagnostic import het_arch
+**Fonction d'Analyse Avancée de la Volatilité**
 
-def calculate_drawdown(series):
-    """
-    Calcule le maximum drawdown d'une série
-    """
-    cumulative = (1 + series).cumprod()
-    peak = cumulative.cummax()
-    drawdown = (cumulative - peak) / peak
-    return drawdown.min()
+.. code-block:: python
 
-def volatility_analysis(returns, price_series):
-    """
-    Analyse complète de la volatilité à court et long terme
-    """
-    # Test ARCH (volatilité conditionnelle)
-    arch_stat, arch_pvalue = het_arch(returns, nlags=5)[:2]
-    
-    # Volatilité court terme (7 jours) et long terme (30 jours)
-    short_term_vol = returns.rolling(window=7).std() * np.sqrt(365)
-    long_term_vol = returns.rolling(window=30).std() * np.sqrt(365)
-    
-    # Volatilité moyenne
-    avg_short = short_term_vol.mean()
-    avg_long = long_term_vol.mean()
-    
-    # Volatilité / Prix (rapport de risque relatif)
-    risk_ratio = (long_term_vol / price_series).mean()
-    
-    # Drawdown
-    max_drawdown = calculate_drawdown(returns)
-    
-    return {
-        "ARCH_test": {
-            "statistic": arch_stat,
-            "p_value": arch_pvalue,
-            "interprétation": "Effet ARCH présent" if arch_pvalue < 0.05 else "Pas d'effet ARCH"
-        },
-        "volatilité": {
-            "court_terme": avg_short,
-            "long_terme": avg_long,
-            "écart": avg_long - avg_short,
-            "ratio_volatilité/prix": risk_ratio
-        },
-        "drawdown": {
-            "max_drawdown": max_drawdown,
-            "interprétation": "Risque sévère de perte en cas de correction"
-        }
-    }
-```
+   import numpy as np
+   import pandas as pd
+   from statsmodels.tsa.stattools import acf
+   from statsmodels.stats.diagnostic import het_arch
 
-## 📈 **Analyse Comparative des Résultats**
+   def calculate_drawdown(series):
+       """
+       Calcule le maximum drawdown d'une série
+       """
+       cumulative = (1 + series).cumprod()
+       peak = cumulative.cummax()
+       drawdown = (cumulative - peak) / peak
+       return drawdown.min()
 
-<div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 25px; border-radius: 15px; margin: 25px 0; font-size: 1em; border-left: 5px solid #2196f3; box-shadow: 0 4px 16px rgba(33, 150, 243, 0.1);">
+   def volatility_analysis(returns, price_series):
+       """
+       Analyse complète de la volatilité à court et long terme
+       """
+       # Test ARCH (volatilité conditionnelle)
+       arch_stat, arch_pvalue = het_arch(returns, nlags=5)[:2]
+       
+       # Volatilité court terme (7 jours) et long terme (30 jours)
+       short_term_vol = returns.rolling(window=7).std() * np.sqrt(365)
+       long_term_vol = returns.rolling(window=30).std() * np.sqrt(365)
+       
+       # Volatilité moyenne
+       avg_short = short_term_vol.mean()
+       avg_long = long_term_vol.mean()
+       
+       # Volatilité / Prix (rapport de risque relatif)
+       risk_ratio = (long_term_vol / price_series).mean()
+       
+       # Drawdown
+       max_drawdown = calculate_drawdown(returns)
+       
+       return {
+           "ARCH_test": {
+               "statistic": arch_stat,
+               "p_value": arch_pvalue,
+               "interprétation": "Effet ARCH présent" if arch_pvalue < 0.05 else "Pas d'effet ARCH"
+           },
+           "volatilité": {
+               "court_terme": avg_short,
+               "long_terme": avg_long,
+               "écart": avg_long - avg_short,
+               "ratio_volatilité/prix": risk_ratio
+           },
+           "drawdown": {
+               "max_drawdown": max_drawdown,
+               "interprétation": "Risque sévère de perte en cas de correction"
+           }
+       }
 
-### 🔍 **Court Terme (7 jours)**
-- **Ethereum** montre une réactivité instantanée plus forte aux événements du marché (volatilité 7 jours plus élevée)
-- **Bitcoin**, bien que plus stable à court terme, subit des corrections abruptes non anticipées
+**Résumé Comparatif BTC vs ETH**
 
-### 📉 **Long Terme (30 jours)**
-- **Volatilité moyenne sur 30 jours :** ETH > BTC
-- **Ratio volatilité / prix :** <span style="color: #1565c0; font-weight: bold; background: rgba(21, 101, 192, 0.1); padding: 2px 8px; border-radius: 4px;">plus élevé pour le BTC</span>, ce qui signifie que le prix du BTC chute souvent en parallèle avec une forte hausse du risque
+.. raw:: html
 
-### 📛 **Drawdown Maximal**
-- BTC affiche un drawdown historique plus prononcé, accentuant l'effet "piège" sur les positions longues
-
-</div>
-
-## 💡 **Conclusion Stratégique**
-
-<div style="background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%); padding: 25px; border-radius: 15px; color: white; margin: 25px 0; font-size: 1.05em; box-shadow: 0 8px 24px rgba(25, 118, 210, 0.4);">
-<strong>⚠️ Point Critique :</strong><br><br>
-La volatilité brute ne suffit pas. Il faut considérer sa proportion par rapport au prix et à la profondeur des corrections. Le BTC peut sembler plus "sûr", mais il cache une dynamique de risque plus perfide, surtout en période de panique.
-<br><br>
-<strong>🎯 Implication :</strong> Une analyse multi-dimensionnelle de la volatilité est essentielle pour une gestion de risque efficace.
-</div>
-
----
-
-### 📊 **Métriques Clés à Surveiller**
-
-| Métrique | Court Terme | Long Terme | Impact Risque |
-|----------|-------------|------------|---------------|
-| **Volatilité Annualisée** | 7 jours | 30 jours | ⚡ Réactivité |
-| **Ratio Vol/Prix** | Instantané | Tendanciel | 🎯 Risque Relatif |
-| **Drawdown Max** | Correction | Krach | 📉 Perte Potentielle |
-| **Test ARCH** | Clustering | Persistance | 🔄 Prévisibilité |
-
-
+   <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 20px; border-radius: 10px; margin: 20px 0; font-size: 0.95em; border-left: 5px solid #2196f3;">
+   
+   🔍 <strong>Court Terme :</strong><br/>
+   - <strong>Ethereum</strong> montre une réactivité instantanée plus forte aux événements du marché (volatilité 7 jours plus élevée).<br/>
+   - <strong>Bitcoin</strong>, bien que plus stable à court terme, subit des corrections abruptes non anticipées.
+   <br/><br/>
+   
+   📉 <strong>Long Terme :</strong><br/>
+   - <strong>Volatilité moyenne sur 30 jours :</strong> ETH &gt; BTC<br/>
+   - <strong>Ratio volatilité / prix :</strong> <span style="color:#1565c0; background: rgba(21, 101, 192, 0.1); padding: 2px 8px; border-radius: 4px;"><strong>plus élevé pour le BTC</strong></span>, ce qui signifie que le prix du BTC chute souvent en parallèle avec une forte hausse du risque.
+   <br/><br/>
+   
+   📛 <strong>Drawdown Maximal :</strong><br/>
+   - BTC affiche un drawdown historique plus prononcé, accentuant l'effet "piège" sur les positions longues.
+   <br/><br/>
+   
+   💡 <strong>Conclusion :</strong> La volatilité brute ne suffit pas. Il faut considérer sa proportion par rapport au prix et à la profondeur des corrections. Le BTC peut sembler plus "sûr", mais il cache une dynamique de risque plus perfide, surtout e
 
 
 📈 **Synthèse et Implications Prédictives**
