@@ -36,7 +36,6 @@ ETH-to-BTC/
 ├── README.md               # Documentation principale
 ├── requirements.txt        # Dépendances Python requises
 ├── setup.py                # Configuration pour l'installation comme package
-├── predict.py              # Script principal pour les prédictions
 ├── data/                   # Répertoire pour les données historiques
 ├── models/                 # Modèles entraînés sauvegardés
 ├── notebooks/              # Notebooks Jupyter pour l'exploration et l'analyse
@@ -56,6 +55,7 @@ ETH-to-BTC/
     ├── utils/              # Fonctions utilitaires
     │   ├── __init__.py
     │   └── visualization.py # Outils de visualisation des résultats
+    ├── predict.py              # Script principal pour les prédictions
     └── train.py            # Script d'entraînement des modèles
 ```
 
