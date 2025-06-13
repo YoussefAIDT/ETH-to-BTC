@@ -41,11 +41,6 @@ L'analyse de corrélation entre **Ethereum (ETH)** et **Bitcoin (BTC)** révèle
       <p style="margin: 0; opacity: 0.95;">Mesure de la force de corrélation entre les prix ETH et BTC</p>
    </div>
 
-.. image:: images/pearson_correlation.png
-   :alt: Graphique de corrélation de Pearson ETH-BTC
-   :align: center
-   :width: 600px
-
 La corrélation de Pearson mesure la relation linéaire entre les prix d'Ethereum et Bitcoin. Notre analyse révèle un coefficient de corrélation **r = 0.82**, indiquant une forte relation positive entre les deux actifs.
 
 **Interprétation des résultats :**
@@ -70,7 +65,7 @@ La corrélation de Pearson mesure la relation linéaire entre les prix d'Ethereu
       <p style="margin: 0; opacity: 0.95;">Validation de l'efficacité du modèle basé sur la corrélation</p>
    </div>
 
-.. image:: images/confusion_matrix.png
+.. image:: correlation_matrix.png
    :alt: Matrice de confusion pour la prédiction ETH-BTC
    :align: center
    :width: 500px
@@ -100,7 +95,7 @@ La matrice de confusion évalue la performance de notre modèle de prédiction b
       <p style="margin: 0; opacity: 0.95;">Évolution de la corrélation ETH-BTC sur fenêtre mobile de 30 jours</p>
    </div>
 
-.. image:: images/rolling_correlation.png
+.. image:: rolling_corr.png
    :alt: Graphique de corrélation glissante ETH-BTC sur 30 jours
    :align: center
    :width: 700px
@@ -130,7 +125,7 @@ L'analyse de corrélation glissante sur une fenêtre de 30 jours révèle l'évo
       <p style="margin: 0; opacity: 0.95;">Identification des patterns de leadership entre ETH et BTC</p>
    </div>
 
-.. image:: images/cross_correlation.png
+.. image:: images/corr_croise.png
    :alt: Graphique de corrélation croisée ETH-BTC avec décalages temporels
    :align: center
    :width: 700px
