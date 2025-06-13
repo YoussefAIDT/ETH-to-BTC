@@ -31,6 +31,7 @@ Cette analyse examine les propriétés statistiques fondamentales de **Bitcoin (
 
    </div>
 
+```rst
 📈 **Statistiques Descriptives BTC vs ETH**
 ===========================================
 
@@ -46,78 +47,60 @@ Comparaison des métriques de performance et de risque entre Bitcoin et Ethereum
 
 .. raw:: html
 
-   <div style="display: flex; gap: 25px; margin: 30px 0; flex-wrap: wrap;">
+   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 30px 0;">
       
-      <div style="flex: 1; min-width: 400px; background: linear-gradient(135deg, #f7931e 0%, #ff6b35 100%); padding: 30px; border-radius: 15px; color: white; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+      <div style="background: linear-gradient(135deg, #f7931e 0%, #ff6b35 100%); padding: 30px; border-radius: 15px; color: white; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
          <h3 style="margin: 0 0 25px 0; font-size: 1.6em; text-align: center; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 15px;">₿ BITCOIN (BTC)</h3>
          <div style="font-size: 1.05em; line-height: 1.8;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-               <span style="font-weight: 600;">Volatilité Annualisée:</span>
-               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold;">82.4%</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-               <span style="font-weight: 600;">Rendement Moyen:</span>
-               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold; color: #90EE90;">+18.7%</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-               <span style="font-weight: 600;">Sharpe Ratio:</span>
-               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold;">0.523</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-               <span style="font-weight: 600;">Skewness:</span>
-               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold;">-0.21</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-               <span style="font-weight: 600;">Kurtosis:</span>
-               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold;">4.8</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-               <span style="font-weight: 600;">VaR 95%:</span>
-               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold; color: #FFB6C1;">-4.2%</span>
-            </div>
-            <div style="display: flex; justify-content: space-between;">
-               <span style="font-weight: 600;">Drawdown Max:</span>
-               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold; color: #FFB6C1;">-73.8%</span>
-            </div>
+            <p style="margin: 0 0 12px 0;"><strong>Volatilité Annualisée:</strong> 82.4%</p>
+            <p style="margin: 0 0 12px 0;"><strong>Rendement Moyen:</strong> +18.7%</p>
+            <p style="margin: 0 0 12px 0;"><strong>Sharpe Ratio:</strong> 0.523</p>
+            <p style="margin: 0 0 12px 0;"><strong>Skewness:</strong> -0.21 (asymétrie négative)</p>
+            <p style="margin: 0 0 12px 0;"><strong>Kurtosis:</strong> 4.8 (queues lourdes)</p>
+            <p style="margin: 0 0 12px 0;"><strong>VaR 95%:</strong> -4.2%</p>
+            <p style="margin: 0;"><strong>Drawdown Max:</strong> -73.8%</p>
          </div>
       </div>
       
-      <div style="flex: 1; min-width: 400px; background: linear-gradient(135deg, #627eea 0%, #8a2be2 100%); padding: 30px; border-radius: 15px; color: white; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+      <div style="background: linear-gradient(135deg, #627eea 0%, #8a2be2 100%); padding: 30px; border-radius: 15px; color: white; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
          <h3 style="margin: 0 0 25px 0; font-size: 1.6em; text-align: center; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 15px;">⟐ ETHEREUM (ETH)</h3>
          <div style="font-size: 1.05em; line-height: 1.8;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-               <span style="font-weight: 600;">Volatilité Annualisée:</span>
-               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold;">96.3%</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-               <span style="font-weight: 600;">Rendement Moyen:</span>
-               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold; color: #90EE90;">+24.1%</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-               <span style="font-weight: 600;">Sharpe Ratio:</span>
-               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold;">0.461</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-               <span style="font-weight: 600;">Skewness:</span>
-               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold;">-0.35</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-               <span style="font-weight: 600;">Kurtosis:</span>
-               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold;">6.2</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-               <span style="font-weight: 600;">VaR 95%:</span>
-               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold; color: #FFB6C1;">-5.1%</span>
-            </div>
-            <div style="display: flex; justify-content: space-between;">
-               <span style="font-weight: 600;">Drawdown Max:</span>
-               <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-weight: bold; color: #FFB6C1;">-82.1%</span>
-            </div>
+            <p style="margin: 0 0 12px 0;"><strong>Volatilité Annualisée:</strong> 96.3%</p>
+            <p style="margin: 0 0 12px 0;"><strong>Rendement Moyen:</strong> +24.1%</p>
+            <p style="margin: 0 0 12px 0;"><strong>Sharpe Ratio:</strong> 0.461</p>
+            <p style="margin: 0 0 12px 0;"><strong>Skewness:</strong> -0.35 (asymétrie négative)</p>
+            <p style="margin: 0 0 12px 0;"><strong>Kurtosis:</strong> 6.2 (queues très lourdes)</p>
+            <p style="margin: 0 0 12px 0;"><strong>VaR 95%:</strong> -5.1%</p>
+            <p style="margin: 0;"><strong>Drawdown Max:</strong> -82.1%</p>
          </div>
       </div>
       
    </div>
 
+.. raw:: html
+
+   <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 30px 0; border-left: 5px solid #28a745;">
+      <h4 style="margin: 0 0 15px 0; color: #155724;">🔍 Analyse Comparative</h4>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+         <div>
+            <p style="margin: 0 0 10px 0; font-size: 0.95em;"><strong>Avantages BTC:</strong></p>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9em;">
+               <li>Volatilité plus faible (82.4% vs 96.3%)</li>
+               <li>Meilleur Sharpe ratio (0.523 vs 0.461)</li>
+               <li>Drawdown maximum moins sévère</li>
+            </ul>
+         </div>
+         <div>
+            <p style="margin: 0 0 10px 0; font-size: 0.95em;"><strong>Avantages ETH:</strong></p>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9em;">
+               <li>Rendement moyen supérieur (24.1% vs 18.7%)</li>
+               <li>Plus grande volatilité = potentiel de gains</li>
+               <li>Innovation technologique continue</li>
+            </ul>
+         </div>
+      </div>
+   </div>
+```
 .. raw:: html
 
    <div style="background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%); padding: 20px; border-radius: 12px; margin: 25px 0; border-left: 4px solid #4CAF50;">
