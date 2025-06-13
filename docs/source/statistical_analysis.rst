@@ -439,6 +439,7 @@ Ces résultats orientent vers un modèle **ARIMA(p=1, d=?, q=8)** comme point de
 
 
 **Interprétation des Patterns ACF/PACF**
+========================================
 
 .. raw:: html
 
@@ -446,20 +447,30 @@ Ces résultats orientent vers un modèle **ARIMA(p=1, d=?, q=8)** comme point de
       
       <div style="flex: 1; min-width: 200px; background: #e3f2fd; padding: 20px; border-radius: 10px; border-left: 4px solid #2196f3;">
          <h4 style="margin: 0 0 10px 0; color: #1976d2;">📈 Processus AR(p)</h4>
-         <p style="margin: 0; font-size: 0.9em;">ACF: Décroissance exponentielle<br/>PACF: Coupure nette au lag p</p>
+         <p style="margin: 0; font-size: 0.9em;">
+            • <strong>ACF</strong> : décroissance exponentielle ou oscillante<br/>
+            • <strong>PACF</strong> : coupure nette après le lag <em>p</em>
+         </p>
       </div>
       
       <div style="flex: 1; min-width: 200px; background: #f3e5f5; padding: 20px; border-radius: 10px; border-left: 4px solid #9c27b0;">
          <h4 style="margin: 0 0 10px 0; color: #7b1fa2;">📊 Processus MA(q)</h4>
-         <p style="margin: 0; font-size: 0.9em;">ACF: Coupure nette au lag q<br/>PACF: Décroissance exponentielle</p>
+         <p style="margin: 0; font-size: 0.9em;">
+            • <strong>ACF</strong> : coupure nette après le lag <em>q</em><br/>
+            • <strong>PACF</strong> : décroissance exponentielle ou oscillante
+         </p>
       </div>
       
       <div style="flex: 1; min-width: 200px; background: #e8f5e8; padding: 20px; border-radius: 10px; border-left: 4px solid #4caf50;">
          <h4 style="margin: 0 0 10px 0; color: #388e3c;">🎯 Processus ARMA(p,q)</h4>
-         <p style="margin: 0; font-size: 0.9em;">ACF: Décroissance après lag q<br/>PACF: Décroissance après lag p</p>
+         <p style="margin: 0; font-size: 0.9em;">
+            • <strong>ACF</strong> : décroissance mixte après le lag <em>q</em><br/>
+            • <strong>PACF</strong> : décroissance mixte après le lag <em>p</em>
+         </p>
       </div>
       
    </div>
+
 
 ⚡ **Analyse de Volatilité et Clustering**
 ==========================================
