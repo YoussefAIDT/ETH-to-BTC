@@ -599,9 +599,9 @@ Ces résultats orientent vers un modèle **ARIMA(p=1, d=?, q=8)** comme point de
      <li>
        <strong>🔄 Exploration recommandée :</strong><br/>
        <ul>
-         <li><code>notebook.ipynb</code> → Analyse statistique fondamentale</li>
+         <li><code>Analyse_Statistique_Corrélation_Choix_Modèle.ipynb</code> → Analyse statistique fondamentale</li>
          <li><code>pmdarima.ipynb</code> → Modélisation ARIMA</li>
-         <li><code>notebook.ipynb</code> → Modèles Deep Learning avancés</li>
+         <li><code>Analyse_Statistique_Corrélation_Choix_Modèle.ipynb</code> → Modèles Deep Learning avancés</li>
        </ul>
      </li><br/>
      <li>
