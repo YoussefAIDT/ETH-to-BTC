@@ -1,5 +1,6 @@
 """
-Package principal pour la prédiction du prix du Bitcoin
+Utilitaires pour la visualisation et l'évaluation
 """
-__version__ = "1.0.0"
-__author__ = "ES-SAAIDI Youssef - ZEMMAHI Zakariae"
+from .visualization import plot_predictions, plot_training_history
+
+__all__ = ['plot_predictions', 'plot_training_history']
