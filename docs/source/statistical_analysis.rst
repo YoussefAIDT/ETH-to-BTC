@@ -546,20 +546,21 @@ La volatilité est un indicateur essentiel du risque. À court terme, elle refl�
 
    <div style="background: #fff8e1; padding: 20px; border-radius: 10px; margin: 20px 0; font-size: 0.95em;">
 
-🔍 **Court Terme :**<br/>
-- **Ethereum** montre une réactivité instantanée plus forte aux événements du marché (volatilité 7 jours plus élevée).<br/>
-- **Bitcoin**, bien que plus stable à court terme, subit des corrections abruptes non anticipées.
+🔍 <strong>Court Terme :</strong><br/>
+- <strong>Ethereum</strong> montre une réactivité instantanée plus forte aux événements du marché (volatilité 7 jours plus élevée).<br/>
+- <strong>Bitcoin</strong>, bien que plus stable à court terme, subit des corrections abruptes non anticipées.
 
-📉 **Long Terme :**<br/>
-- **Volatilité moyenne sur 30 jours :** ETH > BTC<br/>
-- **Ratio volatilité / prix :** <span style="color:red;"><strong>plus élevé pour le BTC</strong></span>, ce qui signifie que le prix du BTC chute souvent en parallèle avec une forte hausse du risque.
+📉 <strong>Long Terme :</strong><br/>
+- <strong>Volatilité moyenne sur 30 jours :</strong> ETH &gt; BTC<br/>
+- <strong>Ratio volatilité / prix :</strong> <span style="color:#1e88e5;"><strong>plus élevé pour le BTC</strong></span>, ce qui signifie que le prix du BTC chute souvent en parallèle avec une forte hausse du risque.
 
-📛 **Drawdown Maximal :**<br/>
+📛 <strong>Drawdown Maximal :</strong><br/>
 - BTC affiche un drawdown historique plus prononcé, accentuant l’effet "piège" sur les positions longues.
 
-💡 **Conclusion :** La volatilité brute ne suffit pas. Il faut considérer sa proportion par rapport au prix et à la profondeur des corrections. Le BTC peut sembler plus "sûr", mais il cache une dynamique de risque plus perfide, surtout en période de panique.
+💡 <strong>Conclusion :</strong> La volatilité brute ne suffit pas. Il faut considérer sa proportion par rapport au prix et à la profondeur des corrections. Le BTC peut sembler plus "sûr", mais il cache une dynamique de risque plus perfide, surtout en période de panique.
 
    </div>
+
 
 
 📈 **Synthèse et Implications Prédictives**
