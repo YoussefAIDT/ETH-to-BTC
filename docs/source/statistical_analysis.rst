@@ -618,11 +618,23 @@ Ces résultats orientent vers un modèle **ARIMA(p=1, d=?, q=8)** comme point de
    Cette documentation théorique prend tout son sens lorsqu’elle est mise en pratique dans les notebooks.<br/>
    Chaque concept ici a une implémentation concrète dans les analyses et modèles proposés.</p>
 
-   <p><strong>🔗 Liens utiles :</strong><br/>
-   • GitHub : <a href="https://github.com/YoussefAIDT/ETH-to-BTC" target="_blank" style="color:#ffccbc;">https://github.com/YoussefAIDT/ETH-to-BTC</a><br/>
-   • Dossier <code>notebooks/</code> pour les fichiers interactifs<br/>
-   • Documentation technique dans le <code>README.md</code>
-   </p>
+📞 **Contact & Support**
+========================
 
+.. raw:: html
+
+   <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; margin: 30px 0;">
+      <h3 style="margin: 0 0 15px 0;">Développé par Youssef AIDT & Zakariae Zemmahi</h3>
+      <p style="margin: 0;">
+         <a href="https://github.com/YoussefAIDT" style="color: #fff; text-decoration: none; font-weight: bold; margin-right: 15px;">
+            🐙 YoussefAIDT GitHub
+         </a>
+         <a href="https://github.com/zakariazemmahi" style="color: #fff; text-decoration: none; font-weight: bold;">
+            🐙 zakariazemmahi GitHub
+         </a>
+      </p>
    </div>
+
+.. note::
+   Cette documentation est en développement actif. Pour les dernières mises à jour, consultez le repository GitHub.
 
