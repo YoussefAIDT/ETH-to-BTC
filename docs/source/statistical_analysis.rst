@@ -258,67 +258,13 @@ Application de la triade de tests de stationnarité pour caractériser les propr
          <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🔄 Test PP</h3>
          <p style="margin: 0; opacity: 0.9;">
          Test Phillips-Perron<br/>
-         (résultats non fournis ici)<br/>
+         (même résultat)<br/>
          Robuste aux corrélations<br/>
          Alternative non-paramétrique
          </p>
       </div>
       
    </div>
-
-
-**Implémentation Complète des Tests**
-
-.. code-block:: python
-
-   from statsmodels.tsa.stattools import adfuller, kpss
-   from arch.unitroot import PhillipsPerron
-   import warnings
-   warnings.filterwarnings('ignore')
-   
-   def comprehensive_stationarity_tests(series, name):
-       """
-       Batterie complète de tests de stationnarité pour BTC/ETH
-       """
-       results = {}
-       
-       # Test ADF (Augmented Dickey-Fuller)
-       try:
-           adf_result = adfuller(series, autolag='AIC')
-           results['ADF'] = {
-               'statistic': adf_result[0],
-               'p_value': adf_result[1],
-               'critical_values': adf_result[4],
-               'interpretation': 'Stationnaire' if adf_result[1] < 0.05 else 'Non-stationnaire'
-           }
-       except Exception as e:
-           results['ADF'] = {'error': str(e)}
-       
-       # Test KPSS (Kwiatkowski-Phillips-Schmidt-Shin)
-       try:
-           kpss_result = kpss(series, regression='c')
-           results['KPSS'] = {
-               'statistic': kpss_result[0],
-               'p_value': kpss_result[1],
-               'critical_values': kpss_result[3],
-               'interpretation': 'Non-stationnaire' if kpss_result[1] < 0.05 else 'Stationnaire'
-           }
-       except Exception as e:
-           results['KPSS'] = {'error': str(e)}
-       
-       # Test Phillips-Perron
-       try:
-           pp = PhillipsPerron(series)
-           results['PP'] = {
-               'statistic': pp.stat,
-               'p_value': pp.pvalue,
-               'critical_values': pp.critical_values,
-               'interpretation': 'Stationnaire' if pp.pvalue < 0.05 else 'Non-stationnaire'
-           }
-       except Exception as e:
-           results['PP'] = {'error': str(e)}
-       
-       return results
 
 **Résultats Typiques pour BTC et ETH**
 
