@@ -337,6 +337,9 @@ Ces résultats orientent vers un modèle **ARIMA(p=1, d=?, q=8)** comme point de
 
 .. code-block:: python
 
+   import pandas as pd
+   import matplotlib.pyplot as plt
+   
    from statsmodels.tsa.stattools import acf, pacf
    from statsmodels.stats.diagnostic import acorr_ljungbox
    import matplotlib.pyplot as plt
@@ -349,23 +352,23 @@ Ces résultats orientent vers un modèle **ARIMA(p=1, d=?, q=8)** comme point de
        # Calcul ACF et PACF
        acf_values = acf(series, nlags=lags, alpha=0.05)
        pacf_values = pacf(series, nlags=lags, alpha=0.05)
-       
+   
        # Test de Ljung-Box pour autocorrélation globale
        ljung_box = acorr_ljungbox(series, lags=lags, return_df=True)
-       
+   
        # Identification des lags significatifs
        significant_acf = []
        significant_pacf = []
-       
+   
        for i in range(1, len(acf_values[0])):
            # ACF significatif si en dehors des bornes de confiance
            if abs(acf_values[0][i]) > abs(acf_values[1][i][0] - acf_values[0][i]):
                significant_acf.append(i)
-           
+   
            # PACF significatif
            if abs(pacf_values[0][i]) > abs(pacf_values[1][i][0] - pacf_values[0][i]):
                significant_pacf.append(i)
-       
+   
        results = {
            'ACF': {
                'values': acf_values[0],
@@ -373,7 +376,7 @@ Ces résultats orientent vers un modèle **ARIMA(p=1, d=?, q=8)** comme point de
                'significant_lags': significant_acf
            },
            'PACF': {
-               'values': pacf_values[0], 
+               'values': pacf_values[0],
                'confidence_intervals': pacf_values[1],
                'significant_lags': significant_pacf
            },
@@ -383,7 +386,7 @@ Ces résultats orientent vers un modèle **ARIMA(p=1, d=?, q=8)** comme point de
                'significant_lags': ljung_box[ljung_box['lb_pvalue'] < 0.05].index.tolist()
            }
        }
-       
+   
        return results
    
    def plot_acf_pacf(series, lags=30, figsize=(15, 6)):
@@ -391,19 +394,49 @@ Ces résultats orientent vers un modèle **ARIMA(p=1, d=?, q=8)** comme point de
        Visualisation des fonctions ACF et PACF
        """
        fig, axes = plt.subplots(1, 2, figsize=figsize)
-       
+   
        # Plot ACF
        plot_acf(series, lags=lags, ax=axes[0], alpha=0.05)
        axes[0].set_title('Fonction d\'Autocorrélation (ACF)')
        axes[0].grid(True, alpha=0.3)
-       
+   
        # Plot PACF
        plot_pacf(series, lags=lags, ax=axes[1], alpha=0.05)
        axes[1].set_title('Fonction d\'Autocorrélation Partielle (PACF)')
        axes[1].grid(True, alpha=0.3)
-       
+   
        plt.tight_layout()
        return fig
+   
+   def main():
+       # Exemple 1 : Charger une série depuis un fichier CSV
+       # df = pd.read_csv("data.csv")
+       # series = df["BTC_Price"]  # Remplace par le nom réel de ta colonne
+   
+       # Exemple 2 : Série artificielle pour test
+       import numpy as np
+       np.random.seed(42)
+       series = pd.Series(np.random.randn(100).cumsum(), name="Série aléatoire")
+   
+       # Affichage des premières valeurs
+       print("Aperçu de la série :")
+       print(series.head())
+   
+       # Analyse d'autocorrélation
+       results = autocorrelation_analysis(series, lags=30, name=series.name)
+   
+       # Affichage des résultats
+       print("\nLags significatifs (ACF):", results['ACF']['significant_lags'])
+       print("Lags significatifs (PACF):", results['PACF']['significant_lags'])
+       print("Lags significatifs (Ljung-Box, p < 0.05):", results['Ljung_Box']['significant_lags'])
+   
+       # Tracer ACF et PACF
+       fig = plot_acf_pacf(series, lags=30)
+       plt.show()
+   
+   if __name__ == "__main__":
+       main()
+
 
 **Interprétation des Patterns ACF/PACF**
 
