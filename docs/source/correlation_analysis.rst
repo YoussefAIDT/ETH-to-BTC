@@ -120,7 +120,9 @@ L'analyse de corrélation glissante sur une fenêtre de 30 jours révèle l'évo
 
 .. raw:: html
 
-   <div style="background: linear-gradient(135deg, #e83e8c 0%, #6f42c1 100%); padding: 20px; border-radius: 12px; color: white; margin: 20px 0; box-shadow: 0 6px 20px rgba(232, 62, 140, 0.2);">
+   <div style="background: linear-gradient(135deg, #e83e8c 0%, #6f42c1 100%);
+               padding: 20px; border-radius: 12px; color: white;
+               margin: 20px 0; box-shadow: 0 6px 20px rgba(232, 62, 140, 0.2);">
       <h4 style="margin: 0 0 10px 0; font-size: 1.2em;">⚡ Analyse des Décalages Temporels</h4>
       <p style="margin: 0; opacity: 0.95;">Identification des patterns de leadership entre ETH et BTC</p>
    </div>
@@ -132,6 +134,8 @@ L'analyse de corrélation glissante sur une fenêtre de 30 jours révèle l'évo
 
 L'analyse de corrélation croisée examine la relation ETH-BTC à différents décalages temporels, révélant des patterns de leadership et de retard entre les deux actifs.
 
+La symétrie marquée de cette courbe de corrélation croisée suggère une corrélation forte et bidirectionnelle entre Ethereum et Bitcoin, indiquant que les mouvements de l’un influencent significativement ceux de l’autre sans décalage temporel marqué.
+
 **Résultats de l'analyse de décalage :**
 
 - **Décalage optimal** : -1.8 jours (ETH précède BTC)
@@ -141,7 +145,8 @@ L'analyse de corrélation croisée examine la relation ETH-BTC à différents d�
 
 .. raw:: html
 
-   <div style="background: #fff3cd; padding: 20px; border-left: 5px solid #ffc107; margin: 20px 0; border-radius: 0 10px 10px 0;">
+   <div style="background: #fff3cd; padding: 20px; border-left: 5px solid #ffc107;
+               margin: 20px 0; border-radius: 0 10px 10px 0;">
       <strong>🚀 Découverte Majeure :</strong> Cette analyse révèle un pattern crucial : <strong>Ethereum tend à précéder Bitcoin de 1.8 jours en moyenne</strong>. La corrélation croisée atteint son maximum à ce décalage, suggérant qu'Ethereum peut servir d'<strong>indicateur avancé</strong> pour les mouvements de Bitcoin. Cette découverte renforce considérablement la validité de notre approche prédictive.
    </div>
 
