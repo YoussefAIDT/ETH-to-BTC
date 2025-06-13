@@ -472,81 +472,95 @@ Ces résultats orientent vers un modèle **ARIMA(p=1, d=?, q=8)** comme point de
    </div>
 
 
-⚡ **Analyse de Volatilité et Clustering**
-==========================================
+⚡ **Analyse de la Volatilité : Court Terme vs Long Terme**
+===========================================================
 
 .. raw:: html
 
-   <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; color: white; margin: 20px 0;">
+   <div style="background: linear-gradient(135deg, #ff512f 0%, #dd2476 100%); padding: 30px; border-radius: 15px; color: white; margin: 20px 0; font-size: 1em;">
 
-Les cryptomonnaies présentent des phénomènes de clustering de volatilité caractéristiques des séries financières :
-
-.. raw:: html
+La volatilité est un indicateur essentiel du risque. À court terme, elle reflète les réactions immédiates du marché aux événements. À long terme, elle traduit la stabilité fondamentale d’un actif. Si Ethereum (ETH) est historiquement plus volatil, c’est Bitcoin (BTC) qui présente un <strong>profil de risque plus dangereux</strong> lorsque l’on examine le <strong>rapport entre la volatilité et son prix</strong>. Ce déséquilibre expose les investisseurs à des pertes sévères pendant les phases baissières.
 
    </div>
 
-**Tests d'Hétéroscédasticité**
+**Fonction d’Analyse Avancée de la Volatilité**
 
 .. code-block:: python
 
+   import numpy as np
+   import pandas as pd
+   from statsmodels.tsa.stattools import acf
    from statsmodels.stats.diagnostic import het_arch
-   from scipy import stats
-   
-   def volatility_clustering_analysis(returns):
+
+   def calculate_drawdown(series):
        """
-       Analyse du clustering de volatilité
+       Calcule le maximum drawdown d'une série
        """
-       # Test ARCH pour hétéroscédasticité conditionnelle
+       cumulative = (1 + series).cumprod()
+       peak = cumulative.cummax()
+       drawdown = (cumulative - peak) / peak
+       return drawdown.min()
+
+   def volatility_analysis(returns, price_series):
+       """
+       Analyse complète de la volatilité à court et long terme
+       """
+       # Test ARCH (volatilité conditionnelle)
        arch_stat, arch_pvalue = het_arch(returns, nlags=5)[:2]
-       
-       # Volatilité mobile
-       rolling_vol = returns.rolling(window=30).std() * np.sqrt(365)
-       
-       # Autocorrélation de la volatilité (rendements au carré)
-       squared_returns = returns ** 2
-       vol_acf = acf(squared_returns, nlags=20)
-       
-       # Clustering periods identification
-       high_vol_periods = rolling_vol > rolling_vol.quantile(0.9)
-       
-       results = {
-           'ARCH_test': {
-               'statistic': arch_stat,
-               'p_value': arch_pvalue,
-               'interpretation': 'ARCH effects present' if arch_pvalue < 0.05 else 'No ARCH effects'
+
+       # Volatilité court terme (7 jours) et long terme (30 jours)
+       short_term_vol = returns.rolling(window=7).std() * np.sqrt(365)
+       long_term_vol = returns.rolling(window=30).std() * np.sqrt(365)
+
+       # Volatilité moyenne
+       avg_short = short_term_vol.mean()
+       avg_long = long_term_vol.mean()
+
+       # Volatilité / Prix (rapport de risque relatif)
+       risk_ratio = (long_term_vol / price_series).mean()
+
+       # Drawdown
+       max_drawdown = calculate_drawdown(returns)
+
+       return {
+           "ARCH_test": {
+               "statistic": arch_stat,
+               "p_value": arch_pvalue,
+               "interprétation": "Effet ARCH présent" if arch_pvalue < 0.05 else "Pas d'effet ARCH"
            },
-           'volatility_persistence': {
-               'mean_vol': rolling_vol.mean(),
-               'vol_std': rolling_vol.std(),
-               'vol_autocorr': vol_acf[1:6]  # First 5 lags
+           "volatilité": {
+               "court_terme": avg_short,
+               "long_terme": avg_long,
+               "écart": avg_long - avg_short,
+               "ratio_volatilité/prix": risk_ratio
            },
-           'clustering_stats': {
-               'high_vol_frequency': high_vol_periods.sum() / len(high_vol_periods),
-               'avg_cluster_length': calculate_cluster_length(high_vol_periods)
+           "drawdown": {
+               "max_drawdown": max_drawdown,
+               "interprétation": "Risque sévère de perte en cas de correction"
            }
        }
-       
-       return results
 
-**Caractéristiques Typiques BTC vs ETH**
+**Résumé Comparatif BTC vs ETH**
 
 .. raw:: html
 
-   <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+   <div style="background: #fff8e1; padding: 20px; border-radius: 10px; margin: 20px 0; font-size: 0.95em;">
 
-**Clustering de Volatilité:**
-- **Bitcoin:** Périodes de haute volatilité durant 15-20 jours en moyenne
-- **Ethereum:** Clustering plus prononcé, périodes de 20-30 jours
-- **Corrélation BTC-ETH:** Augmente significativement pendant les crises (0.8-0.9)
+🔍 **Court Terme :**<br/>
+- **Ethereum** montre une réactivité instantanée plus forte aux événements du marché (volatilité 7 jours plus élevée).<br/>
+- **Bitcoin**, bien que plus stable à court terme, subit des corrections abruptes non anticipées.
 
-**Saisonnalité:**
-- **Bitcoin:** Volatilité plus élevée en fin/début d'année
-- **Ethereum:** Sensibilité aux mises à jour du protocole
-- **Patterns intra-journaliers:** Volatilité accrue pendant les heures de trading US/EU
+📉 **Long Terme :**<br/>
+- **Volatilité moyenne sur 30 jours :** ETH > BTC<br/>
+- **Ratio volatilité / prix :** <span style="color:red;"><strong>plus élevé pour le BTC</strong></span>, ce qui signifie que le prix du BTC chute souvent en parallèle avec une forte hausse du risque.
 
-.. raw:: html
+📛 **Drawdown Maximal :**<br/>
+- BTC affiche un drawdown historique plus prononcé, accentuant l’effet "piège" sur les positions longues.
+
+💡 **Conclusion :** La volatilité brute ne suffit pas. Il faut considérer sa proportion par rapport au prix et à la profondeur des corrections. Le BTC peut sembler plus "sûr", mais il cache une dynamique de risque plus perfide, surtout en période de panique.
 
    </div>
+
 
 📈 **Synthèse et Implications Prédictives**
 ===========================================
