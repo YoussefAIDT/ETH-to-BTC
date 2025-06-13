@@ -145,6 +145,140 @@ L'analyse de corrélation croisée examine la relation ETH-BTC à différents d�
       <strong>🚀 Découverte Majeure :</strong> Cette analyse révèle un pattern crucial : <strong>Ethereum tend à précéder Bitcoin de 1.8 jours en moyenne</strong>. La corrélation croisée atteint son maximum à ce décalage, suggérant qu'Ethereum peut servir d'<strong>indicateur avancé</strong> pour les mouvements de Bitcoin. Cette découverte renforce considérablement la validité de notre approche prédictive.
    </div>
 
+⚡ **Corrélation entre Bitcoin et Ethereum(code)**
+============================================
+
+.. raw:: html
+
+   <div style="background: linear-gradient(135deg, #007bff 0%, #6610f2 100%); padding: 20px; border-radius: 12px; color: white; margin: 20px 0; box-shadow: 0 6px 20px rgba(0,123,255,0.3);">
+      <h3 style="margin: 0 0 10px 0; font-size: 1.5em;">📊 Analyse Statistique et Visuelle</h3>
+      <p style="margin: 0; opacity: 0.9;">
+        Étude approfondie de la corrélation entre les prix de clôture de Bitcoin (BTC) et Ethereum (ETH) sur la période 2021-aujourd'hui.
+      </p>
+   </div>
+
+1. Récupération des données
+---------------------------
+
+Les données sont collectées via l'API CryptoCompare pour la période allant de mars 2021 à aujourd'hui.
+
+2. Corrélation de Pearson
+-------------------------
+
+La corrélation de Pearson mesure la relation linéaire entre BTC et ETH, exprimée par un coefficient entre -1 et 1.
+
+3. Matrice de corrélation (heatmap)
+-----------------------------------
+
+Visualisation de la force de la relation via une matrice de corrélation annotée.
+
+4. Corrélation glissante (rolling correlation)
+----------------------------------------------
+
+Analyse de l’évolution temporelle de la corrélation sur une fenêtre glissante de 30 jours.
+
+5. Corrélation croisée (cross-correlation)
+------------------------------------------
+
+Détection d’éventuels décalages temporels (lags) entre les deux séries.
+
+---
+
+**Code source complet**
+-----------------------
+
+.. code-block:: python
+
+   import requests
+   import pandas as pd
+   import matplotlib.pyplot as plt
+   import seaborn as sns
+   import numpy as np
+   from datetime import datetime
+   import time
+
+   def collect_data_crypto_compare(crypto_symbol, start_timestamp, end_timestamp):
+       url = f'https://min-api.cryptocompare.com/data/v2/histoday'
+       params = {
+           'fsym': crypto_symbol,
+           'tsym': 'USD',
+           'limit': 2000,
+           'toTs': end_timestamp,
+           'extraParams': 'crypto_prediction'
+       }
+       response = requests.get(url, params=params)
+       if response.status_code == 200:
+           data = response.json()['Data']['Data']
+           df = pd.DataFrame(data)
+           df['time'] = pd.to_datetime(df['time'], unit='s')
+           return df
+       else:
+           print(f"Erreur: {response.status_code}")
+           return None
+
+   today = datetime.today()
+   end_timestamp = int(time.mktime(today.timetuple()))
+   start_timestamp = 1614556800  # 1er mars 2021
+
+   btc_data = collect_data_crypto_compare('BTC', start_timestamp, end_timestamp)
+   eth_data = collect_data_crypto_compare('ETH', start_timestamp, end_timestamp)
+
+   # Pearson
+   correlation = btc_data['close'].corr(eth_data['close'])
+   print(f"Corrélation de Pearson : {correlation:.2f}")
+
+   # Heatmap
+   merged_df = pd.merge(btc_data[['time', 'close']], eth_data[['time', 'close']], on='time', suffixes=('_BTC', '_ETH'))
+   correlation_matrix = merged_df[['close_BTC', 'close_ETH']].corr()
+   plt.figure(figsize=(6, 5))
+   sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f')
+   plt.title("Matrice de Corrélation entre BTC et ETH")
+   plt.show()
+
+   # Corrélation glissante
+   window = 30
+   merged_df['rolling_corr'] = merged_df['close_BTC'].rolling(window).corr(merged_df['close_ETH'])
+   mean_correlation = merged_df['rolling_corr'].mean()
+   plt.figure(figsize=(12, 6))
+   plt.plot(merged_df['time'], merged_df['rolling_corr'], label=f'Rolling Corr ({window} jours)', color='purple')
+   plt.axhline(mean_correlation, color='red', linestyle='--', label=f'Moyenne = {mean_correlation:.2f}')
+   plt.grid(True)
+   plt.legend()
+   plt.title("Corrélation Glissante entre BTC et ETH")
+   plt.show()
+
+   # Corrélation croisée
+   btc_prices = btc_data['close'].values
+   eth_prices = eth_data['close'].values
+   btc_norm = (btc_prices - np.mean(btc_prices)) / np.std(btc_prices)
+   eth_norm = (eth_prices - np.mean(eth_prices)) / np.std(eth_prices)
+   cross_corr = np.correlate(btc_norm, eth_norm, mode='full')
+   lags = np.arange(-len(btc_prices) + 1, len(btc_prices))
+   plt.figure(figsize=(12, 6))
+   plt.plot(lags, cross_corr)
+   plt.axvline(0, color='red', linestyle='--', label='Lag = 0')
+   plt.title("Corrélation Croisée entre BTC et ETH")
+   plt.legend()
+   plt.grid(True)
+   plt.show()
+
+   max_corr = np.max(cross_corr)
+   best_lag = lags[np.argmax(cross_corr)]
+   print(f"Corrélation max: {max_corr:.2f} au lag de {best_lag} jours.")
+
+---
+
+.. raw:: html
+
+   <div style="background: #d4edda; padding: 20px; border-left: 5px solid #28a745; margin: 20px 0; border-radius: 0 10px 10px 0;">
+      <strong>✅ Résultats clés :</strong>
+      <ul style="margin: 10px 0 0 20px;">
+        <li>La corrélation de Pearson est élevée (proche de 1), indiquant une forte co-dépendance entre BTC et ETH.</li>
+        <li>La corrélation glissante révèle des périodes de décorrélation temporaire.</li>
+        <li>La corrélation croisée montre un pic maximal sans grand décalage temporel, suggérant une synchronisation étroite.</li>
+      </ul>
+   </div>
+
 🕐 **Analyse du Décalage Temporel de 1.8 Jours**
 ================================================
 
