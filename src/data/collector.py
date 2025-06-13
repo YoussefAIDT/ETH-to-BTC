@@ -1,69 +1,68 @@
-import requests
 import pandas as pd
-import time
-from datetime import datetime
+import requests
+import numpy as np
+from typing import Optional, Tuple
 
-def collect_data_crypto_compare(symbol, start_timestamp, end_timestamp):
+
+def collect_data_crypto_compare(crypto_symbol: str, start_timestamp: int, end_timestamp: int) -> Optional[pd.DataFrame]:
     """
-    Récupère les données historiques d'une cryptomonnaie depuis l'API CryptoCompare.
+    Collecte les données historiques depuis CryptoCompare API
     
     Args:
-        symbol (str): Symbole de la cryptomonnaie (ex: 'BTC', 'ETH')
-        start_timestamp (int): Timestamp Unix de début
-        end_timestamp (int): Timestamp Unix de fin
+        crypto_symbol: Symbole de la cryptomonnaie (ex: 'BTC', 'ETH')
+        start_timestamp: Timestamp de début
+        end_timestamp: Timestamp de fin
         
     Returns:
-        pandas.DataFrame: DataFrame contenant les données historiques
+        DataFrame avec les données historiques ou None si erreur
     """
-    url = 'https://min-api.cryptocompare.com/data/v2/histoday'
-    days = (end_timestamp - start_timestamp) // (24 * 3600) + 1
-    limit = min(2000, days)
-
+    url = f'https://min-api.cryptocompare.com/data/v2/histoday'
     params = {
-        'fsym': symbol,
+        'fsym': crypto_symbol,
         'tsym': 'USD',
-        'limit': limit,
-        'toTs': end_timestamp
+        'limit': 2000,
+        'toTs': end_timestamp,
+        'extraParams': 'crypto_prediction'
     }
-
-    response = requests.get(url, params=params)
-    if response.status_code == 200:
-        data = response.json()
-        if data['Response'] == 'Success':
-            df = pd.DataFrame(data['Data']['Data'])
+    
+    try:
+        response = requests.get(url, params=params)
+        if response.status_code == 200:
+            data = response.json()['Data']['Data']
+            df = pd.DataFrame(data)
             df['time'] = pd.to_datetime(df['time'], unit='s')
             return df
         else:
-            print(f"Erreur API: {data['Message']}")
+            print(f"Erreur lors de la récupération des données : {response.status_code}")
             return None
-    else:
-        print(f"Erreur HTTP: {response.status_code}")
+    except Exception as e:
+        print(f"Erreur lors de la récupération des données: {e}")
         return None
 
 
-def get_crypto_data(symbols=['BTC', 'ETH'], days=730):
+def preprocess_data(btc_df: pd.DataFrame, eth_df: pd.DataFrame) -> pd.DataFrame:
     """
-    Récupère les données historiques pour plusieurs cryptomonnaies.
+    Prétraite et combine les données BTC et ETH
     
     Args:
-        symbols (list): Liste des symboles des cryptomonnaies
-        days (int): Nombre de jours d'historique à récupérer
+        btc_df: DataFrame avec les données Bitcoin
+        eth_df: DataFrame avec les données Ethereum
         
     Returns:
-        dict: Dictionnaire contenant les DataFrames pour chaque symbole
+        DataFrame combiné et prétraité
     """
-    end_timestamp = int(time.time())
-    start_timestamp = end_timestamp - (days * 24 * 3600)
+    # Fusion des données sur la colonne time
+    df = pd.merge(btc_df[['time', 'close']], eth_df[['time', 'close']], 
+                  on='time', suffixes=('_btc', '_eth'))
     
-    data_dict = {}
+    # Tri par date
+    df = df.sort_values('time')
     
-    for symbol in symbols:
-        print(f"Récupération des données pour {symbol}...")
-        data = collect_data_crypto_compare(symbol, start_timestamp, end_timestamp)
-        if data is not None:
-            data_dict[symbol] = data
-            print(f"✓ {len(data)} entrées récupérées pour {symbol}")
-        else:
-            print(f"✗ Échec de la récupération des données pour {symbol}")
+    # Calcul des rendements
+    df['btc_return'] = df['close_btc'].pct_change()
+    df['eth_return'] = df['close_eth'].pct_change()
     
-    return data_dict
+    # Suppression des valeurs manquantes
+    df.dropna(inplace=True)
+    
+    return df
