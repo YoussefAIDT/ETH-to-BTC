@@ -540,26 +540,23 @@ La volatilité est un indicateur essentiel du risque. À court terme, elle refl�
            }
        }
 
-**Résumé Comparatif BTC vs ETH**
-
 .. raw:: html
 
    <div style="background: #fff8e1; padding: 20px; border-radius: 10px; margin: 20px 0; font-size: 0.95em;">
+   🔍 <strong>Court Terme :</strong><br/>
+   - <strong>Ethereum</strong> montre une réactivité instantanée plus forte aux événements du marché (volatilité 7 jours plus élevée).<br/>
+   - <strong>Bitcoin</strong>, bien que plus stable à court terme, subit des corrections abruptes non anticipées.<br/><br/>
 
-🔍 <strong>Court Terme :</strong><br/>
-- <strong>Ethereum</strong> montre une réactivité instantanée plus forte aux événements du marché (volatilité 7 jours plus élevée).<br/>
-- <strong>Bitcoin</strong>, bien que plus stable à court terme, subit des corrections abruptes non anticipées.
+   📉 <strong>Long Terme :</strong><br/>
+   - <strong>Volatilité moyenne sur 30 jours :</strong> ETH &gt; BTC<br/>
+   - <strong>Ratio volatilité / prix :</strong> <span style="color:#1e88e5;"><strong>plus élevé pour le BTC</strong></span>, ce qui signifie que le prix du BTC chute souvent en parallèle avec une forte hausse du risque.<br/><br/>
 
-📉 <strong>Long Terme :</strong><br/>
-- <strong>Volatilité moyenne sur 30 jours :</strong> ETH &gt; BTC<br/>
-- <strong>Ratio volatilité / prix :</strong> <span style="color:#1e88e5;"><strong>plus élevé pour le BTC</strong></span>, ce qui signifie que le prix du BTC chute souvent en parallèle avec une forte hausse du risque.
+   📛 <strong>Drawdown Maximal :</strong><br/>
+   - BTC affiche un drawdown historique plus prononcé, accentuant l’effet "piège" sur les positions longues.<br/><br/>
 
-📛 <strong>Drawdown Maximal :</strong><br/>
-- BTC affiche un drawdown historique plus prononcé, accentuant l’effet "piège" sur les positions longues.
-
-💡 <strong>Conclusion :</strong> La volatilité brute ne suffit pas. Il faut considérer sa proportion par rapport au prix et à la profondeur des corrections. Le BTC peut sembler plus "sûr", mais il cache une dynamique de risque plus perfide, surtout en période de panique.
-
+   💡 <strong>Conclusion :</strong> La volatilité brute ne suffit pas. Il faut considérer sa proportion par rapport au prix et à la profondeur des corrections. Le BTC peut sembler plus "sûr", mais il cache une dynamique de risque plus perfide, surtout en période de panique.
    </div>
+
 
 
 
