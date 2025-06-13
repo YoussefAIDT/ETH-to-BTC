@@ -565,44 +565,39 @@ Ces résultats orientent vers un modèle **ARIMA(p=1, d=?, q=8)** comme point de
 
 .. raw:: html
 
-   <div style="background: #f3f4f6; padding: 25px; border-radius: 15px; margin: 20px 0; font-size: 1em;">
+   <div style="background: linear-gradient(135deg, #3f51b5 0%, #1a237e 100%); padding: 30px; border-radius: 15px; color: white; margin: 20px 0; font-size: 1em;">
 
-   <h3>📘 Notebook 1 : Analyse Statistique & Deep Learning</h3>
-
-   <p><strong>Contenu :</strong></p>
+   <h3 style="color:#ffeb3b;">📘 Notebook 1 : Analyse Statistique & Deep Learning</h3>
 
    <ul>
-     <li>📊 Statistiques descriptives de BTC et ETH</li>
-     <li>🔗 Analyse de corrélation Bitcoin-Ethereum</li>
-     <li>📈 Tests de stationnarité (ADF, KPSS)</li>
-     <li>📉 Fonctions ACF/PACF et différenciation</li>
-     <li>🧠 Modèles Deep Learning (LSTM, GRU, RNN, CNN, BiLSTM)</li>
-     <li>⚡ Comparaison des stratégies de prédiction</li>
+     <li>📊 <strong>Statistiques descriptives</strong> de BTC et ETH</li>
+     <li>🔗 <strong>Analyse de corrélation</strong> Bitcoin-Ethereum</li>
+     <li>📈 <strong>Tests de stationnarité</strong> (ADF, KPSS)</li>
+     <li>📉 <strong>ACF/PACF</strong> et différenciation</li>
+     <li>🧠 <strong>Modèles Deep Learning</strong> : LSTM, GRU, RNN, CNN, BiLSTM</li>
+     <li>⚡ <strong>Comparaison des stratégies</strong> de prédiction</li>
    </ul>
 
-   <h3>📗 Notebook 2 : Modélisation ARIMA/pmdarima</h3>
-
-   <p><strong>Contenu :</strong></p>
+   <h3 style="color:#c8e6c9;">📗 Notebook 2 : Modélisation ARIMA / pmdarima</h3>
 
    <ul>
-     <li>🔄 Modélisation ARIMA traditionnelle</li>
-     <li>🤖 Automatisation avec pmdarima</li>
-     <li>📋 Sélection automatique des paramètres (p,d,q)</li>
-     <li>✅ Validation croisée temporelle</li>
-     <li>📊 Diagnostic des résidus</li>
+     <li>🔄 <strong>ARIMA traditionnel</strong></li>
+     <li>🤖 <strong>Automatisation</strong> avec pmdarima</li>
+     <li>📋 <strong>Sélection automatique</strong> des paramètres (p, d, q)</li>
+     <li>✅ <strong>Validation croisée</strong> temporelle</li>
+     <li>📊 <strong>Diagnostic</strong> des résidus</li>
    </ul>
 
-   <h3>🚀 Démarrage Rapide</h3>
+   <h3 style="color:#ffcc80;">🚀 Démarrage Rapide</h3>
 
    <ol>
      <li>
-       <strong>📥 Accès aux Notebooks</strong><br/>
+       <strong>📥 Accès aux Notebooks :</strong><br/>
        <code>git clone https://github.com/YoussefAIDT/ETH-to-BTC.git</code><br/>
        <code>cd ETH-to-BTC/notebooks</code>
      </li><br/>
      <li>
-       <strong>🔄 Exploration Recommandée</strong><br/>
-       Séquence d'exploration :
+       <strong>🔄 Exploration recommandée :</strong><br/>
        <ul>
          <li><code>notebook.ipynb</code> → Analyse statistique fondamentale</li>
          <li><code>pmdarima.ipynb</code> → Modélisation ARIMA</li>
@@ -610,24 +605,24 @@ Ces résultats orientent vers un modèle **ARIMA(p=1, d=?, q=8)** comme point de
        </ul>
      </li><br/>
      <li>
-       <strong>💡 Utilisation Google Colab</strong><br/>
+       <strong>💡 Utilisation Google Colab :</strong><br/>
        <ul>
-         <li>📤 Uploadez les notebooks directement dans Colab</li>
-         <li>🔧 Les dépendances s'installent automatiquement</li>
-         <li>🚀 Environnement prêt à l'emploi</li>
+         <li>📤 Uploadez les notebooks dans Colab</li>
+         <li>🔧 Les dépendances s’installent automatiquement</li>
+         <li>🚀 Environnement prêt à l’emploi</li>
        </ul>
      </li>
    </ol>
 
-   <p><strong>💡 Conseil d'Exploration :</strong><br/>
-   Cette documentation théorique prend tout son sens lorsqu'elle est mise en pratique 
-   dans les notebooks. Chaque concept abordé ici trouve son implémentation concrète 
-   dans les analyses et modèles développés.</p>
+   <p><strong>💡 Conseil d'exploration :</strong><br/>
+   Cette documentation théorique prend tout son sens lorsqu’elle est mise en pratique dans les notebooks.<br/>
+   Chaque concept ici a une implémentation concrète dans les analyses et modèles proposés.</p>
 
-   <p><strong>🔗 Liens Utiles :</strong><br/>
-   • Repository GitHub : <a href="https://github.com/YoussefAIDT/ETH-to-BTC" target="_blank">https://github.com/YoussefAIDT/ETH-to-BTC</a><br/>
-   • Notebooks interactifs disponibles dans le dossier <code>notebooks/</code><br/>
-   • Documentation complète dans le <code>README.md</code>
+   <p><strong>🔗 Liens utiles :</strong><br/>
+   • GitHub : <a href="https://github.com/YoussefAIDT/ETH-to-BTC" target="_blank" style="color:#ffccbc;">https://github.com/YoussefAIDT/ETH-to-BTC</a><br/>
+   • Dossier <code>notebooks/</code> pour les fichiers interactifs<br/>
+   • Documentation technique dans le <code>README.md</code>
    </p>
 
    </div>
+
