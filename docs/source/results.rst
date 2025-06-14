@@ -1,21 +1,21 @@
 ===============================
-Résultats et Performance
+Résultats et Performances du Modèle GRU
 ===============================
 
 .. raw:: html
 
    <div style="text-align: center; margin: 30px 0;">
-      <img src="https://img.shields.io/badge/MAPE-3.22%25-success.svg" alt="MAPE" style="margin: 5px;">
-      <img src="https://img.shields.io/badge/R²-0.94-brightgreen.svg" alt="R²" style="margin: 5px;">
-      <img src="https://img.shields.io/badge/MAE-156.32-blue.svg" alt="MAE" style="margin: 5px;">
-      <img src="https://img.shields.io/badge/RMSE-203.67-orange.svg" alt="RMSE" style="margin: 5px;">
+      <img src="https://img.shields.io/badge/R²-0.9853-brightgreen.svg" alt="R²" style="margin: 5px;">
+      <img src="https://img.shields.io/badge/RMSE-2066.86-orange.svg" alt="RMSE" style="margin: 5px;">
+      <img src="https://img.shields.io/badge/MSE-4271928.91-blue.svg" alt="MSE" style="margin: 5px;">
+      <img src="https://img.shields.io/badge/Époques-25-success.svg" alt="Époques" style="margin: 5px;">
    </div>
 
 .. raw:: html
 
    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 15px; color: white; text-align: center; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-      <h2 style="margin: 0; font-size: 2.5em; font-weight: bold;">🏆 Performance Exceptionnelle</h2>
-      <p style="font-size: 1.2em; margin: 20px 0; opacity: 0.9;">Validation empirique de notre approche prédictive innovante</p>
+      <h2 style="margin: 0; font-size: 2.5em; font-weight: bold;">🏆 Performance Exceptionnelle GRU</h2>
+      <p style="font-size: 1.2em; margin: 20px 0; opacity: 0.9;">98.53% de variance expliquée pour la prédiction Bitcoin</p>
    </div>
 
 Vue d'ensemble
@@ -25,109 +25,56 @@ Vue d'ensemble
 
    <div style="background: #f8f9fa; padding: 25px; border-left: 5px solid #28a745; margin: 20px 0; border-radius: 0 10px 10px 0;">
 
-Nos modèles prédictifs ont démontré des **performances remarquables** sur l'ensemble de test, dépassant significativement les approches traditionnelles. L'architecture hybride CNN-BiLSTM optimisée atteint une précision de prédiction exceptionnelle avec un MAPE de **3.22%**.
+Notre modèle **GRU (Gated Recurrent Unit)** a démontré des performances exceptionnelles dans la prédiction du prix du Bitcoin en utilisant les données d'Ethereum comme variable explicative supplémentaire. Avec un **R² de 0.9853**, le modèle explique 98.53% de la variance des prix Bitcoin.
 
 .. raw:: html
 
    </div>
 
-🎯 **Métriques de Performance**
-===============================
+🎯 **Métriques de Performance Finales**
+=======================================
 
 .. raw:: html
 
    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 30px 0;">
       
       <div style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); padding: 25px; border-radius: 15px; color: #333; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">📊 MAPE</h3>
-         <div style="font-size: 2em; font-weight: bold; margin: 10px 0;">3.22%</div>
-         <p style="margin: 0; opacity: 0.8;">Mean Absolute Percentage Error</p>
+         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">📊 R² Score</h3>
+         <div style="font-size: 2em; font-weight: bold; margin: 10px 0;">0.9853</div>
+         <p style="margin: 0; opacity: 0.8;">98.53% de variance expliquée</p>
       </div>
       
       <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 25px; border-radius: 15px; color: #333; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🎯 R²</h3>
-         <div style="font-size: 2em; font-weight: bold; margin: 10px 0;">0.94</div>
-         <p style="margin: 0; opacity: 0.8;">Coefficient de détermination</p>
+         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">📈 RMSE</h3>
+         <div style="font-size: 2em; font-weight: bold; margin: 10px 0; color: #8b4513;">$2,066.86</div>
+         <p style="margin: 0; opacity: 0.8;">Root Mean Square Error</p>
       </div>
       
       <div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 25px; border-radius: 15px; color: #333; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">📈 MAE</h3>
-         <div style="font-size: 2em; font-weight: bold; margin: 10px 0; color: #8b4513;">$156.32</div>
-         <p style="margin: 0; opacity: 0.8;">Mean Absolute Error</p>
-      </div>
-      
-      <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">⚡ RMSE</h3>
-         <div style="font-size: 2em; font-weight: bold; margin: 10px 0;">$203.67</div>
-         <p style="margin: 0; opacity: 0.9;">Root Mean Square Error</p>
+         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🎯 MSE</h3>
+         <div style="font-size: 2em; font-weight: bold; margin: 10px 0;">4,271,928.91</div>
+         <p style="margin: 0; opacity: 0.8;">Mean Squared Error</p>
       </div>
       
    </div>
 
-🏅 **Comparaison avec les Modèles de Référence**
-================================================
+**Interprétation des Résultats**
 
 .. raw:: html
 
    <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 30px; border-radius: 15px; margin: 20px 0;">
 
-Notre approche surpasse significativement les méthodes traditionnelles :
+**Coefficient de Détermination (R²)** :
+   Le R² de **0.9853** indique que notre modèle explique 98.53% de la variance du prix du Bitcoin. Cette valeur exceptionnellement élevée démontre une capacité prédictive remarquable.
+
+**Erreur Quadratique Moyenne (RMSE)** :
+   La RMSE de **$2,066.86** représente l'erreur moyenne de prédiction. Considérant que le prix du Bitcoin fluctue souvent de plusieurs milliers de dollars, cette erreur reste relativement maîtrisée.
+
+**Erreur Quadratique Moyenne (MSE)** :
+   La MSE de **4,271,928.91** confirme la stabilité du modèle avec une variance d'erreur contrôlée sur l'ensemble de test.
 
 .. raw:: html
 
-   </div>
-
-.. raw:: html
-
-   <div style="overflow-x: auto; margin: 20px 0;">
-      <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-         <thead style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-            <tr>
-               <th style="padding: 15px; text-align: left; border: none;">Modèle</th>
-               <th style="padding: 15px; text-align: center; border: none;">MAPE (%)</th>
-               <th style="padding: 15px; text-align: center; border: none;">R²</th>
-               <th style="padding: 15px; text-align: center; border: none;">MAE ($)</th>
-               <th style="padding: 15px; text-align: center; border: none;">RMSE ($)</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr style="background: #f8f9fa; border-bottom: 1px solid #eee;">
-               <td style="padding: 15px; font-weight: bold; color: #28a745;">CNN-BiLSTM (Notre modèle)</td>
-               <td style="padding: 15px; text-align: center; font-weight: bold; color: #28a745;">3.22</td>
-               <td style="padding: 15px; text-align: center; font-weight: bold; color: #28a745;">0.94</td>
-               <td style="padding: 15px; text-align: center; font-weight: bold; color: #28a745;">156.32</td>
-               <td style="padding: 15px; text-align: center; font-weight: bold; color: #28a745;">203.67</td>
-            </tr>
-            <tr style="background: white; border-bottom: 1px solid #eee;">
-               <td style="padding: 15px;">ARIMA(5,1,3)</td>
-               <td style="padding: 15px; text-align: center;">8.47</td>
-               <td style="padding: 15px; text-align: center;">0.73</td>
-               <td style="padding: 15px; text-align: center;">412.58</td>
-               <td style="padding: 15px; text-align: center;">567.23</td>
-            </tr>
-            <tr style="background: #f8f9fa; border-bottom: 1px solid #eee;">
-               <td style="padding: 15px;">LSTM Simple</td>
-               <td style="padding: 15px; text-align: center;">5.91</td>
-               <td style="padding: 15px; text-align: center;">0.86</td>
-               <td style="padding: 15px; text-align: center;">289.76</td>
-               <td style="padding: 15px; text-align: center;">356.42</td>
-            </tr>
-            <tr style="background: white; border-bottom: 1px solid #eee;">
-               <td style="padding: 15px;">Random Forest</td>
-               <td style="padding: 15px; text-align: center;">7.23</td>
-               <td style="padding: 15px; text-align: center;">0.79</td>
-               <td style="padding: 15px; text-align: center;">367.89</td>
-               <td style="padding: 15px; text-align: center;">445.12</td>
-            </tr>
-            <tr style="background: #f8f9fa;">
-               <td style="padding: 15px;">SVR (RBF)</td>
-               <td style="padding: 15px; text-align: center;">9.15</td>
-               <td style="padding: 15px; text-align: center;">0.68</td>
-               <td style="padding: 15px; text-align: center;">456.34</td>
-               <td style="padding: 15px; text-align: center;">612.78</td>
-            </tr>
-         </tbody>
-      </table>
    </div>
 
 📊 **Analyse de la Courbe d'Apprentissage**
@@ -135,59 +82,227 @@ Notre approche surpasse significativement les méthodes traditionnelles :
 
 .. raw:: html
 
-   <div style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); padding: 30px; border-radius: 15px; color: #333; margin: 20px 0;">
+   <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; color: white; margin: 20px 0;">
 
-L'évolution des métriques d'entraînement révèle une convergence optimale :
+L'entraînement du modèle révèle une **convergence optimale** en seulement 25 époques :
 
 .. raw:: html
 
    </div>
+
+**Phases d'Apprentissage**
 
 .. raw:: html
 
    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 25px 0;">
       
-      <div style="flex: 1; min-width: 200px; background: #e3f2fd; padding: 20px; border-radius: 10px; border-left: 4px solid #2196f3;">
-         <h4 style="margin: 0 0 10px 0; color: #1976d2;">📈 Convergence</h4>
-         <p style="margin: 0; font-size: 0.95em;">Stabilisation après 45 époques avec early stopping</p>
+      <div style="flex: 1; min-width: 250px; background: #e3f2fd; padding: 20px; border-radius: 10px; border-left: 4px solid #2196f3;">
+         <h4 style="margin: 0 0 10px 0; color: #1976d2;">📈 Phase 1 (Époques 1-5)</h4>
+         <p style="margin: 0; font-size: 0.95em;"><strong>Convergence rapide initiale</strong><br>
+         Loss: 0.0206 → 3.5309e-04<br>
+         Val Loss: 5.2204e-04 → 1.8190e-04</p>
       </div>
       
-      <div style="flex: 1; min-width: 200px; background: #f3e5f5; padding: 20px; border-radius: 10px; border-left: 4px solid #9c27b0;">
-         <h4 style="margin: 0 0 10px 0; color: #7b1fa2;">🎯 Validation</h4>
-         <p style="margin: 0; font-size: 0.95em;">Absence de surapprentissage avec validation croisée</p>
+      <div style="flex: 1; min-width: 250px; background: #f3e5f5; padding: 20px; border-radius: 10px; border-left: 4px solid #9c27b0;">
+         <h4 style="margin: 0 0 10px 0; color: #7b1fa2;">🎯 Phase 2 (Époques 6-15)</h4>
+         <p style="margin: 0; font-size: 0.95em;"><strong>Stabilisation progressive</strong><br>
+         Réduction constante validation loss<br>
+         Meilleure performance: Époque 15</p>
       </div>
       
-      <div style="flex: 1; min-width: 200px; background: #e8f5e8; padding: 20px; border-radius: 10px; border-left: 4px solid #4caf50;">
-         <h4 style="margin: 0 0 10px 0; color: #388e3c;">⚡ Stabilité</h4>
-         <p style="margin: 0; font-size: 0.95em;">Variance faible sur 10 exécutions indépendantes</p>
+      <div style="flex: 1; min-width: 250px; background: #e8f5e8; padding: 20px; border-radius: 10px; border-left: 4px solid #4caf50;">
+         <h4 style="margin: 0 0 10px 0; color: #388e3c;">⚡ Phase 3 (Époques 16-25)</h4>
+         <p style="margin: 0; font-size: 0.95em;"><strong>Convergence finale</strong><br>
+         Early stopping déclenché<br>
+         Restauration meilleurs poids</p>
       </div>
       
    </div>
 
-**Paramètres d'Optimisation**
+**Logs d'Entraînement Détaillés**
+
+.. code-block:: text
+
+   Epoch 1/100: loss: 0.0206 - val_loss: 5.2204e-04
+   Epoch 2/100: loss: 4.3709e-04 - val_loss: 3.2758e-04
+   Epoch 3/100: loss: 3.9694e-04 - val_loss: 1.6735e-04
+   ...
+   Epoch 15/100: loss: 2.1376e-04 - val_loss: 1.5449e-04  # Meilleure performance
+   ...
+   Epoch 25/100: loss: 2.1269e-04 - val_loss: 1.6502e-04  # Early stopping
+
+**Caractéristiques de Convergence**
+
+.. raw:: html
+
+   <div style="background: #fff3cd; padding: 20px; border-radius: 10px; border-left: 4px solid #ffc107; margin: 20px 0;">
+
+- **Convergence rapide** : Stabilisation en 25 époques seulement
+- **Pas de surapprentissage** : Validation loss reste stable
+- **Early stopping efficace** : Arrêt automatique optimal à l'époque 25
+- **Restauration optimale** : Retour aux poids de l'époque 15
+
+.. raw:: html
+
+   </div>
+
+🛠️ **Configuration du Modèle**
+==============================
+
+**Architecture GRU Utilisée**
 
 .. code-block:: python
 
-   # Configuration optimale identifiée
-   OPTIMAL_CONFIG = {
-       'epochs': 45,
-       'batch_size': 32,
-       'learning_rate': 0.001,
-       'dropout_rate': 0.3,
-       'cnn_filters': [64, 128, 256],
-       'lstm_units': [128, 64],
-       'patience': 8,
-       'validation_split': 0.2
-   }
+   # Configuration du modèle GRU
+   def build_gru_model(seq_length, units=128, dropout=0.1, learning_rate=0.01):
+       model = Sequential()
+       model.add(GRU(units=units, input_shape=(seq_length, 2)))
+       model.add(Dropout(dropout))
+       model.add(Dense(1))
+       model.compile(optimizer=Adam(learning_rate=learning_rate), loss='mse')
+       return model
 
-🎯 **Analyse des Résidus**
-==========================
+.. raw:: html
+
+   <div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 25px; border-radius: 15px; margin: 20px 0;">
+
+**Paramètres d'Architecture** :
+
+- **Type** : Sequential avec couche GRU
+- **Unités GRU** : 128 neurones
+- **Dropout** : 0.1 (10% de régularisation)
+- **Couche de sortie** : Dense(1) pour prédiction scalaire
+- **Optimiseur** : Adam avec learning rate 0.01
+- **Fonction de perte** : Mean Squared Error (MSE)
+
+.. raw:: html
+
+   </div>
+
+**Paramètres d'Entraînement**
+
+.. raw:: html
+
+   <div style="overflow-x: auto; margin: 20px 0;">
+      <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+         <thead style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <tr>
+               <th style="padding: 15px; text-align: left; border: none;">Paramètre</th>
+               <th style="padding: 15px; text-align: center; border: none;">Valeur</th>
+               <th style="padding: 15px; text-align: left; border: none;">Description</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr style="background: #f8f9fa; border-bottom: 1px solid #eee;">
+               <td style="padding: 15px; font-weight: bold;">Longueur de séquence</td>
+               <td style="padding: 15px; text-align: center;">32</td>
+               <td style="padding: 15px;">Nombre de pas de temps d'entrée</td>
+            </tr>
+            <tr style="background: white; border-bottom: 1px solid #eee;">
+               <td style="padding: 15px; font-weight: bold;">Variables d'entrée</td>
+               <td style="padding: 15px; text-align: center;">2</td>
+               <td style="padding: 15px;">Prix ETH normalisé + Prix BTC normalisé</td>
+            </tr>
+            <tr style="background: #f8f9fa; border-bottom: 1px solid #eee;">
+               <td style="padding: 15px; font-weight: bold;">Taille de batch</td>
+               <td style="padding: 15px; text-align: center;">32</td>
+               <td style="padding: 15px;">Échantillons traités simultanément</td>
+            </tr>
+            <tr style="background: white; border-bottom: 1px solid #eee;">
+               <td style="padding: 15px; font-weight: bold;">Learning rate</td>
+               <td style="padding: 15px; text-align: center;">0.01</td>
+               <td style="padding: 15px;">Taux d'apprentissage Adam</td>
+            </tr>
+            <tr style="background: #f8f9fa; border-bottom: 1px solid #eee;">
+               <td style="padding: 15px; font-weight: bold;">Early stopping patience</td>
+               <td style="padding: 15px; text-align: center;">10</td>
+               <td style="padding: 15px;">Époques sans amélioration avant arrêt</td>
+            </tr>
+            <tr style="background: white;">
+               <td style="padding: 15px; font-weight: bold;">Validation split</td>
+               <td style="padding: 15px; text-align: center;">20%</td>
+               <td style="padding: 15px;">Portion des données pour validation</td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+
+📈 **Données et Prétraitement**
+===============================
+
+.. raw:: html
+
+   <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 30px; border-radius: 15px; margin: 20px 0;">
+
+**Source des Données** :
+
+- **API** : CryptoCompare (min-api.cryptocompare.com)
+- **Période** : Mars 2021 - Présent
+- **Fréquence** : Données journalières (histoday)
+- **Cryptomonnaies** : Bitcoin (BTC) et Ethereum (ETH)
+- **Limite** : 2000 points de données par requête
+
+.. raw:: html
+
+   </div>
+
+**Pipeline de Preprocessing**
+
+.. code-block:: python
+
+   def preprocess_data(btc_df, eth_df):
+       # 1. Fusion des données sur timestamps
+       df = pd.merge(btc_df[['time', 'close']], 
+                     eth_df[['time', 'close']], 
+                     on='time', suffixes=('_btc', '_eth'))
+       
+       # 2. Tri chronologique
+       df = df.sort_values('time')
+       
+       # 3. Calcul des rendements (optionnel)
+       df['btc_return'] = df['close_btc'].pct_change()
+       df['eth_return'] = df['close_eth'].pct_change()
+       
+       # 4. Suppression des valeurs manquantes
+       df.dropna(inplace=True)
+       return df
+
+**Étapes de Prétraitement**
+
+.. raw:: html
+
+   <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 25px 0;">
+      
+      <div style="flex: 1; min-width: 200px; background: #d4edda; padding: 20px; border-radius: 10px; border-left: 4px solid #28a745;">
+         <h4 style="margin: 0 0 10px 0; color: #155724;">1. Fusion Temporelle</h4>
+         <p style="margin: 0; font-size: 0.95em;">Alignement BTC et ETH sur timestamps identiques</p>
+      </div>
+      
+      <div style="flex: 1; min-width: 200px; background: #cce5ff; padding: 20px; border-radius: 10px; border-left: 4px solid #007bff;">
+         <h4 style="margin: 0 0 10px 0; color: #004085;">2. Normalisation</h4>
+         <p style="margin: 0; font-size: 0.95em;">MinMaxScaler pour stabiliser l'entraînement</p>
+      </div>
+      
+      <div style="flex: 1; min-width: 200px; background: #fff3cd; padding: 20px; border-radius: 10px; border-left: 4px solid #ffc107;">
+         <h4 style="margin: 0 0 10px 0; color: #856404;">3. Séquences Temporelles</h4>
+         <p style="margin: 0; font-size: 0.95em;">Fenêtres glissantes de 32 jours</p>
+      </div>
+      
+      <div style="flex: 1; min-width: 200px; background: #f8d7da; padding: 20px; border-radius: 10px; border-left: 4px solid #dc3545;">
+         <h4 style="margin: 0 0 10px 0; color: #721c24;">4. Division Train/Test</h4>
+         <p style="margin: 0; font-size: 0.95em;">80% entraînement / 20% test</p>
+      </div>
+      
+   </div>
+
+⚡ **Performance Temporelle et Ressources**
+==========================================
 
 .. raw:: html
 
    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; color: white; margin: 20px 0;">
 
-L'analyse des résidus confirme la qualité de nos prédictions :
+**Efficacité Computationnelle** :
 
 .. raw:: html
 
@@ -198,56 +313,43 @@ L'analyse des résidus confirme la qualité de nos prédictions :
    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
       
       <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 25px; border-radius: 15px; color: #333; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">📊 Normalité</h3>
-         <p style="margin: 0; opacity: 0.8;">Test de Shapiro-Wilk : p-value = 0.312</p>
+         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">⏱️ Temps d'Entraînement</h3>
+         <div style="font-size: 2em; font-weight: bold; margin: 10px 0;">~2 min</div>
+         <p style="margin: 0; opacity: 0.8;">25 époques complètes</p>
       </div>
       
       <div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 25px; border-radius: 15px; color: #333; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🎯 Autocorrélation</h3>
-         <p style="margin: 0; opacity: 0.8;">Test de Ljung-Box : p-value = 0.487</p>
+         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🚀 Temps par Époque</h3>
+         <div style="font-size: 2em; font-weight: bold; margin: 10px 0;">~3-4s</div>
+         <p style="margin: 0; opacity: 0.8;">Processing efficace</p>
       </div>
       
       <div style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); padding: 25px; border-radius: 15px; color: #333; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">⚡ Homoscédasticité</h3>
-         <p style="margin: 0; opacity: 0.8;">Test de Breusch-Pagan : p-value = 0.523</p>
+         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">⚡ Inférence</h3>
+         <div style="font-size: 2em; font-weight: bold; margin: 10px 0;">&lt;1s</div>
+         <p style="margin: 0; opacity: 0.8;">Ensemble de test complet</p>
       </div>
       
    </div>
 
-**Validation Statistique des Résidus**
+**Utilisation des Ressources**
 
-.. code-block:: python
+.. code-block:: text
 
-   # Analyse complète des résidus
-   def residual_analysis(y_true, y_pred):
-       """
-       Analyse statistique des résidus de prédiction
-       """
-       residuals = y_true - y_pred
-       
-       # Tests de normalité
-       shapiro_stat, shapiro_p = shapiro(residuals)
-       
-       # Test d'autocorrélation
-       lb_stat, lb_p = acorr_ljungbox(residuals, lags=10, return_df=False)
-       
-       # Test d'homoscédasticité
-       bp_stat, bp_p = het_breuschpagan(residuals, y_pred.reshape(-1, 1))[:2]
-       
-       return {
-           'shapiro_wilk': {'statistic': shapiro_stat, 'p_value': shapiro_p},
-           'ljung_box': {'statistic': lb_stat, 'p_value': lb_p},
-           'breusch_pagan': {'statistic': bp_stat, 'p_value': bp_p}
-       }
+   📊 Profil de Performance :
+   ├── Mémoire        : Optimisée avec batch processing
+   ├── CPU/GPU        : Compatible accélération matérielle  
+   ├── Stockage       : Modèle sauvé "best_best_model.h5"
+   └── Scalabilité    : Architecture légère et efficace
 
-⚡ **Performance Temporelle**
-============================
+🎯 **Analyse Comparative et Avantages**
+=======================================
 
 .. raw:: html
 
    <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 30px; border-radius: 15px; margin: 20px 0;">
 
-L'analyse de la performance temporelle révèle la robustesse de notre modèle :
+**Avantages du Modèle GRU** :
 
 .. raw:: html
 
@@ -257,31 +359,75 @@ L'analyse de la performance temporelle révèle la robustesse de notre modèle :
 
    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 25px 0;">
       
-      <div style="flex: 1; min-width: 200px; background: #fff3cd; padding: 20px; border-radius: 10px; border-left: 4px solid #ffc107;">
-         <h4 style="margin: 0 0 10px 0; color: #856404;">⏱️ Temps d'Entraînement</h4>
-         <p style="margin: 0; font-size: 0.95em;">2.3 heures sur GPU Tesla V100</p>
+      <div style="flex: 1; min-width: 200px; background: #d4edda; padding: 20px; border-radius: 10px; border-left: 4px solid #28a745;">
+         <h4 style="margin: 0 0 10px 0; color: #155724;">✅ Efficacité</h4>
+         <p style="margin: 0; font-size: 0.95em;">Plus rapide que LSTM classique</p>
       </div>
       
-      <div style="flex: 1; min-width: 200px; background: #d1ecf1; padding: 20px; border-radius: 10px; border-left: 4px solid #17a2b8;">
-         <h4 style="margin: 0 0 10px 0; color: #0c5460;">🚀 Temps d'Inférence</h4>
-         <p style="margin: 0; font-size: 0.95em;">0.8 ms par prédiction</p>
+      <div style="flex: 1; min-width: 200px; background: #cce5ff; padding: 20px; border-radius: 10px; border-left: 4px solid #007bff;">
+         <h4 style="margin: 0 0 10px 0; color: #004085;">🔄 Mémoire</h4>
+         <p style="margin: 0; font-size: 0.95em;">Gestion efficace des dépendances temporelles</p>
+      </div>
+      
+      <div style="flex: 1; min-width: 200px; background: #fff3cd; padding: 20px; border-radius: 10px; border-left: 4px solid #ffc107;">
+         <h4 style="margin: 0 0 10px 0; color: #856404;">🛡️ Robustesse</h4>
+         <p style="margin: 0; font-size: 0.95em;">Résistant au vanishing gradient</p>
       </div>
       
       <div style="flex: 1; min-width: 200px; background: #f8d7da; padding: 20px; border-radius: 10px; border-left: 4px solid #dc3545;">
-         <h4 style="margin: 0 0 10px 0; color: #721c24;">💾 Mémoire Utilisée</h4>
-         <p style="margin: 0; font-size: 0.95em;">1.2 GB VRAM</p>
+         <h4 style="margin: 0 0 10px 0; color: #721c24;">⚙️ Simplicité</h4>
+         <p style="margin: 0; font-size: 0.95em;">Architecture moins complexe que BiLSTM</p>
       </div>
       
    </div>
 
-📈 **Analyse de Sensibilité**
-=============================
+📊 **Visualisation et Validation**
+==================================
+
+**Graphique des Prédictions**
+
+.. raw:: html
+
+   <div style="background: #f8f9fa; padding: 25px; border-left: 5px solid #17a2b8; margin: 20px 0; border-radius: 0 10px 10px 0;">
+
+Le modèle génère automatiquement une visualisation comparative :
+
+- **Courbe bleue** : Prix Bitcoin réels (ground truth)
+- **Courbe rouge pointillée** : Prix Bitcoin prédits par le modèle
+- **Période d'affichage** : Ensemble de test (20% des données)
+- **Qualité visuelle** : Superposition quasi-parfaite des courbes
+- **Format** : Graphique 12x6 avec grid et légendes
+
+.. raw:: html
+
+   </div>
+
+**Code de Visualisation**
+
+.. code-block:: python
+
+   # Visualisation automatique des résultats
+   plt.figure(figsize=(12, 6))
+   plt.plot(test_dates, y_test_inv, label='Prix BTC réel', color='blue')
+   plt.plot(test_dates, y_pred_inv, label='Prix BTC prédit', 
+            color='red', linestyle='--')
+   plt.title('Prédiction du prix du Bitcoin avec GRU')
+   plt.xlabel('Date')
+   plt.ylabel('Prix BTC (USD)')
+   plt.legend()
+   plt.grid(True)
+   plt.xticks(rotation=45)
+   plt.tight_layout()
+   plt.show()
+
+🔬 **Validation et Mesures Anti-Surapprentissage**
+==================================================
 
 .. raw:: html
 
    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; color: white; margin: 20px 0;">
 
-Tests de robustesse sur différentes configurations :
+**Stratégies de Validation Implementées** :
 
 .. raw:: html
 
@@ -289,104 +435,45 @@ Tests de robustesse sur différentes configurations :
 
 .. raw:: html
 
-   <div style="overflow-x: auto; margin: 20px 0;">
-      <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-         <thead style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); color: #333;">
-            <tr>
-               <th style="padding: 15px; text-align: left; border: none;">Paramètre Modifié</th>
-               <th style="padding: 15px; text-align: center; border: none;">MAPE (%)</th>
-               <th style="padding: 15px; text-align: center; border: none;">R²</th>
-               <th style="padding: 15px; text-align: center; border: none;">Impact</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr style="background: #f8f9fa; border-bottom: 1px solid #eee;">
-               <td style="padding: 15px; font-weight: bold;">Configuration Optimale</td>
-               <td style="padding: 15px; text-align: center; font-weight: bold; color: #28a745;">3.22</td>
-               <td style="padding: 15px; text-align: center; font-weight: bold; color: #28a745;">0.94</td>
-               <td style="padding: 15px; text-align: center; color: #28a745;">Référence</td>
-            </tr>
-            <tr style="background: white; border-bottom: 1px solid #eee;">
-               <td style="padding: 15px;">Dropout = 0.5</td>
-               <td style="padding: 15px; text-align: center;">3.67</td>
-               <td style="padding: 15px; text-align: center;">0.92</td>
-               <td style="padding: 15px; text-align: center; color: #ffc107;">Modéré</td>
-            </tr>
-            <tr style="background: #f8f9fa; border-bottom: 1px solid #eee;">
-               <td style="padding: 15px;">Learning Rate = 0.01</td>
-               <td style="padding: 15px; text-align: center;">4.89</td>
-               <td style="padding: 15px; text-align: center;">0.88</td>
-               <td style="padding: 15px; text-align: center; color: #fd7e14;">Élevé</td>
-            </tr>
-            <tr style="background: white; border-bottom: 1px solid #eee;">
-               <td style="padding: 15px;">Batch Size = 64</td>
-               <td style="padding: 15px; text-align: center;">3.45</td>
-               <td style="padding: 15px; text-align: center;">0.93</td>
-               <td style="padding: 15px; text-align: center; color: #28a745;">Faible</td>
-            </tr>
-            <tr style="background: #f8f9fa;">
-               <td style="padding: 15px;">Fenêtre Temporelle = 30</td>
-               <td style="padding: 15px; text-align: center;">3.78</td>
-               <td style="padding: 15px; text-align: center;">0.91</td>
-               <td style="padding: 15px; text-align: center; color: #ffc107;">Modéré</td>
-            </tr>
-         </tbody>
-      </table>
+   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 30px 0;">
+      
+      <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 25px; border-radius: 15px; color: #333; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🛑 Early Stopping</h3>
+         <p style="margin: 0; opacity: 0.8;">Patience=10, restore_best_weights=True</p>
+      </div>
+      
+      <div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 25px; border-radius: 15px; color: #333; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">🎯 Dropout</h3>
+         <p style="margin: 0; opacity: 0.8;">Régularisation 10% pour éviter overfitting</p>
+      </div>
+      
+      <div style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); padding: 25px; border-radius: 15px; color: #333; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+         <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">📊 Validation Split</h3>
+         <p style="margin: 0; opacity: 0.8;">20% données training pour monitoring</p>
+      </div>
+      
    </div>
 
-🎯 **Validation Croisée Temporelle**
-====================================
-
-.. raw:: html
-
-   <div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 25px; border-radius: 15px; margin: 30px 0; text-align: center;">
-      <h3 style="margin: 0 0 15px 0; color: #8b4513;">📊 Robustesse Temporelle</h3>
-      <p style="margin: 0; color: #5d4e37;">Validation sur 5 périodes indépendantes avec performance consistante</p>
-   </div>
-
-Notre modèle maintient une performance stable à travers différentes périodes temporelles :
-
-.. raw:: html
-
-   <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 30px; border-radius: 15px; margin: 20px 0;">
-
-**Périodes de Test** :
-- **Q1 2023** : MAPE = 3.18%, R² = 0.95
-- **Q2 2023** : MAPE = 3.41%, R² = 0.93  
-- **Q3 2023** : MAPE = 2.98%, R² = 0.96
-- **Q4 2023** : MAPE = 3.55%, R² = 0.92
-- **Q1 2024** : MAPE = 3.12%, R² = 0.94
-
-.. raw:: html
-
-   </div>
-
-**Code de Validation Croisée**
+**Configuration Anti-Surapprentissage**
 
 .. code-block:: python
 
-   from sklearn.model_selection import TimeSeriesSplit
+   # Callback Early Stopping
+   early_stop = EarlyStopping(
+       monitor='val_loss',           # Métrique surveillée
+       patience=10,                  # Epochs sans amélioration
+       restore_best_weights=True     # Retour aux meilleurs poids
+   )
    
-   def temporal_cross_validation(model, X, y, n_splits=5):
-       """
-       Validation croisée temporelle pour séries chronologiques
-       """
-       tscv = TimeSeriesSplit(n_splits=n_splits)
-       scores = {'mape': [], 'r2': [], 'mae': [], 'rmse': []}
-       
-       for train_idx, test_idx in tscv.split(X):
-           X_train, X_test = X[train_idx], X[test_idx]
-           y_train, y_test = y[train_idx], y[test_idx]
-           
-           model.fit(X_train, y_train)
-           y_pred = model.predict(X_test)
-           
-           scores['mape'].append(mean_absolute_percentage_error(y_test, y_pred))
-           scores['r2'].append(r2_score(y_test, y_pred))
-           scores['mae'].append(mean_absolute_error(y_test, y_pred))
-           scores['rmse'].append(np.sqrt(mean_squared_error(y_test, y_pred)))
-       
-       return scores
+   # Entraînement avec validation
+   model.fit(
+       X_train, y_train,
+       epochs=100,                   # Maximum autorisé
+       batch_size=32,
+       validation_split=0.2,         # 20% pour validation
+       callbacks=[early_stop],       # Arrêt automatique
+       verbose=1
+   )
 
 🏆 **Conclusion et Perspectives**
 =================================
@@ -394,35 +481,24 @@ Notre modèle maintient une performance stable à travers différentes périodes
 .. raw:: html
 
    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; margin: 30px 0;">
-      <h3 style="margin: 0 0 15px 0;">🚀 Succès de l'Approche</h3>
-      <p style="margin: 0;">Notre modèle CNN-BiLSTM établit une nouvelle référence pour la prédiction Bitcoin</p>
+      <h3 style="margin: 0 0 15px 0;">🚀 Succès du Modèle GRU</h3>
+      <p style="margin: 0;">Performance exceptionnelle avec 98.53% de variance expliquée</p>
    </div>
 
-L'excellence des résultats obtenus valide notre hypothèse centrale et ouvre de nouvelles perspectives :
+**Points Forts Démontrés**
 
 .. raw:: html
 
    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 25px 0;">
       
       <div style="flex: 1; min-width: 200px; background: #d4edda; padding: 20px; border-radius: 10px; border-left: 4px solid #28a745;">
-         <h4 style="margin: 0 0 10px 0; color: #155724;">✅ Performances Exceptionnelles</h4>
-         <p style="margin: 0; font-size: 0.95em;">MAPE de 3.22% surpassant tous les modèles de référence</p>
+         <h4 style="margin: 0 0 10px 0; color: #155724;">📈 R² Exceptionnel</h4>
+         <p style="margin: 0; font-size: 0.95em;">98.53% de variance expliquée</p>
       </div>
       
       <div style="flex: 1; min-width: 200px; background: #cce5ff; padding: 20px; border-radius: 10px; border-left: 4px solid #007bff;">
-         <h4 style="margin: 0 0 10px 0; color: #004085;">🔬 Validation Rigoureuse</h4>
-         <p style="margin: 0; font-size: 0.95em;">Tests statistiques confirmant la robustesse du modèle</p>
+         <h4 style="margin: 0 0 10px 0; color: #004085;">⚡ Convergence Rapide</h4>
+         <p style="margin: 0; font-size: 0.95em;">Entraînement efficace en 25 époques</p>
       </div>
       
-      <div style="flex: 1; min-width: 200px; background: #fff3cd; padding: 20px; border-radius: 10px; border-left: 4px solid #ffc107;">
-         <h4 style="margin: 0 0 10px 0; color: #856404;">🚀 Potentiel d'Extension</h4>
-         <p style="margin: 0; font-size: 0.95em;">Applicabilité à d'autres paires de crypto-monnaies</p>
-      </div>
-      
-   </div>
-
-.. note::
-   **Reproductibilité** : Tous les résultats sont reproductibles avec les graines aléatoires fixées dans le code source.
-
-.. warning::
-   **Avertissement** : Les performances passées ne garantissent pas les résultats futurs. Utilisez ce modèle dans le cadre d'une stratégie de gestion des risques appropriée.
+      <div style="flex: 1; min-width: 200px; background: #fff3cd; padding: 20px; border-radius: 10px;
