@@ -222,34 +222,6 @@ Limitations Techniques
 - Modèle GRU basé sur des données historiques limitées
 - Pas de prise en compte des événements externes
 
-Maintenance et Évolution
-------------------------
-
-Améliorations Futures
-~~~~~~~~~~~~~~~~~~~~~
-
-.. raw:: html
-
-   <div style="background: #e8f5e8; padding: 20px; border-radius: 10px; margin: 20px 0;">
-      <h4 style="margin: 0 0 15px 0; color: #2e7d32;">🚀 Roadmap de Développement</h4>
-      <ul style="margin: 0; color: #2e7d32;">
-         <li>Intégration de modèles multiples (LSTM, Transformer)</li>
-         <li>Support d'autres cryptomonnaies (ADA, DOT, etc.)</li>
-         <li>Alertes par email/SMS</li>
-         <li>Backtesting des stratégies</li>
-         <li>API REST pour intégrations externes</li>
-         <li>Mode sombre / personnalisation UI</li>
-      </ul>
-   </div>
-
-Monitoring et Performance
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-- Cache intelligent pour optimiser les performances
-- Gestion d'erreur robuste pour les appels API
-- Logging des prédictions pour analyse
-- Métriques d'utilisation utilisateur
-
 Contact & Support
 -----------------
 
