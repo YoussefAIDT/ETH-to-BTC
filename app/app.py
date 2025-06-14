@@ -449,15 +449,31 @@ elif section == "🔮 Prédictions Bitcoin":
 
         risk_tolerance = st.selectbox(
             "Tolérance au risque:",
-            ["Conservateur", "Modéré", "Agressif"]
+            ["Conservateur", "Modéré", "Agressif"],
+            help="Conservateur: Seuils stricts, Modéré: Équilibré, Agressif: Seuils flexibles"
         )
 
         confidence_threshold = st.slider(
             "Seuil de confiance (%):",
             min_value=50,
             max_value=95,
-            value=80
+            value=80,
+            help="Plus élevé = recommandations plus prudentes"
         )
+
+        # Nouveaux paramètres avancés
+        with st.expander("🔧 Paramètres Avancés"):
+            volatility_adjustment = st.checkbox(
+                "Ajustement volatilité", 
+                value=True,
+                help="Ajuste les prédictions selon la volatilité récente"
+            )
+            
+            ensemble_prediction = st.checkbox(
+                "Prédiction d'ensemble",
+                value=False,
+                help="Combine plusieurs prédictions pour plus de robustesse"
+            )
 
     with col2:
         st.subheader("📊 Résultats de Prédiction")
@@ -496,6 +512,10 @@ elif section == "🔮 Prédictions Bitcoin":
                     eth_scaled = eth_scaler.fit_transform(eth_data[['close']])
                     btc_scaled = btc_scaler.fit_transform(btc_data[['close']])
 
+                    # Calculer la volatilité récente
+                    recent_returns = btc_data['close'].pct_change().tail(14)
+                    volatility = recent_returns.std() * np.sqrt(365)  # Volatilité annualisée
+                    
                     seq_length = 32
                     if len(eth_scaled) >= seq_length and len(btc_scaled) >= seq_length:
                         sequence = create_sequences_for_prediction(
@@ -505,38 +525,88 @@ elif section == "🔮 Prédictions Bitcoin":
                         )
 
                         if sequence is not None:
-                            predictions = []
+                            # Générer plusieurs prédictions si ensemble_prediction est activé
+                            num_predictions = 5 if ensemble_prediction else 1
+                            all_predictions = []
+                            
+                            for run in range(num_predictions):
+                                predictions = []
+                                current_btc = btc_data['close'].iloc[-1]
+                                temp_sequence = sequence.copy()
+
+                                for day in range(days_to_predict):
+                                    pred_scaled = model.predict(temp_sequence, verbose=0)
+                                    pred_price = btc_scaler.inverse_transform(pred_scaled)[0][0]
+                                    
+                                    # Ajouter du bruit basé sur la volatilité si ensemble
+                                    if ensemble_prediction and run > 0:
+                                        noise = np.random.normal(0, volatility * pred_price * 0.1)
+                                        pred_price += noise
+                                    
+                                    predictions.append(pred_price)
+
+                                    new_eth = eth_scaled[-1]
+                                    new_btc = pred_scaled[0]
+
+                                    temp_sequence = np.roll(temp_sequence, -1, axis=1)
+                                    temp_sequence[0, -1, 0] = new_eth
+                                    temp_sequence[0, -1, 1] = new_btc
+
+                                all_predictions.append(predictions)
+                            
+                            # Calculer la prédiction finale (moyenne si ensemble)
+                            if ensemble_prediction:
+                                final_predictions = np.mean(all_predictions, axis=0)
+                                prediction_std = np.std(all_predictions, axis=0)
+                            else:
+                                final_predictions = all_predictions[0]
+                                prediction_std = np.zeros_like(final_predictions)
+
                             current_btc = btc_data['close'].iloc[-1]
-
-                            for day in range(days_to_predict):
-                                pred_scaled = model.predict(sequence, verbose=0)
-                                pred_price = btc_scaler.inverse_transform(pred_scaled)[0][0]
-                                predictions.append(pred_price)
-
-                                new_eth = eth_scaled[-1]
-                                new_btc = pred_scaled[0]
-
-                                sequence = np.roll(sequence, -1, axis=1)
-                                sequence[0, -1, 0] = new_eth
-                                sequence[0, -1, 1] = new_btc
-
                             last_date = btc_data['time'].iloc[-1]
                             future_dates = [last_date + timedelta(days=i+1) for i in range(days_to_predict)]
 
-                            # Afficher le nom du modèle utilisé
+                            # Calculer la confiance basée sur la volatilité et l'écart-type
+                            base_confidence = 90 - (volatility * 100)  # Plus volatile = moins confiant
+                            if ensemble_prediction:
+                                confidence_adjustment = 10 - (np.mean(prediction_std) / current_btc * 100)
+                            else:
+                                confidence_adjustment = 0
+                            
+                            actual_confidence = max(50, min(95, base_confidence + confidence_adjustment))
+
+                            # Ajuster les prédictions selon la tolérance au risque
+                            risk_multipliers = {
+                                "Conservateur": 0.7,  # Prédictions plus prudentes
+                                "Modéré": 1.0,        # Prédictions normales
+                                "Agressif": 1.3       # Prédictions plus optimistes
+                            }
+                            
+                            risk_multiplier = risk_multipliers[risk_tolerance]
+                            change_pct = (final_predictions[-1] - current_btc) / current_btc * 100
+                            adjusted_change_pct = change_pct * risk_multiplier
+
+                            # Afficher les résultats
                             model_name = model_choice.replace('.h5', '').replace('_', ' ').title()
+                            
+                            # Indicateur de confiance coloré
+                            confidence_color = "green" if actual_confidence >= confidence_threshold else "orange" if actual_confidence >= 70 else "red"
                             
                             st.markdown(f"""
                             <div class="prediction-card">
                                 <h3>🔮 Prédictions pour les {days_to_predict} prochains jours</h3>
                                 <p><strong>Modèle utilisé:</strong> {model_name}</p>
                                 <p><strong>Prix actuel BTC:</strong> ${current_btc:,.2f}</p>
-                                <p><strong>Prix prédit (J+{days_to_predict}):</strong> ${predictions[-1]:,.2f}</p>
-                                <p><strong>Variation prévue:</strong> {((predictions[-1] - current_btc) / current_btc * 100):+.2f}%</p>
+                                <p><strong>Prix prédit (J+{days_to_predict}):</strong> ${final_predictions[-1]:,.2f}</p>
+                                <p><strong>Variation prévue:</strong> {change_pct:+.2f}% (ajustée: {adjusted_change_pct:+.2f}%)</p>
+                                <p><strong>Confiance du modèle:</strong> <span style="color:{confidence_color}; font-weight:bold;">{actual_confidence:.1f}%</span></p>
+                                <p><strong>Volatilité récente:</strong> {volatility*100:.1f}% (annualisée)</p>
                             </div>
                             """, unsafe_allow_html=True)
 
+                            # Graphique avec bandes de confiance
                             fig_pred = go.Figure()
+                            
                             fig_pred.add_trace(go.Scatter(
                                 x=btc_data['time'].tail(30),
                                 y=btc_data['close'].tail(30),
@@ -544,14 +614,31 @@ elif section == "🔮 Prédictions Bitcoin":
                                 name='Prix Historique',
                                 line=dict(color='blue')
                             ))
+                            
                             fig_pred.add_trace(go.Scatter(
                                 x=future_dates,
-                                y=predictions,
+                                y=final_predictions,
                                 mode='lines+markers',
                                 name=f'Prédictions ({model_name})',
                                 line=dict(color='red', dash='dash'),
                                 marker=dict(size=8)
                             ))
+                            
+                            # Ajouter bandes de confiance si prédiction d'ensemble
+                            if ensemble_prediction:
+                                upper_bound = final_predictions + prediction_std
+                                lower_bound = final_predictions - prediction_std
+                                
+                                fig_pred.add_trace(go.Scatter(
+                                    x=future_dates + future_dates[::-1],
+                                    y=list(upper_bound) + list(lower_bound[::-1]),
+                                    fill='toself',
+                                    fillcolor='rgba(255,0,0,0.2)',
+                                    line=dict(color='rgba(255,255,255,0)'),
+                                    name='Intervalle de confiance',
+                                    showlegend=True
+                                ))
+                            
                             fig_pred.update_layout(
                                 title=f"Prédiction Bitcoin - {days_to_predict} jours ({model_name})",
                                 xaxis_title="Date",
@@ -561,30 +648,49 @@ elif section == "🔮 Prédictions Bitcoin":
                             )
                             st.plotly_chart(fig_pred, use_container_width=True)
 
-                            st.subheader("💡 Recommandations")
+                            # Recommandations intelligentes basées sur tous les paramètres
+                            st.subheader("💡 Recommandations Intelligentes")
 
-                            change_pct = (predictions[-1] - current_btc) / current_btc * 100
+                            # Ajuster les seuils selon la tolérance au risque et la confiance
+                            confidence_factor = actual_confidence / 100
+                            
+                            if risk_tolerance == "Conservateur":
+                                buy_threshold = 3 / confidence_factor
+                                sell_threshold = -2 / confidence_factor
+                            elif risk_tolerance == "Modéré":
+                                buy_threshold = 2 / confidence_factor
+                                sell_threshold = -3 / confidence_factor
+                            else:  # Agressif
+                                buy_threshold = 1 / confidence_factor
+                                sell_threshold = -5 / confidence_factor
 
-                            if change_pct > 5:
-                                recommendation = "🟢 ACHETER"
-                                reason = "Tendance haussière forte prévue"
-                                risk_level = "Faible" if risk_tolerance == "Agressif" else "Modéré"
-                            elif change_pct > 2:
-                                recommendation = "🟡 ACHETER (Prudent)"
-                                reason = "Tendance haussière modérée"
-                                risk_level = "Modéré"
-                            elif change_pct > -2:
+                            # Prendre en compte la confiance du modèle
+                            if actual_confidence < confidence_threshold:
+                                recommendation = "⚪ HOLD (Confiance insuffisante)"
+                                reason = f"Confiance {actual_confidence:.1f}% < seuil {confidence_threshold}%"
+                                risk_level = "Élevé"
+                            elif adjusted_change_pct > buy_threshold:
+                                if volatility > 0.8:  # Haute volatilité
+                                    recommendation = "🟡 ACHETER (Prudent - Volatilité élevée)"
+                                    reason = "Tendance haussière mais marché volatil"
+                                    risk_level = "Élevé"
+                                else:
+                                    recommendation = "🟢 ACHETER"
+                                    reason = "Tendance haussière forte prévue"
+                                    risk_level = "Faible" if risk_tolerance == "Agressif" else "Modéré"
+                            elif adjusted_change_pct < sell_threshold:
+                                recommendation = "🔴 VENDRE (Partiel)"
+                                reason = "Tendance baissière prévue"
+                                risk_level = "Élevé"
+                            else:
                                 recommendation = "⚪ HOLD"
                                 reason = "Mouvement latéral prévu"
                                 risk_level = "Faible"
-                            elif change_pct > -5:
-                                recommendation = "🟠 VENDRE (Partiel)"
-                                reason = "Tendance baissière modérée"
-                                risk_level = "Modéré"
-                            else:
-                                recommendation = "🔴 VENDRE"
-                                reason = "Tendance baissière forte"
-                                risk_level = "Élevé"
+
+                            # Ajustements spéciaux selon la tolérance au risque
+                            if risk_tolerance == "Conservateur" and risk_level == "Élevé":
+                                recommendation = "⚪ HOLD (Trop risqué pour profil conservateur)"
+                                reason = "Risque incompatible avec profil conservateur"
 
                             col3, col4 = st.columns(2)
                             with col3:
@@ -593,15 +699,51 @@ elif section == "🔮 Prédictions Bitcoin":
 
                             with col4:
                                 st.metric("Niveau de Risque", risk_level)
-                                st.metric("Confiance", f"{confidence_threshold}%")
+                                st.metric("Confiance Effective", f"{actual_confidence:.1f}%")
+
+                            # Indicateurs de qualité de prédiction
+                            st.subheader("🎯 Qualité de la Prédiction")
+                            
+                            col5, col6, col7 = st.columns(3)
+                            with col5:
+                                conf_score = "🟢 Excellente" if actual_confidence >= 85 else "🟡 Bonne" if actual_confidence >= 70 else "🔴 Faible"
+                                st.metric("Confiance", conf_score)
+                            
+                            with col6:
+                                vol_score = "🟢 Faible" if volatility < 0.5 else "🟡 Modérée" if volatility < 1.0 else "🔴 Élevée"
+                                st.metric("Volatilité", vol_score)
+                            
+                            with col7:
+                                match_score = "🟢 Conforme" if actual_confidence >= confidence_threshold else "🔴 Non conforme"
+                                st.metric("Seuil Atteint", match_score)
 
                             st.subheader("📋 Prédictions Détaillées")
                             pred_df = pd.DataFrame({
                                 'Date': [date.strftime('%Y-%m-%d') for date in future_dates],
-                                'Prix Prédit (USD)': [f"${price:,.2f}" for price in predictions],
-                                'Variation (%)': [f"{((price - current_btc) / current_btc * 100):+.2f}%" for price in predictions]
+                                'Prix Prédit (USD)': [f"${price:,.2f}" for price in final_predictions],
+                                'Variation (%)': [f"{((price - current_btc) / current_btc * 100):+.2f}%" for price in final_predictions],
+                                'Incertitude': [f"±${std:.2f}" if ensemble_prediction else "N/A" for std in prediction_std]
                             })
                             st.dataframe(pred_df, use_container_width=True)
+
+                            # Explication des paramètres utilisés
+                            with st.expander("ℹ️ Explication des Paramètres"):
+                                st.write(f"""
+                                **Impact de vos paramètres sur cette prédiction :**
+                                
+                                - **Tolérance au risque ({risk_tolerance})** : 
+                                  - Multiplicateur appliqué : {risk_multiplier}x
+                                  - Seuils d'achat/vente ajustés selon votre profil
+                                
+                                - **Seuil de confiance ({confidence_threshold}%)** : 
+                                  - Confiance effective du modèle : {actual_confidence:.1f}%
+                                  - {"✅ Seuil atteint" if actual_confidence >= confidence_threshold else "❌ Seuil non atteint"}
+                                
+                                - **Volatilité récente** : {volatility*100:.1f}% (annualisée)
+                                  - Impact sur la confiance et les recommandations
+                                
+                                {"- **Prédiction d'ensemble** : Activée - Moyenne de 5 prédictions" if ensemble_prediction else ""}
+                                """)
 
                         else:
                             st.error("❌ Impossible de créer la séquence de prédiction.")
@@ -617,6 +759,7 @@ elif section == "🔮 Prédictions Bitcoin":
         ⚠️ **Avertissement Important:**
 
         Ces prédictions sont générées par un modèle d'IA et ne constituent pas des conseils financiers.
+        Les paramètres de tolérance au risque et de confiance influencent les recommandations mais ne garantissent pas leur exactitude.
         Les marchés des cryptomonnaies sont extrêmement volatils et imprévisibles.
         Investissez toujours de manière responsable et ne risquez que ce que vous pouvez vous permettre de perdre.
         """)
