@@ -437,7 +437,7 @@ elif section == "🔮 Prédictions Bitcoin":
 
         model_choice = st.selectbox(
             "Choisir le modèle:",
-            ["best_best_model.h5", "Modèle 2 (À venir)"]
+            ["best_best_model.h5", "best_lstm_model.h5", "Modèle 3 (À venir)"]
         )
 
         days_to_predict = st.slider(
@@ -469,12 +469,20 @@ elif section == "🔮 Prédictions Bitcoin":
                     try:
                         model = load_model("best_best_model.h5", compile=False)
                         model.compile(optimizer='adam', loss='mse')
-                        st.success("✅ Modèle chargé avec succès!")
+                        st.success("✅ Modèle best_best_model.h5 chargé avec succès!")
                     except:
-                        st.error("❌ Impossible de charger le modèle. Vérifiez que le fichier 'best_best_model.h5' existe.")
+                        st.error("❌ Impossible de charger le modèle best_best_model.h5. Vérifiez que le fichier existe.")
+                        st.stop()
+                elif model_choice == "best_lstm_model.h5":
+                    try:
+                        model = load_model("best_lstm_modele.h5", compile=False)
+                        model.compile(optimizer='adam', loss='mse')
+                        st.success("✅ Modèle best_lstm_model.h5 chargé avec succès!")
+                    except:
+                        st.error("❌ Impossible de charger le modèle best_lstm_model.h5. Vérifiez que le fichier existe.")
                         st.stop()
                 else:
-                    st.warning("⚠️ Le deuxième modèle n'est pas encore disponible.")
+                    st.warning("⚠️ Le troisième modèle n'est pas encore disponible.")
                     st.stop()
 
                 # Récupérer les données récentes
@@ -515,9 +523,13 @@ elif section == "🔮 Prédictions Bitcoin":
                             last_date = btc_data['time'].iloc[-1]
                             future_dates = [last_date + timedelta(days=i+1) for i in range(days_to_predict)]
 
+                            # Afficher le nom du modèle utilisé
+                            model_name = model_choice.replace('.h5', '').replace('_', ' ').title()
+                            
                             st.markdown(f"""
                             <div class="prediction-card">
                                 <h3>🔮 Prédictions pour les {days_to_predict} prochains jours</h3>
+                                <p><strong>Modèle utilisé:</strong> {model_name}</p>
                                 <p><strong>Prix actuel BTC:</strong> ${current_btc:,.2f}</p>
                                 <p><strong>Prix prédit (J+{days_to_predict}):</strong> ${predictions[-1]:,.2f}</p>
                                 <p><strong>Variation prévue:</strong> {((predictions[-1] - current_btc) / current_btc * 100):+.2f}%</p>
@@ -536,12 +548,12 @@ elif section == "🔮 Prédictions Bitcoin":
                                 x=future_dates,
                                 y=predictions,
                                 mode='lines+markers',
-                                name='Prédictions',
+                                name=f'Prédictions ({model_name})',
                                 line=dict(color='red', dash='dash'),
                                 marker=dict(size=8)
                             ))
                             fig_pred.update_layout(
-                                title=f"Prédiction Bitcoin - {days_to_predict} jours",
+                                title=f"Prédiction Bitcoin - {days_to_predict} jours ({model_name})",
                                 xaxis_title="Date",
                                 yaxis_title="Prix (USD)",
                                 template="plotly_white",
