@@ -80,24 +80,78 @@ ETH-to-BTC/
 
 ## 🚀 Installation et Démarrage Rapide
 
-### Prérequis
+> ⚠️ **Important** : Ce projet est conçu exclusivement pour fonctionner sur **Google Colab**. Aucune installation locale n'est nécessaire ou supportée.
 
-- Python 3.8+
-- TensorFlow 2.0+
+### 🌟 Avantages de Google Colab
 
-### Installation
+- ✅ Environnement préconfigué avec GPU gratuit
+- ✅ Toutes les bibliothèques nécessaires disponibles
+- ✅ Aucune configuration requise
+- ✅ Accès immédiat depuis n'importe quel navigateur
 
-```bash
-# Cloner le repository
-git clone https://github.com/votre-username/ETH-to-BTC.git
-cd ETH-to-BTC
+### 📦 Deux Options d'Utilisation
 
-# Installer les dépendances
-pip install -r requirements.txt
+#### Option 1 : Utiliser les notebooks existants (Recommandé)
 
-# Lancer l'application Streamlit
-streamlit run app/app.py
+1. **Accédez au dossier notebooks du projet**
+2. **Téléchargez les fichiers nécessaires** :
+   - `Analyse_Statistique_Corrélation_Choix_Modèle.ipynb` - Analyse complète et modèles de deep learning
+   - `pmdarima.ipynb` - Modélisation ARIMA automatisée
+   - `BTC-to-ETH_best_model_search.ipynb` - Recherche et sélection du meilleur modèle
+   - `BTC-to-ETH_Streamlit.ipynb` - Application Streamlit interactive
+
+3. **Uploadez dans Google Colab** :
+   - Ouvrez [Google Colab](https://colab.research.google.com/)
+   - Cliquez sur "Importer" → "Choisir un fichier"
+   - Sélectionnez le notebook désiré
+   - Exécutez toutes les cellules pour accéder à l'application
+
+#### Option 2 : Créer un nouveau notebook
+
+1. **Créez un nouveau notebook sur Google Colab**
+
+2. **Copiez et exécutez ce code dans une cellule :**
+
+```python
+# Installation des dépendances
+!pip install streamlit pyngrok --quiet
+
+# Clonage du projet
+!git clone --recursive https://github.com/YoussefAIDT/ETH-to-BTC.git
+
+# Navigation vers le dossier app
+%cd ETH-to-BTC/app
+
+# Configuration du token ngrok (remplacez par votre token)
+!ngrok authtoken VOTRE_TOKEN_NGROK
 ```
+
+3. **Lancez l'application :**
+
+```python
+from pyngrok import ngrok
+
+# Ouvre un tunnel vers http://localhost:8501
+public_url = ngrok.connect(8501)
+print("🚀 L'application est disponible ici :", public_url)
+
+# Démarre Streamlit en arrière-plan
+!streamlit run app.py &
+```
+
+### 🔑 Configuration Ngrok
+
+Pour utiliser l'Option 2, vous devez :
+
+1. **Créer un compte** sur [Ngrok](https://ngrok.com/)
+2. **Obtenir votre token** depuis le dashboard Ngrok
+3. **Remplacer** `VOTRE_TOKEN_NGROK` dans le code par votre token personnel
+
+### ✅ Démarrage en 3 étapes
+
+1. **Ouvrez** [Google Colab](https://colab.research.google.com/)
+2. **Choisissez** votre méthode (Option 1 ou 2)
+3. **Exécutez** les cellules et profitez de l'application !
 
 ## 💡 Points Clés
 
@@ -112,23 +166,21 @@ Le modèle a été soumis à des tests statistiques rigoureux ainsi qu'à une va
 
 ## 📊 Utilisation
 
-### Entraînement du modèle
+### Via Google Colab (Recommandé)
 
+**Méthode 1 : Notebook existant**
+1. Téléchargez `BTC-to-ETH_Streamlit.ipynb`
+2. Importez-le dans Google Colab
+3. Exécutez toutes les cellules
+4. Accédez à l'application via l'URL générée
+
+**Méthode 2 : Manuel**
 ```python
-from src.models.model import build_gru_model
-from src.data.collector import collect_data
+# Dans Google Colab
+!git clone https://github.com/YoussefAIDT/ETH-to-BTC.git
+%cd ETH-to-BTC
 
-# Collecter les données
-data = collect_data()
-
-# Entraîner le modèle
-model = build_gru_model()
-model.fit(X_train, y_train)
-```
-
-### Prédiction
-
-```python
+# Utiliser le modèle pour la prédiction
 from src.predict import predict_btc_price
 
 # Faire une prédiction
@@ -136,14 +188,16 @@ prediction = predict_btc_price(eth_data, btc_data)
 print(f"Prix BTC prédit : ${prediction:.2f}")
 ```
 
-## 📚 Documentation
+## 📚 Documentation et Notebooks
 
-Pour une documentation complète, consultez les notebooks suivants :
+Le projet comprend plusieurs notebooks spécialisés disponibles dans le dossier `notebooks/` :
 
-- **Analyse Statistique** : `notebooks/Analyse_Statistique_Corrélation_Choix_Modèle.ipynb`
-- **Recherche du meilleur modèle** : `notebooks/BTC_to_ETH_Best_Model_Search.ipynb`
-- **Application Streamlit** : `notebooks/ETH-to-BTC_Streamlit.ipynb`
-- **Modélisation ARIMA** : `notebooks/pmdarima.ipynb`
+| Notebook | Description |
+|----------|-------------|
+| 📊 **Analyse_Statistique_Corrélation_Choix_Modèle.ipynb** | Analyse complète des données et implémentation des modèles de deep learning pour la prédiction ETH/BTC |
+| 📈 **pmdarima.ipynb** | Modélisation ARIMA automatisée avec pmdarima pour l'analyse des séries temporelles |
+| 🎯 **BTC-to-ETH_best_model_search.ipynb** | Recherche et sélection automatique du meilleur modèle de prédiction basé sur les métriques de performance |
+| 🚀 **BTC-to-ETH_Streamlit.ipynb** | Application web interactive Streamlit pour la prédiction en temps réel avec interface utilisateur intuitive |
 
 ## 🤝 Contribution
 
@@ -165,9 +219,18 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 - **Youssef ES-SAAIDI** - [🐙 YoussefAIDT GitHub](https://github.com/YoussefAIDT)
 - **Zakariae ZEMMAHI** - [🐙 zakariazemmahi GitHub](https://github.com/zakariazemmahi)
 
-## 📞 Support
+## 🆘 Support et Aide
 
-Pour toute question ou support, n'hésitez pas à ouvrir une issue sur GitHub ou à nous contacter directement.
+Si vous rencontrez des difficultés :
+
+1. **📖 Vérifiez** que vous utilisez bien Google Colab
+2. **🔑 Assurez-vous** d'avoir un token Ngrok valide (Option 2)
+3. **🐛 Ouvrez** une [issue sur GitHub](https://github.com/YoussefAIDT/ETH-to-BTC/issues) avec les détails de l'erreur
+4. **💬 Contactez** l'équipe de développement
+
+### Liens utiles
+- [🐛 Signaler un bug](https://github.com/YoussefAIDT/ETH-to-BTC/issues)
+- [👨‍💻 Contact développeur](https://github.com/YoussefAIDT)
 
 ---
 
