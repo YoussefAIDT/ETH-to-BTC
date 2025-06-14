@@ -476,7 +476,7 @@ Le modèle génère automatiquement une visualisation comparative :
    )
 
 🏆 **Conclusion et Perspectives**
-=================================
+================================
 
 .. raw:: html
 
@@ -490,7 +490,6 @@ Le modèle génère automatiquement une visualisation comparative :
 .. raw:: html
 
    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 25px 0;">
-      
       <div style="flex: 1; min-width: 200px; background: #d4edda; padding: 20px; border-radius: 10px; border-left: 4px solid #28a745;">
          <h4 style="margin: 0 0 10px 0; color: #155724;">📈 R² Exceptionnel</h4>
          <p style="margin: 0; font-size: 0.95em;">98.53% de variance expliquée</p>
@@ -501,4 +500,45 @@ Le modèle génère automatiquement une visualisation comparative :
          <p style="margin: 0; font-size: 0.95em;">Entraînement efficace en 25 époques</p>
       </div>
       
-      <div style="flex: 1; min-width: 200px; background: #fff3cd; padding: 20px; border-radius: 10px;
+      <div style="flex: 1; min-width: 200px; background: #fff3cd; padding: 20px; border-radius: 10px; border-left: 4px solid #ffc107;">
+         <h4 style="margin: 0 0 10px 0; color: #856404;">🎯 Précision Remarquable</h4>
+         <p style="margin: 0; font-size: 0.95em;">Prédictions fiables et cohérentes</p>
+      </div>
+   </div>
+
+**Perspectives d'Évolution**
+
+.. raw:: html
+
+   <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 25px 0; border-left: 4px solid #6f42c1;">
+      <h4 style="margin: 0 0 15px 0; color: #6f42c1;">🔮 Développements Futurs</h4>
+      <ul style="margin: 0; color: #495057;">
+         <li><strong>Optimisation avancée :</strong> Exploration d'architectures hybrides GRU-LSTM</li>
+         <li><strong>Données multimodales :</strong> Intégration de sources de données complémentaires</li>
+         <li><strong>Déploiement temps réel :</strong> Implémentation d'un système de prédiction en continu</li>
+         <li><strong>Interface utilisateur :</strong> Développement d'un dashboard interactif</li>
+      </ul>
+   </div>
+
+.. important::
+   Ce projet démontre l'efficacité des réseaux de neurones récurrents pour la prédiction de séries temporelles complexes, avec des résultats qui dépassent les attentes initiales.
+
+📞 **Contact & Support**
+========================
+
+.. raw:: html
+
+   <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 15px; color: white; text-align: center; margin: 30px 0;">
+      <h3 style="margin: 0 0 15px 0;">Développé par Youssef AIDT & Zakariae Zemmahi</h3>
+      <p style="margin: 0;">
+         <a href="https://github.com/YoussefAIDT" style="color: #fff; text-decoration: none; font-weight: bold; margin-right: 15px;">
+            🐙 YoussefAIDT GitHub
+         </a>
+         <a href="https://github.com/zakariazemmahi" style="color: #fff; text-decoration: none; font-weight: bold;">
+            🐙 zakariazemmahi GitHub
+         </a>
+      </p>
+   </div>
+
+.. note::
+   Cette documentation est en développement actif. Pour les dernières mises à jour, consultez le repository GitHub.
