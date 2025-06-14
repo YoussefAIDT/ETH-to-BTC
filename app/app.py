@@ -430,12 +430,7 @@ elif section == "🤖 Chatbot Crypto":
 
     st.markdown("""
     <div class="chatbot-card">
-        <p>Pose une question simple comme :</p>
-        <ul>
-            <li><strong>bitcoin</strong> → Définition de Bitcoin</li>
-            <li><strong>ethereum</strong> → Définition d’Ethereum</li>
-            <li><strong>blockchain</strong> → Définition de la blockchain</li>
-        </ul>
+        <p>Pose une question simple :</p>
     </div>
     """, unsafe_allow_html=True)
 
