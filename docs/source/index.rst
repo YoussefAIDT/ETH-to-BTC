@@ -6,7 +6,6 @@ ETH-to-BTC Documentation
 
    <div style="text-align: center; margin: 30px 0;">
       <img src="https://img.shields.io/badge/version-0.1.0-blue.svg" alt="Version" style="margin: 5px;">
-      <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" style="margin: 5px;">
       <img src="https://img.shields.io/badge/python-3.8+-orange.svg" alt="Python" style="margin: 5px;">
       <img src="https://img.shields.io/badge/TensorFlow-2.0+-red.svg" alt="TensorFlow" style="margin: 5px;">
    </div>
