@@ -169,24 +169,6 @@ if section == "📊 Prix des Cryptomonnaies":
             display_data.columns = ['Date', 'Clôture', 'Haut', 'Bas', 'Volume']
             st.dataframe(display_data, use_container_width=True)
 
-            # Graphique d'évolution BTC
-            fig_btc = go.Figure()
-            fig_btc.add_trace(go.Scatter(
-                x=btc_data['time'],
-                y=btc_data['close'],
-                mode='lines',
-                name='Prix BTC',
-                line=dict(color='#f7931e', width=2)
-            ))
-            fig_btc.update_layout(
-                title="Évolution du Prix Bitcoin (30 derniers jours)",
-                xaxis_title="Date",
-                yaxis_title="Prix (USD)",
-                template="plotly_white",
-                height=400
-            )
-            st.plotly_chart(fig_btc, use_container_width=True)
-
     with col2:
         st.subheader("⟠ Ethereum (ETH)")
         eth_data = get_crypto_data('ETH')
@@ -208,7 +190,32 @@ if section == "📊 Prix des Cryptomonnaies":
             display_data.columns = ['Date', 'Clôture', 'Haut', 'Bas', 'Volume']
             st.dataframe(display_data, use_container_width=True)
 
-            # Graphique d'évolution ETH
+    # Graphiques individuels BTC et ETH côte à côte
+    st.subheader("📈 Évolution des Prix")
+    if btc_data is not None and eth_data is not None:
+        col1_chart, col2_chart = st.columns(2)
+        
+        with col1_chart:
+            # Graphique BTC individuel
+            fig_btc = go.Figure()
+            fig_btc.add_trace(go.Scatter(
+                x=btc_data['time'],
+                y=btc_data['close'],
+                mode='lines',
+                name='Prix BTC',
+                line=dict(color='#f7931e', width=2)
+            ))
+            fig_btc.update_layout(
+                title="Bitcoin (BTC)",
+                xaxis_title="Date",
+                yaxis_title="Prix (USD)",
+                template="plotly_white",
+                height=400
+            )
+            st.plotly_chart(fig_btc, use_container_width=True)
+        
+        with col2_chart:
+            # Graphique ETH individuel
             fig_eth = go.Figure()
             fig_eth.add_trace(go.Scatter(
                 x=eth_data['time'],
@@ -218,25 +225,129 @@ if section == "📊 Prix des Cryptomonnaies":
                 line=dict(color='#4CAF50', width=2)
             ))
             fig_eth.update_layout(
-                title="Évolution du Prix Ethereum (30 derniers jours)",
+                title="Ethereum (ETH)",
                 xaxis_title="Date",
                 yaxis_title="Prix (USD)",
                 template="plotly_white",
                 height=400
             )
             st.plotly_chart(fig_eth, use_container_width=True)
+        
+        # Graphique combiné sur le même axe
+        st.subheader("📊 Comparaison BTC vs ETH - Prix dans le même graphique")
+        fig_combined = go.Figure()
+        
+        # BTC trace
+        fig_combined.add_trace(go.Scatter(
+            x=btc_data['time'],
+            y=btc_data['close'],
+            mode='lines',
+            name='Bitcoin (BTC)',
+            line=dict(color='#f7931e', width=2)
+        ))
+        
+        # ETH trace
+        fig_combined.add_trace(go.Scatter(
+            x=eth_data['time'],
+            y=eth_data['close'],
+            mode='lines',
+            name='Ethereum (ETH)',
+            line=dict(color='#4CAF50', width=2)
+        ))
+        
+        fig_combined.update_layout(
+            title="Évolution des Prix BTC vs ETH (30 derniers jours)",
+            xaxis_title="Date",
+            yaxis_title="Prix (USD)",
+            template="plotly_white",
+            height=500,
+            legend=dict(
+                orientation="h",
+                yanchor="bottom",
+                y=1.02,
+                xanchor="right",
+                x=1
+            )
+        )
+        st.plotly_chart(fig_combined, use_container_width=True)
 
+    # Section des autres cryptomonnaies
+    st.subheader("💰 Autres Cryptomonnaies Populaires")
+    
+    # Liste des autres cryptos à afficher
+    other_cryptos = [
+        ('ADA', 'Cardano', '🔵'),
+        ('DOT', 'Polkadot', '🔴'),
+        ('LINK', 'Chainlink', '🔗'),
+        ('XRP', 'Ripple', '💧'),
+        ('LTC', 'Litecoin', '⚡'),
+        ('BCH', 'Bitcoin Cash', '💚'),
+        ('UNI', 'Uniswap', '🦄'),
+        ('MATIC', 'Polygon', '🟣')
+    ]
+    
+    # Créer des colonnes pour afficher les prix
+    cols = st.columns(4)
+    
+    for idx, (symbol, name, emoji) in enumerate(other_cryptos):
+        with cols[idx % 4]:
+            crypto_data = get_crypto_data(symbol)
+            if crypto_data is not None:
+                current_price = crypto_data.iloc[-1]['close']
+                prev_price = crypto_data.iloc[-2]['close']
+                change = ((current_price - prev_price) / prev_price) * 100
+                
+                # Couleur selon la variation
+                delta_color = "normal"
+                if change > 0:
+                    delta_color = "normal"
+                elif change < 0:
+                    delta_color = "inverse"
+                
+                st.metric(
+                    label=f"{emoji} {name} ({symbol})",
+                    value=f"${current_price:.4f}" if current_price < 1 else f"${current_price:,.2f}",
+                    delta=f"{change:+.2f}%"
+                )
+            else:
+                st.error(f"Erreur: Impossible de charger {name}")
+    
+    # Tableau récapitulatif
+    st.subheader("📊 Tableau Récapitulatif")
+    
+    summary_data = []
+    all_cryptos = [('BTC', 'Bitcoin')] + [('ETH', 'Ethereum')] + [(symbol, name) for symbol, name, _ in other_cryptos]
+    
+    for symbol, name in all_cryptos:
+        crypto_data = get_crypto_data(symbol)
+        if crypto_data is not None:
+            current = crypto_data.iloc[-1]
+            prev = crypto_data.iloc[-2]
+            change = ((current['close'] - prev['close']) / prev['close']) * 100
+            
+            summary_data.append({
+                'Cryptomonnaie': f"{name} ({symbol})",
+                'Prix Actuel (USD)': f"${current['close']:,.4f}" if current['close'] < 1 else f"${current['close']:,.2f}",
+                'Variation 24h (%)': f"{change:+.2f}%",
+                'Volume 24h': f"${current['volumeto']:,.0f}",
+                'Plus Haut 24h': f"${current['high']:,.4f}" if current['high'] < 1 else f"${current['high']:,.2f}",
+                'Plus Bas 24h': f"${current['low']:,.4f}" if current['low'] < 1 else f"${current['low']:,.2f}"
+            })
+    
+    if summary_data:
+        summary_df = pd.DataFrame(summary_data)
+        st.dataframe(summary_df, use_container_width=True)
 # Section 2: Statistiques & Corrélation
 elif section == "📈 Statistiques & Corrélation":
     st.header("📈 Statistiques & Analyse de Corrélation")
-
+    
     # Récupérer plus de données pour l'analyse
     btc_data = get_crypto_data('BTC', 365)
     eth_data = get_crypto_data('ETH', 365)
-
+    
     if btc_data is not None and eth_data is not None:
         col1, col2 = st.columns(2)
-
+        
         with col1:
             st.subheader("📊 Statistiques Bitcoin")
             btc_stats = {
@@ -247,10 +358,10 @@ elif section == "📈 Statistiques & Corrélation":
                 'Prix Min': f"${btc_data['close'].min():,.2f}",
                 'Prix Max': f"${btc_data['close'].max():,.2f}"
             }
-
+            
             for key, value in btc_stats.items():
                 st.metric(key, value)
-
+        
         with col2:
             st.subheader("📊 Statistiques Ethereum")
             eth_stats = {
@@ -261,15 +372,15 @@ elif section == "📈 Statistiques & Corrélation":
                 'Prix Min': f"${eth_data['close'].min():,.2f}",
                 'Prix Max': f"${eth_data['close'].max():,.2f}"
             }
-
+            
             for key, value in eth_stats.items():
                 st.metric(key, value)
-
+        
         # Corrélation glissante
         st.subheader("🔗 Corrélation Glissante BTC-ETH")
         correlation_window = st.slider("Fenêtre de corrélation (jours)", 7, 90, 30)
         correlation = calculate_correlation(btc_data, eth_data, correlation_window)
-
+        
         fig_corr = go.Figure()
         fig_corr.add_trace(go.Scatter(
             x=correlation.index,
@@ -288,35 +399,6 @@ elif section == "📈 Statistiques & Corrélation":
             height=400
         )
         st.plotly_chart(fig_corr, use_container_width=True)
-
-        # Graphique de comparaison des prix normalisés
-        st.subheader("📊 Comparaison des Prix Normalisés")
-        btc_normalized = (btc_data['close'] / btc_data['close'].iloc[0]) * 100
-        eth_normalized = (eth_data['close'] / eth_data['close'].iloc[0]) * 100
-
-        fig_comp = go.Figure()
-        fig_comp.add_trace(go.Scatter(
-            x=btc_data['time'],
-            y=btc_normalized,
-            mode='lines',
-            name='BTC (Normalisé)',
-            line=dict(color='#f7931e')
-        ))
-        fig_comp.add_trace(go.Scatter(
-            x=eth_data['time'],
-            y=eth_normalized,
-            mode='lines',
-            name='ETH (Normalisé)',
-            line=dict(color='#4CAF50')
-        ))
-        fig_comp.update_layout(
-            title="Comparaison des Performance (Base 100)",
-            xaxis_title="Date",
-            yaxis_title="Performance (%)",
-            template="plotly_white",
-            height=400
-        )
-        st.plotly_chart(fig_comp, use_container_width=True)
 
 # Section 3: Actualités Finance
 elif section == "📰 Actualités Finance":
