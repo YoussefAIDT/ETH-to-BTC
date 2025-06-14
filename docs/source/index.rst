@@ -97,46 +97,47 @@ Notre stratégie multi-dimensionnelle combine :
       <p style="margin: 0; color: #5d4e37;">Commencez par la section <strong>Installation</strong> puis explorez l’<strong>Analyse de corrélation</strong> ETH-BTC pour comprendre les fondements statistiques de notre approche prédictive.</p>
    </div>
 
-🏗️ **Architecture du Projet**
-=============================
+🏗️ Architecture du Projet
+==========================
 
 .. code-block:: none
 
-ETH-to-BTC/
-├── 📋 README.md                       # Documentation principale du projet
-├── 📦 requirements.txt                # Fichier listant les dépendances Python
-├── ⚙️ setup.py                        # Fichier de configuration pour le packaging
-├── 🚀 app/
-│   └── app.py                         # Application Streamlit (interface utilisateur)
-├── 🤖 models/                         # Modèles entraînés
-│   ├── best_best_model.h5
-│   ├── model_gru_bitcoin_eth.h5
-│   ├── model_lstm_bitcoin_eth.h5
-│   └── model_rnn_simple_bitcoin_eth.h5
-├── 📊 data/                           # Dossier pour les données brutes ou nettoyées
-├── 📓 notebooks/                      # Notebooks d’analyse et d’expérimentation
-│   ├── Analyse_Statistique_Corrélation_Choix_Modèle.ipynb   # Stats, tests, corrélation
-│   ├── BTC_to_ETH_Best_Model_Search.ipynb                    # Recherche du meilleur modèle
-│   ├── ETH-to-BTC_Streamlit.ipynb                            # Lancement, test et démonstration de l'app
-│   └── pmdarima.ipynb                                       # Modélisation ARIMA
-├── 💻 src/                            # Code source organisé par fonctionnalité
-│   ├── 🎯 predict.py                      # Script principal pour la prédiction
-│   ├── 🧠 train.py                        # Script pour entraîner les modèles
-│   ├── data/
-│   │   ├── __init__.py
-│   │   └── collector.py              # Script de collecte des données
-│   ├── features/
-│   │   ├── __init__.py
-│   │   └── preprocessing.py          # Fonctions de nettoyage & transformation
-│   ├── models/
-│   │   ├── __init__.py
-│   │   └── model.py                  # Définition des architectures de modèles
-│   └── utils/
-│       ├── __init__.py
-│       └── visualization.py          # Fonctions de visualisation
-├── 📚 docs/                           # Fichiers de documentation pour ReadTheDocs
-├── 🧪 .gitattributes                  # Fichier Git (gestion du texte/format)
-├── 📖 .readthedocs.yml               # Configuration ReadTheDocs
+    ETH-to-BTC/
+    ├── README.md                         # Documentation principale du projet
+    ├── requirements.txt                  # Dépendances Python
+    ├── setup.py                          # Configuration de packaging
+    ├── app/
+    │   └── app.py                        # Application Streamlit (interface utilisateur)
+    ├── models/                           # Modèles entraînés (.h5)
+    │   ├── best_best_model.h5
+    │   ├── model_gru_bitcoin_eth.h5
+    │   ├── model_lstm_bitcoin_eth.h5
+    │   └── model_rnn_simple_bitcoin_eth.h5
+    ├── data/                             # Données brutes et transformées
+    ├── notebooks/                        # Notebooks Jupyter d'analyse
+    │   ├── Analyse_Statistique_Corrélation_Choix_Modèle.ipynb
+    │   ├── BTC_to_ETH_Best_Model_Search.ipynb
+    │   ├── ETH-to-BTC_Streamlit.ipynb
+    │   └── pmdarima.ipynb
+    ├── src/                              # Code source
+    │   ├── predict.py                    # Script de prédiction
+    │   ├── train.py                      # Script d'entraînement
+    │   ├── data/
+    │   │   ├── __init__.py
+    │   │   └── collector.py              # Collecte des données via API
+    │   ├── features/
+    │   │   ├── __init__.py
+    │   │   └── preprocessing.py          # Nettoyage et feature engineering
+    │   ├── models/
+    │   │   ├── __init__.py
+    │   │   └── model.py                  # Définition des architectures de modèles
+    │   └── utils/
+    │       ├── __init__.py
+    │       └── visualization.py          # Fonctions de visualisation
+    ├── docs/                             # Documentation ReadTheDocs
+    ├── .gitattributes                    # Configuration Git
+    └── .readthedocs.yml                  # Configuration ReadTheDocs
+
 
 
 💡 **Points Clés**
