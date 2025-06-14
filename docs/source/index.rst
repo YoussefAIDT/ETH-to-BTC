@@ -16,6 +16,14 @@ ETH-to-BTC Documentation
       <h2 style="margin: 0; font-size: 2.5em; font-weight: bold;"> Prédiction Bitcoin avec Ethereum</h2>
       <p style="font-size: 1.2em; margin: 20px 0; opacity: 0.9;">Modèle prédictif avancé utilisant les corrélations temporelles ETH-BTC</p>
    </div>
+Encadrement et Réalisation
+==========================
+
+**Encadrant :** Pr. T. Massrour
+
+**Étudiants :**  
+- Youssef ES-SAAIDI  
+- Zakariae ZEMMAHI
 
 Vue d'ensemble
 ==============
