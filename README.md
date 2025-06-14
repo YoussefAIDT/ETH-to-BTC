@@ -2,7 +2,6 @@
 
 <div align="center">
   <img src="https://img.shields.io/badge/version-0.1.0-blue.svg" alt="Version">
-  <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/python-3.8+-orange.svg" alt="Python">
   <img src="https://img.shields.io/badge/TensorFlow-2.0+-red.svg" alt="TensorFlow">
 </div>
@@ -199,19 +198,6 @@ Le projet comprend plusieurs notebooks spécialisés disponibles dans le dossier
 | 🎯 **BTC-to-ETH_best_model_search.ipynb** | Recherche et sélection automatique du meilleur modèle de prédiction basé sur les métriques de performance |
 | 🚀 **BTC-to-ETH_Streamlit.ipynb** | Application web interactive Streamlit pour la prédiction en temps réel avec interface utilisateur intuitive |
 
-## 🤝 Contribution
-
-Les contributions sont les bienvenues ! N'hésitez pas à :
-
-1. Fork le projet
-2. Créer une branche pour votre fonctionnalité (`git checkout -b feature/AmazingFeature`)
-3. Commit vos changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
-
-## 📄 Licence
-
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
 ## 👥 Auteurs
 
