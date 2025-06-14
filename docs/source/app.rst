@@ -1,4 +1,4 @@
-📈 ** Application ETH-to-BTC**
+📈  Application ETH-to-BTC
 =======================================================
 
 .. raw:: html
