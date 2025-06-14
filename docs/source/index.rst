@@ -89,6 +89,7 @@ Notre stratégie multi-dimensionnelle combine :
    installation
    model_description
    results
+   app
 
 .. raw:: html
 
