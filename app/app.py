@@ -139,7 +139,7 @@ def create_sequences_for_prediction(eth_prices, btc_prices, seq_length):
 st.sidebar.title("🔍 Navigation")
 section = st.sidebar.selectbox(
     "Choisir une section:",
-    ["📊 Prix des Cryptomonnaies", "📈 Statistiques & Corrélation", "📰 Actualités Finance", "🔮 Prédictions Bitcoin"]
+    ["📊 Prix des Cryptomonnaies", "📈 Statistiques & Corrélation", "📰 Actualités Finance","🤖 Chatbot Crypto", "🔮 Prédictions Bitcoin"]
 )
 
 # Section 1: Prix des Cryptomonnaies
@@ -424,6 +424,35 @@ elif section == "📰 Actualités Finance":
                 st.divider()
     else:
         st.warning("Aucune actualité disponible pour le moment.")
+# Section 4: Chatbot Crypto
+elif section == "🤖 Chatbot Crypto":
+    st.header("🤖 Assistant Crypto Simple")
+
+    st.markdown("""
+    <div class="chatbot-card">
+        <p>Pose une question simple comme :</p>
+        <ul>
+            <li><strong>bitcoin</strong> → Définition de Bitcoin</li>
+            <li><strong>ethereum</strong> → Définition d’Ethereum</li>
+            <li><strong>blockchain</strong> → Définition de la blockchain</li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
+
+    user_question = st.text_input("💬 Pose ta question ici:")
+
+    if user_question:
+        question = user_question.strip().lower()
+        if "bitcoin" in question:
+            st.success("🟠 **Bitcoin** est une cryptomonnaie décentralisée basée sur la technologie blockchain. Elle a été créée en 2009 par une personne ou un groupe sous le pseudonyme de Satoshi Nakamoto.")
+        elif "ethereum" in question:
+            st.success("🔷 **Ethereum** est une plateforme décentralisée permettant la création de contrats intelligents (smart contracts) et d'applications décentralisées (dApps). Elle a été lancée en 2015 par Vitalik Buterin.")
+        elif "blockchain" in question:
+            st.success("🔗 **La blockchain** est une technologie de registre distribué, transparente et sécurisée, qui permet d’enregistrer des transactions sans avoir besoin d’un tiers de confiance.")
+        else:
+            st.warning("❓ Je ne connais pas encore la réponse à cette question. Essaie 'bitcoin', 'ethereum' ou 'blockchain'.")
+
+    st.divider()
 
 # Section 5: Prédictions Bitcoin
 elif section == "🔮 Prédictions Bitcoin":
