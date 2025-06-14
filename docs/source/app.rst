@@ -8,12 +8,13 @@
       <p style="margin: 0; font-size: 1.1em;">Application Streamlit pour l'analyse et la prédiction des cryptomonnaies</p>
    </div>
 
-🎯 **Vue d'Ensemble**
-====================
+Vue d'Ensemble
+--------------
 
 Cette application Streamlit offre une interface complète pour l'analyse des cryptomonnaies Bitcoin et Ethereum, incluant des fonctionnalités de prédiction basées sur l'intelligence artificielle.
 
-**Fonctionnalités Principales**
+Fonctionnalités Principales
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -39,10 +40,11 @@ Cette application Streamlit offre une interface complète pour l'analyse des cry
       </div>
    </div>
 
-🏗️ **Architecture de l'Application**
-=====================================
+Architecture de l'Application
+------------------------------
 
-**Structure du Code**
+Structure du Code
+~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
 
@@ -60,7 +62,8 @@ Cette application Streamlit offre une interface complète pour l'analyse des cry
        ├── Actualités Finance
        └── Prédictions Bitcoin
 
-**Dépendances Principales**
+Dépendances Principales
+~~~~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -76,10 +79,11 @@ Cette application Streamlit offre une interface complète pour l'analyse des cry
       </ul>
    </div>
 
-📊 **Sections de l'Application**
-================================
+Sections de l'Application
+--------------------------
 
-**1. Prix des Cryptomonnaies**
+1. Prix des Cryptomonnaies
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Cette section affiche les données en temps réel pour Bitcoin et Ethereum :
 
@@ -88,7 +92,8 @@ Cette section affiche les données en temps réel pour Bitcoin et Ethereum :
 - Graphiques d'évolution sur 30 jours
 - Métriques de volume et prix extrêmes
 
-**2. Statistiques & Corrélation**
+2. Statistiques & Corrélation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Analyse approfondie des relations entre BTC et ETH :
 
@@ -97,7 +102,8 @@ Analyse approfondie des relations entre BTC et ETH :
 - Comparaison des performances normalisées
 - Visualisations interactives
 
-**3. Actualités Finance**
+3. Actualités Finance
+~~~~~~~~~~~~~~~~~~~~~
 
 Intégration du feed d'actualités CryptoCompare :
 
@@ -106,7 +112,8 @@ Intégration du feed d'actualités CryptoCompare :
 - Interface de lecture optimisée
 - Liens vers articles complets
 
-**4. Prédictions Bitcoin**
+4. Prédictions Bitcoin
+~~~~~~~~~~~~~~~~~~~~~~
 
 Module de prédiction utilisant le modèle GRU entraîné :
 
@@ -115,10 +122,11 @@ Module de prédiction utilisant le modèle GRU entraîné :
 - Recommandations d'investissement automatisées
 - Visualisation des tendances prédites
 
-🔧 **Fonctions Techniques Clés**
-===============================
+Fonctions Techniques Clés
+--------------------------
 
-**Récupération des Données**
+Récupération des Données
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
 
@@ -134,7 +142,8 @@ Module de prédiction utilisant le modèle GRU entraîné :
            DataFrame: Données historiques formatées
        """
 
-**Calcul de Corrélation**
+Calcul de Corrélation
+~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
 
@@ -149,7 +158,8 @@ Module de prédiction utilisant le modèle GRU entraîné :
            Series: Corrélation dans le temps
        """
 
-**Préparation des Séquences**
+Préparation des Séquences
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
 
@@ -164,23 +174,26 @@ Module de prédiction utilisant le modèle GRU entraîné :
            array: Séquence formatée pour prédiction
        """
 
-⚙️ **Configuration et Déploiement**
-===================================
+Configuration et Déploiement
+-----------------------------
 
-**Installation des Dépendances**
+Installation des Dépendances
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
    pip install streamlit pandas numpy matplotlib plotly seaborn
    pip install keras scikit-learn requests
 
-**Lancement de l'Application**
+Lancement de l'Application
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
    streamlit run app.py
 
-**Configuration Streamlit**
+Configuration Streamlit
+~~~~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -194,10 +207,11 @@ Module de prédiction utilisant le modèle GRU entraîné :
       </ul>
    </div>
 
-🎨 **Interface Utilisateur**
-============================
+Interface Utilisateur
+---------------------
 
-**Design Responsive**
+Design Responsive
+~~~~~~~~~~~~~~~~~~
 
 L'application utilise un design moderne avec :
 
@@ -206,7 +220,8 @@ L'application utilise un design moderne avec :
 - Navigation par sidebar
 - Graphiques interactifs Plotly
 
-**Palette de Couleurs**
+Palette de Couleurs
+~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -225,10 +240,11 @@ L'application utilise un design moderne avec :
       </div>
    </div>
 
-🔮 **Module de Prédiction**
-===========================
+Module de Prédiction
+--------------------
 
-**Processus de Prédiction**
+Processus de Prédiction
+~~~~~~~~~~~~~~~~~~~~~~~
 
 1. **Chargement du Modèle** : Import du modèle GRU pré-entraîné
 2. **Préparation des Données** : Normalisation et séquençage
@@ -236,7 +252,8 @@ L'application utilise un design moderne avec :
 4. **Post-traitement** : Dénormalisation et calcul des métriques
 5. **Recommandations** : Génération automatique de conseils
 
-**Algorithme de Recommandation**
+Algorithme de Recommandation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -251,8 +268,8 @@ L'application utilise un design moderne avec :
       </ul>
    </div>
 
-⚠️ **Limitations et Avertissements**
-====================================
+Limitations et Avertissements
+------------------------------
 
 .. important::
    **Avertissements Importants :**
@@ -262,17 +279,19 @@ L'application utilise un design moderne avec :
    - L'application est à des fins éducatives uniquement
    - Investissez toujours de manière responsable
 
-**Limitations Techniques**
+Limitations Techniques
+~~~~~~~~~~~~~~~~~~~~~~
 
 - Dépendance aux APIs externes (CryptoCompare)
 - Cache de 5 minutes pour les données temps réel
 - Modèle GRU basé sur des données historiques limitées
 - Pas de prise en compte des événements externes
 
-🔧 **Maintenance et Évolution**
-==============================
+Maintenance et Évolution
+------------------------
 
-**Améliorations Futures**
+Améliorations Futures
+~~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -288,15 +307,16 @@ L'application utilise un design moderne avec :
       </ul>
    </div>
 
-**Monitoring et Performance**
+Monitoring et Performance
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Cache intelligent pour optimiser les performances
 - Gestion d'erreur robuste pour les appels API
 - Logging des prédictions pour analyse
 - Métriques d'utilisation utilisateur
 
-📞 **Contact & Support**
-========================
+Contact & Support
+-----------------
 
 .. raw:: html
 
