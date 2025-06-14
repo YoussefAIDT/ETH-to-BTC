@@ -1,4 +1,4 @@
-📈 **Documentation Application Bitcoin Dashboard**
+📈 ** Application ETH-to-BTC**
 =======================================================
 
 .. raw:: html
@@ -121,6 +121,58 @@ Module de prédiction utilisant le modèle GRU entraîné :
 - Génération de prédictions multi-jours
 - Recommandations d'investissement automatisées
 - Visualisation des tendances prédites
+
+Fonctions Techniques Clés
+--------------------------
+
+Récupération des Données
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+   @st.cache_data(ttl=300)
+   def get_crypto_data(symbol, limit=100):
+       """Récupère les données crypto depuis CryptoCompare API
+       
+       Args:
+           symbol (str): Symbole de la cryptomonnaie (BTC, ETH)
+           limit (int): Nombre de jours de données
+           
+       Returns:
+           DataFrame: Données historiques formatées
+       """
+
+Calcul de Corrélation
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+   def calculate_correlation(btc_data, eth_data, window=30):
+       """Calcule la corrélation glissante entre BTC et ETH
+       
+       Args:
+           btc_data, eth_data (DataFrame): Données des cryptomonnaies
+           window (int): Taille de la fenêtre glissante
+           
+       Returns:
+           Series: Corrélation dans le temps
+       """
+
+Préparation des Séquences
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+   def create_sequences_for_prediction(eth_prices, btc_prices, seq_length):
+       """Crée des séquences pour alimenter le modèle GRU
+       
+       Args:
+           eth_prices, btc_prices (array): Prix historiques
+           seq_length (int): Longueur de la séquence
+           
+       Returns:
+           array: Séquence formatée pour prédiction
+       """
 
 
 Module de Prédiction
